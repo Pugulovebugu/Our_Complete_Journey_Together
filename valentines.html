@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Memories 💘</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ffe6f1,#fff0f9,#ffe8fa,#ffe3f4);
+    background-size:350% 350%;
+    animation:bgShift 12s infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    margin-top:40px;
+    font-size:2.8rem;
+    font-family:'Dancing Script';
+    color:#ff3f9d;
+    text-shadow:0 0 16px rgba(255,120,170,0.5);
+}
+
+/* BOXES */
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+    margin-top:40px;
+}
+
+.btn-box{
+    background:white;
+    width:80%;
+    max-width:350px;
+    padding:20px;
+    border-radius:25px;
+    border:2px solid #ffc3e7;
+    box-shadow:0 8px 22px rgba(255,140,180,0.25);
+    transition:0.3s ease;
+    position:relative;
+}
+
+.btn-box.locked{
+    opacity:0.6;
+    pointer-events:none;
+}
+
+.btn-box:hover{
+    transform:scale(1.04);
+    box-shadow:0 12px 28px rgba(255,140,180,0.35);
+}
+
+.btn-box a{
+    text-decoration:none;
+    font-size:1.3rem;
+    font-weight:600;
+    color:#ff3f9d;
+}
+
+.date{
+    margin-top:4px;
+    font-size:0.95rem;
+    color:#d65e95;
+    font-weight:500;
+}
+
+.countdown{
+    margin-top:6px;
+    color:#b34578;
+    font-size:0.9rem;
+    font-weight:600;
+}
+
+/* BACK BUTTON */
+.back{
+    display:inline-block;
+    padding:12px 25px;
+    background:#ffb1d4;
+    color:white;
+    border-radius:22px;
+    font-weight:600;
+    margin:40px 0;
+    text-decoration:none;
+}
+
+.back:hover{
+    background:#ff97c5;
+}
+</style>
+</head>
+
+<body>
+
+<h1>💘 Valentine Memories</h1>
+
+<div class="container">
+
+    <!-- 1st Valentine -->
+    <div class="btn-box locked" data-unlock="2026-02-07T00:00:00">
+        <a href="valentine1.html">1st Valentine</a>
+        <div class="date">07 Feb 2025</div>
+        <div class="countdown"></div>
+    </div>
+
+    <!-- 2nd Valentine -->
+    <div class="btn-box locked" data-unlock="2027-02-07T00:00:00">
+        <a href="#">2nd Valentine</a>
+        <div class="date">07 Feb 2026</div>
+        <div class="countdown"></div>
+    </div>
+
+    <!-- 3rd Valentine -->
+    <div class="btn-box locked" data-unlock="2028-02-07T00:00:00">
+        <a href="#">3rd Valentine</a>
+        <div class="date">07 Feb 2027</div>
+        <div class="countdown"></div>
+    </div>
+
+    <!-- 4th Valentine -->
+    <div class="btn-box locked" data-unlock="2029-02-07T00:00:00">
+        <a href="#">4th Valentine</a>
+        <div class="date">07 Feb 2028</div>
+        <div class="countdown"></div>
+    </div>
+
+    <!-- 5th Valentine -->
+    <div class="btn-box locked" data-unlock="2030-02-07T00:00:00">
+        <a href="#">5th Valentine</a>
+        <div class="date">07 Feb 2029</div>
+        <div class="countdown"></div>
+    </div>
+
+    <!-- 6th Valentine -->
+    <div class="btn-box locked" data-unlock="2031-02-07T00:00:00">
+        <a href="#">6th Valentine</a>
+        <div class="date">07 Feb 2030</div>
+        <div class="countdown"></div>
+    </div>
+
+</div>
+
+<a href="specialdays.html" class="back">← Back</a>
+
+<script>
+function updateCountdowns() {
+    const boxes = document.querySelectorAll(".btn-box.locked");
+
+    boxes.forEach(box => {
+        const unlockTime = new Date(box.dataset.unlock).getTime();
+        const now = new Date().getTime();
+        const diff = unlockTime - now;
+
+        const cd = box.querySelector(".countdown");
+
+        if (diff <= 0) {
+            box.classList.remove("locked");
+            cd.innerHTML = "Unlocked 🎉";
+            return;
+        }
+
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+        const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+        const secs = Math.floor((diff % (1000*60)) / 1000);
+
+        cd.innerHTML = `Unlocks in ${days}d ${hours}h ${mins}m ${secs}s`;
+    });
+}
+
+setInterval(updateCountdowns, 1000);
+updateCountdowns();
+</script>
+
+</body>
+</html>

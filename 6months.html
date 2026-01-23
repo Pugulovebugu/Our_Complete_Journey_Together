@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy 6 Months, My Bugu 💗</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ------------------ GLOBAL AESTHETIC ------------------ */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffe5f4, #ffd8f0, #fbe4ff, #ffd4ea);
+  overflow-x: hidden;
+  color: #5a1d5d;
+}
+
+.container {
+  text-align: center;
+  padding: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ------------------ TITLE ------------------ */
+h1 {
+  font-family: "Dancing Script", cursive;
+  font-size: 3.2rem;
+  color: #d0276c;
+  text-shadow: 0 0 10px #ff9fcb;
+  animation: fadeIn 1.7s ease;
+}
+
+h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 2.1rem;
+  color: #ac2c7b;
+  margin-top: -10px;
+  animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0px); }
+}
+
+/* ------------------ POLAROID HYBRID FRAME ------------------ */
+.polaroid {
+  width: 300px;
+  margin: 35px auto;
+  background: #fff;
+  padding: 14px;
+  border-radius: 18px;
+  position: relative;
+  box-shadow: 
+    0 0 20px rgba(255, 135, 180, 0.6),
+    0 0 40px rgba(255, 180, 220, 0.5);
+  animation: float 4s ease-in-out infinite;
+}
+
+.polaroid img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(255, 185, 220, 0.7);
+}
+
+/* Tape corners */
+.tape {
+  position: absolute;
+  width: 80px;
+  height: 25px;
+  background: rgba(255, 210, 230, 0.7);
+  border-radius: 6px;
+  transform: rotate(-8deg);
+}
+.tl { top: -12px; left: -20px; transform: rotate(-15deg); }
+.tr { top: -12px; right: -20px; transform: rotate(15deg); }
+.bl { bottom: -12px; left: -20px; transform: rotate(10deg); }
+.br { bottom: -12px; right: -20px; transform: rotate(-10deg); }
+
+/* Stickers */
+.sticker {
+  position: absolute;
+  font-size: 2.3rem;
+  animation: pop 2s infinite;
+}
+.s1 { top: -10px; left: -10px; }
+.s2 { bottom: -10px; right: 0px; animation-delay: 0.5s; }
+.s3 { top: 50%; left: -25px; animation-delay: 1.2s; }
+
+@keyframes pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Polaroid text */
+.caption {
+  font-family: "Dancing Script", cursive;
+  font-size: 1.5rem;
+  margin-top: 10px;
+  color: #c2185b;
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ------------------ LETTER BOX ------------------ */
+.card {
+  background: rgba(255, 255, 255, 0.75);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(255, 120, 180, 0.25);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  animation: fadeIn 2s ease;
+}
+
+/* ------------------ SECRET MESSAGE ------------------ */
+.secret {
+  display: none;
+  font-family: "Dancing Script", cursive;
+  font-size: 2rem;
+  color: #d61c74;
+  margin-top: 20px;
+  animation: fadeIn 1s ease;
+}
+
+/* ------------------ BUTTON ------------------ */
+.btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff72b6, #ff4290);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(255, 80, 140, 0.4);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ------------------ FINAL MESSAGE ------------------ */
+.final {
+  margin-top: 40px;
+  padding: 22px;
+  background: rgba(255, 240, 250, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(200, 50, 130, 0.25);
+  font-size: 1.3rem;
+  animation: fadeIn 2.5s ease;
+}
+
+/* ------------------ FLOATERS ------------------ */
+.petal, .sparkle, .butterfly {
+  position: fixed;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+}
+
+.petal {
+  font-size: 1.6rem;
+}
+.sparkle {
+  font-size: 1.2rem;
+}
+.butterfly {
+  font-size: 1.8rem;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Happy 6 Months, My Sweetest Bugu 💗</h1>
+  <h2>Six months of loving you from miles away… and forever to go.</h2>
+
+  <!-- POLAROID HYBRID FRAME -->
+  <div class="polaroid">
+    <img src="https://i.ibb.co/bg9L9RrW/file-000000008a4871fab0af6f66ebd931bc.png" />
+
+    <!-- TAPE CORNERS -->
+    <div class="tape tl"></div>
+    <div class="tape tr"></div>
+    <div class="tape bl"></div>
+    <div class="tape br"></div>
+
+    <!-- STICKERS -->
+    <div class="sticker s1">💖</div>
+    <div class="sticker s2">🦋</div>
+    <div class="sticker s3">✨</div>
+
+    <div class="caption">Pugu ❤️ Bugu</div>
+  </div>
+
+  <!-- LETTER -->
+  <div class="card">
+    My dearest Bugu,<br><br>
+    We completed 6 months today. Six months of love, patience, trust,
+    late-night calls, missing each other, and choosing each other every single day.<br><br>
+    Even with the distance, you are my softness, my peace, and my happiest place.
+  </div>
+
+  <button class="btn" onclick="showSecret()">Open My Heart 💌</button>
+
+  <div class="secret" id="secret">
+    My Bugu… my heart belongs to you.  
+    One day, this distance will disappear,  
+    and I will hold you for real. 💗
+  </div>
+
+  <div class="final">
+    Six months down… a whole lifetime to go.  
+    <br><br>
+    — Yours forever, <b>Pugu ❤️</b>
+  </div>
+</div>
+
+<script>
+/* SECRET REVEAL */
+function showSecret() {
+  document.getElementById("secret").style.display = "block";
+}
+
+/* FLOATERS */
+setInterval(() => {
+  const el = document.createElement("div");
+  const items = ["🌸", "💗", "✨", "🦋"];
+  el.innerHTML = items[Math.floor(Math.random() * items.length)];
+  el.className = "petal";
+  el.style.left = Math.random() * 100 + "vw";
+  el.style.bottom = "-10px";
+  el.style.animationDuration = 3 + Math.random() * 4 + "s";
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 7000);
+}, 500);
+</script>
+
+</body>
+</html>

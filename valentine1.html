@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1st Valentine 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+a { text-decoration:none; }
+
+/* Background */
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ffd6e9,#ffe8f7,#fff4fa,#ffeef8);
+    background-size:400% 400%;
+    animation:bgShift 12s infinite alternate ease-in-out;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    overflow-x:hidden;
+}
+@keyframes bgShift {
+    from { background-position:left; }
+    to   { background-position:right; }
+}
+
+/* Title */
+h1{
+    margin-top:40px;
+    font-size:3.3rem;
+    font-family:'Dancing Script';
+    color:#ff2f8a;
+    text-shadow:0 0 18px rgba(255,130,180,0.5);
+    animation:fadeDown 1.4s ease;
+}
+@keyframes fadeDown {
+    from { opacity:0; transform:translateY(-20px); }
+    to   { opacity:1; transform:translateY(0); }
+}
+
+/* Cute Divider */
+.divider{
+    width:150px;
+    height:4px;
+    margin:10px auto 25px;
+    background:linear-gradient(90deg,#ff88c5,#ff4f9a,#ff88c5);
+    border-radius:10px;
+    animation:glow 2s infinite ease-in-out;
+}
+@keyframes glow{
+    0%,100%{ box-shadow:0 0 12px rgba(255,120,180,0.5); }
+    50%{ box-shadow:0 0 20px rgba(255,120,180,0.9); }
+}
+
+/* Main Card */
+.card{
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    padding:30px;
+    background:white;
+    border-radius:30px;
+    border:2px solid #ffc9e7;
+    box-shadow:0 12px 32px rgba(255,140,180,0.3);
+    animation:fadeUp 1.5s ease;
+}
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(25px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.card p{
+    font-size:1.25rem;
+    line-height:1.8;
+    color:#6d5060;
+}
+
+/* Highlight Box */
+.highlight{
+    background:#ffe6f3;
+    padding:18px;
+    border-radius:20px;
+    border-left:5px solid #ff8bc8;
+    margin:22px 0;
+    animation:softPop 1.3s ease;
+}
+@keyframes softPop{
+    from{transform:scale(0.9); opacity:0;}
+    to{transform:scale(1); opacity:1;}
+}
+
+/* Surprise 1 Button */
+.surprise-main{
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 28px;
+    background:#ff8ec2;
+    color:white;
+    border-radius:26px;
+    font-size:1.1rem;
+    font-weight:600;
+    box-shadow:0 8px 22px rgba(255,120,170,0.35);
+    transition:0.3s ease;
+}
+.surprise-main:hover{
+    background:#ff70b3;
+    transform:scale(1.08) translateY(-3px);
+    box-shadow:0 12px 30px rgba(255,120,170,0.45);
+}
+
+/* Forever Yours (Surprise 2 Trigger) */
+.forever{
+    font-size:1.7rem;
+    margin-top:30px;
+    font-family:'Dancing Script';
+    color:#ff3f8f;
+    cursor:pointer;
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:16px;
+    text-shadow:0 0 12px rgba(255,120,180,0.45);
+    border-bottom:3px solid rgba(255,120,180,0.7);
+    animation:softBounce 2s infinite ease-in-out;
+    transition:0.3s ease;
+}
+@keyframes softBounce{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-6px); }
+}
+.forever:hover{
+    transform:scale(1.15) translateY(-8px);
+    background:rgba(255,220,240,0.9);
+    color:#ff0f65;
+    box-shadow:0 0 18px rgba(255,100,160,0.7),
+               0 0 28px rgba(255,140,190,0.4);
+    border-bottom:3px solid #ff0f65;
+}
+
+/* Back Button */
+.back{
+    display:inline-block;
+    padding:12px 25px;
+    background:#ffb6d9;
+    color:white;
+    border-radius:22px;
+    font-weight:600;
+    margin:40px 0;
+}
+.back:hover{ background:#ff9acb; }
+
+/* Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ff69b4;
+    opacity:.9;
+    animation:floatUp 7s linear infinite;
+    z-index:-1;
+    font-size:20px;
+}
+@keyframes floatUp{
+    from { transform:translateY(0); }
+    to   { transform:translateY(-110vh); opacity:0; }
+}
+
+/* Sparkles */
+.spark{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:#ffd0ea;
+    border-radius:50%;
+    animation:sparkFloat 4s ease infinite;
+    opacity:0.8;
+}
+@keyframes sparkFloat{
+    0%{ transform:translateY(0) scale(1); }
+    50%{ transform:translateY(-40px) scale(1.4); opacity:1; }
+    100%{ transform:translateY(-80px) scale(0.8); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>💗 Our First Valentine 💗</h1>
+<div class="divider"></div>
+
+<div class="card">
+
+<p>
+    My sweetest <b>Bugu</b>,  
+    this is our very first Valentine together…  
+    and even right now, my heart feels soft just thinking about you.  
+    You bring this warm, gentle energy into my life—  
+    the kind that makes everything prettier, calmer, and full of love. 🌸✨
+</p>
+
+<div class="highlight">
+    You are the softness in my day,  
+    the smile in my silence,  
+    the warmth in my chest,  
+    and the most beautiful moment I live in. 💗  
+</div>
+
+<p>
+    Every heartbeat feels a little sweeter because it loves you.  
+    Every thought feels a little brighter because it’s about you.  
+    Every day feels a little lighter because you're in my world.  
+    You are my Valentine—  
+    not just now,  
+    but in every version of forever I dream of with you.
+</p>
+
+<!-- Surprise #1 Button -->
+<a href="https://pugulovebugu.github.io/Valentine-week_bugu_pugu/" 
+   class="surprise-main">🎁 A Surprise For You</a>
+
+<!-- Surprise #2 Trigger -->
+<p onclick="location.href='surprise2.html'" class="forever">
+    Forever yours,<br>Pugu 💞
+</p>
+
+</div>
+
+<a href="valentines.html" class="back">← Back</a>
+
+<script>
+// Hearts
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💗";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7000);
+},700);
+
+// Sparkles
+setInterval(()=>{
+    const s=document.createElement("div");
+    s.className="spark";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=(Math.random()*80+10)+"vh";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),4000);
+},500);
+</script>
+
+</body>
+</html>

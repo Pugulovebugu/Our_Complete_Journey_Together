@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2 Year Anniversary 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+a { text-decoration: none; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffe0f3, #e9f0ff, #ffe9df);
+  background-size: 300% 300%;
+  animation: bgShift 12s infinite alternate;
+  text-align: center;
+  overflow-x: hidden;
+}
+@keyframes bgShift {
+  from { background-position: left; }
+  to { background-position: right; }
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 3rem;
+  font-family: "Dancing Script", cursive;
+  color: #ff3f8f;
+}
+
+h2 {
+  margin-top: -10px;
+  font-size: 1.3rem;
+  color: #ff7ab3;
+}
+
+/* Grid */
+.grid {
+  width: 90%;
+  max-width: 900px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+/* Normal Button */
+.btn {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 22px;
+  border: 2px solid #ffd7ea;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #444;
+  box-shadow: 0 8px 20px rgba(255, 120, 180, 0.25);
+  transition: 0.3s;
+}
+.btn:hover {
+  background: white;
+  transform: scale(1.05);
+  color: #ff4f9a;
+}
+
+/* Locked Button */
+.locked {
+  background: #ffe6f2;
+  border: 2px solid #ffb3d7;
+  color: #c76a8f;
+  cursor: default;
+  pointer-events: none;
+}
+.locked:hover {
+  transform: none;
+  background: #ffe6f2;
+}
+
+/* Countdown text */
+.countdown {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: #ff4f9a;
+  font-weight: 600;
+}
+
+/* Back Button */
+.back {
+  margin-bottom: 40px;
+  display: inline-block;
+  padding: 10px 22px;
+  background: #ffb6d9;
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  color: #ff74bb;
+  opacity: 0.85;
+  animation: floatUp 7s linear infinite;
+  z-index: -1;
+  font-size: 18px;
+}
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>💗 2 Year Anniversary 💗</h1>
+<h2>Our second year of love, memories & moments ✨</h2>
+
+<div class="grid">
+
+  <!-- Buttons 1 to 12 with countdowns -->
+
+  <div class="btn locked">
+    1 Month
+    <div class="countdown" id="m1"></div>
+  </div>
+
+  <div class="btn locked">
+    2 Months
+    <div class="countdown" id="m2"></div>
+  </div>
+
+  <div class="btn locked">
+    3 Months
+    <div class="countdown" id="m3"></div>
+  </div>
+
+  <div class="btn locked">
+    4 Months
+    <div class="countdown" id="m4"></div>
+  </div>
+
+  <div class="btn locked">
+    5 Months
+    <div class="countdown" id="m5"></div>
+  </div>
+
+  <div class="btn locked">
+    6 Months
+    <div class="countdown" id="m6"></div>
+  </div>
+
+  <div class="btn locked">
+    7 Months
+    <div class="countdown" id="m7"></div>
+  </div>
+
+  <div class="btn locked">
+    8 Months
+    <div class="countdown" id="m8"></div>
+  </div>
+
+  <div class="btn locked">
+    9 Months
+    <div class="countdown" id="m9"></div>
+  </div>
+
+  <div class="btn locked">
+    10 Months
+    <div class="countdown" id="m10"></div>
+  </div>
+
+  <div class="btn locked">
+    11 Months
+    <div class="countdown" id="m11"></div>
+  </div>
+
+  <div class="btn locked">
+    12 Months
+    <div class="countdown" id="m12"></div>
+  </div>
+
+</div>
+
+<a class="back" href="anniversaries_main.html">← Back</a>
+
+<script>
+// Floating Hearts
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💗";
+  h.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 7000);
+}, 800);
+
+const unlocks = {
+  m1: new Date("Aug 22, 2026 00:27:00 GMT+5:30"),
+  m2: new Date("Sep 22, 2026 00:27:00 GMT+5:30"),
+  m3: new Date("Oct 22, 2026 00:27:00 GMT+5:30"),
+  m4: new Date("Nov 22, 2026 00:27:00 GMT+5:30"),
+  m5: new Date("Dec 22, 2026 00:27:00 GMT+5:30"),
+  m6: new Date("Jan 22, 2027 00:27:00 GMT+5:30"),
+  m7: new Date("Feb 22, 2027 00:27:00 GMT+5:30"),
+  m8: new Date("Mar 22, 2027 00:27:00 GMT+5:30"),
+  m9: new Date("Apr 22, 2027 00:27:00 GMT+5:30"),
+  m10: new Date("May 22, 2027 00:27:00 GMT+5:30"),
+  m11: new Date("Jun 22, 2027 00:27:00 GMT+5:30"),
+  m12: new Date("Jul 22, 2027 00:27:00 GMT+5:30")
+};
+
+function updateAll() {
+  const now = Date.now();
+
+  Object.keys(unlocks).forEach((id, index) => {
+    const elem = document.getElementById(id);
+    const diff = unlocks[id].getTime() - now;
+
+    if (diff <= 0) {
+      elem.innerHTML = "Unlocked!";
+      const container = elem.parentElement;
+      container.classList.remove("locked");
+      container.classList.add("btn");
+      container.style.cursor = "pointer";
+      container.onclick = () => location.href = `year2_month${index + 1}.html`;
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    elem.innerHTML = `💗 Unlocks in<br>${d}d ${h}h ${m}m ${s}s`;
+  });
+}
+
+setInterval(updateAll, 1000);
+updateAll();
+</script>
+
+</body>
+</html>

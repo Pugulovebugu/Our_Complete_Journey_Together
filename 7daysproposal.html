@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam & Elina - One Week Celebration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #fff5f5 0%, #ffe5e5 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 2rem;
+            animation: fadeIn 1.5s ease;
+        }
+        
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: #e74c3c;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #e74c3c;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .couple-image {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .couple-image:hover {
+            transform: scale(1.02);
+        }
+        
+        .week-celebration {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem auto;
+            max-width: 800px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .week-number {
+            font-size: 5rem;
+            font-weight: 600;
+            color: #e74c3c;
+            margin: 1rem 0;
+        }
+        
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .proposal-section {
+            margin: 3rem auto;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .heart {
+            position: absolute;
+            opacity: 0;
+            animation: float 6s ease-in infinite;
+        }
+        
+        .proposal-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proposal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #e74c3c;
+        }
+        
+        .proposal-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
+        }
+        
+        .memories-section {
+            margin: 3rem auto;
+            max-width: 1000px;
+        }
+        
+        .memories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .memory-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .memory-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .memory-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .memory-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            background-color: white;
+            text-align: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(20deg);
+                opacity: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .week-number {
+                font-size: 4rem;
+            }
+            
+            .proposal-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Sam & Elina</div>
+            <h1>Together Forever</h1>
+            <p class="subtitle">Celebrating Our Beautiful Journey Together</p>
+        </header>
+        
+        <div class="couple-message">
+            <p>"Every love story is beautiful, but ours is my favorite because it's ours."</p>
+        </div>
+        
+        <div class="week-celebration">
+            <h2>Countless Beautiful Moments</h2>
+            <div class="week-number">∞</div>
+            <p class="message">
+                From our first hello to today, every moment with you has been precious. 
+                Through all the seasons we've shared, you've made my life more wonderful than I ever imagined.
+            </p>
+        </div>
+        
+        <div class="proposal-section">
+            <div class="floating-hearts" id="hearts-container"></div>
+            <div class="proposal-box">
+                <h2 class="proposal-title">Elina, Will You Be Mine?</h2>
+                <p class="proposal-message">
+                    These past seven days have shown me that you're everything I've ever wanted. 
+                    Your smile brightens my day, your laughter is my favorite sound, and your heart 
+                    has already found its way into mine. I don't want this to just be one week - 
+                    I want this to be forever. Will you be my girlfriend?
+                </p>
+                <div class="button" id="response-button">Say Yes!</div>
+            </div>
+        </div>
+        
+        <div class="memories-section">
+            <h2>Our Journey Together</h2>
+            <p>Memories that live in my heart</p>
+            
+            <div class="memories-list">
+                <div class="memory">• Our first date that lasted until sunrise</div>
+                <div class="memory">• All the adventures we've shared across the years</div>
+                <div class="memory">• Your smile that still makes my heart skip</div>
+                <div class="memory">• Every ordinary moment made magical by your presence</div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>To a lifetime of love, laughter, and happiness together</p>
+        <p>Made with ❤️ by Sam for Elina</p>
+    </footer>
+    
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const colors = ['#e74c3c', '#f39c12', '#e84393', '#fd79a8'];
+            
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                
+                container.appendChild(heart);
+            }
+        }
+        
+        // Proposal response button
+        document.getElementById('response-button').addEventListener('click', function() {
+            alert("Elina, thank you for saying yes! You've made me the happiest man alive. I can't wait for our journey ahead together!");
+            
+            // Confetti effect
+            for (let i = 0; i < 200; i++) {
+                createConfetti();
+            }
+        });
+        
+        // Simple confetti effect
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.innerHTML = '🎉';
+            confetti.style.position = 'fixed';
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = '-20px';
+            confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            confetti.style.zIndex = '1000';
+            confetti.style.animation = 'fall ' + (Math.random() * 3 + 2) + 's linear forwards';
+            document.body.appendChild(confetti);
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        // Add style for confetti
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(calc(100vh + 20px)) rotate(360deg);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Initialize floating hearts
+        window.onload = createHearts;
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surprise 2 💗🎀</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+a{ text-decoration:none; }
+
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ffe3f6,#fff0fa,#ffeef4);
+    background-size:300% 300%;
+    animation:bgshift 12s infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    overflow-x:hidden;
+}
+@keyframes bgshift{from{background-position:left}to{background-position:right}}
+
+h1{
+    margin-top:40px;
+    font-size:3rem;
+    color:#ff3f9f;
+    font-family:'Dancing Script';
+    text-shadow:0 0 20px rgba(255,120,180,0.4);
+    animation:fadeDown 1.4s ease;
+}
+
+.card{
+    width:90%;
+    max-width:700px;
+    margin:30px auto;
+    background:white;
+    padding:30px;
+    border-radius:30px;
+    border:2px solid #ffd6eb;
+    box-shadow:0 15px 40px rgba(255,120,170,0.25);
+    animation:fadeUp 1.4s ease;
+}
+
+.card p{
+    font-size:1.25rem;
+    line-height:1.75;
+    color:#6c4a5e;
+    margin-bottom:20px;
+}
+
+/* Reveal box */
+.reveal-box{
+    margin:25px auto;
+    background:#ffe8f5;
+    border:2px dashed #ff9acb;
+    padding:20px;
+    border-radius:20px;
+    font-size:1.2rem;
+    color:#c46a95;
+    cursor:pointer;
+    max-width:400px;
+    transition:0.3s;
+}
+.reveal-box:hover{
+    background:#ffd9ee;
+    transform:scale(1.03);
+}
+
+/* Hidden message */
+.hidden-msg{
+    display:none;
+    margin-top:15px;
+    font-size:1.4rem;
+    color:#ff4f9a;
+    font-family:'DancingScript','Dancing Script';
+    animation:fadeIn 1s ease;
+}
+
+.back{
+    display:inline-block;
+    padding:12px 25px;
+    background:#ffb6d9;
+    color:white;
+    border-radius:22px;
+    font-weight:600;
+    margin:40px 0;
+}
+.back:hover{ background:#ff9acb; }
+
+/* Hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ff69b4;
+    opacity:.9;
+    animation:floatUp 7s linear infinite;
+    z-index:-1;
+    font-size:20px;
+}
+@keyframes floatUp{
+    from{transform:translateY(0);}
+    to{transform:translateY(-110vh);opacity:0;}
+}
+
+/* Sparkles */
+.spark{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:#ffd0ea;
+    border-radius:50%;
+    animation:sparkFloat 4s ease infinite;
+    opacity:0.8;
+}
+@keyframes sparkFloat{
+    0%{ transform:translateY(0) scale(1); }
+    50%{ transform:translateY(-40px) scale(1.4); opacity:1; }
+    100%{ transform:translateY(-80px) scale(0.8); opacity:0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎀 Another Surprise For You, My Love 💗</h1>
+
+<div class="card">
+
+<p>
+    My dearest <b>Bugu</b>,  
+    this is your second little surprise…  
+    something I’m giving you with every bit of love inside my heart.  
+    Even right now, I’m thinking about you  
+    with the softest smile on my face. 🌸✨
+</p>
+
+<p>
+    You deserve sweetness,  
+    comfort,  
+    magic,  
+    and moments that make your heart feel warm—  
+    because that’s how you make mine feel every single day.  
+    You’re the kind of person the universe makes only once. 💞
+</p>
+
+<div class="reveal-box" onclick="showMessage()">
+    💗 Tap gently… I have something special to tell you 💗
+</div>
+
+<div id="secret" class="hidden-msg">
+    “I don’t just love you…  
+    I exist softer because of you.  
+    You’re my peace,  
+    my home,  
+    my always,  
+    my Bugu.” 💗✨
+</div>
+
+</div>
+
+<a class="back" href="valentine1.html">← Back</a>
+
+<script>
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💗";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7000);
+},700);
+
+setInterval(()=>{
+    const s=document.createElement("div");
+    s.className="spark";
+    s.style.left=Math.random()*100+"vw";
+    s.style.top=(Math.random()*80+10)+"vh";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),4000);
+},500);
+
+function showMessage(){
+    document.getElementById("secret").style.display="block";
+}
+</script>
+
+</body>
+</html>

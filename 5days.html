@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Days With You 🌅💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+a { text-decoration: none !important; }
+
+/* Sunset Background */
+body {
+    margin: 0;
+    padding-bottom: 40px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(180deg, #ffecd2, #fcb69f, #ffb49f);
+    background-size: 200% 200%;
+    animation: sunsetMove 12s ease infinite;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@keyframes sunsetMove {
+    0% { background-position: top; }
+    50% { background-position: bottom; }
+    100% { background-position: top; }
+}
+
+/* Title */
+h1 {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Dancing Script', cursive;
+    color: #b04b3d;
+    text-shadow: 0 0 10px rgba(255,150,120,0.4);
+    animation: fadeIn 1.3s ease;
+}
+
+.sun-divider {
+    font-size: 2.4rem;
+    margin: 10px 0 25px 0;
+    animation: fadeIn 1.7s ease;
+}
+
+/* Love Letter Card */
+.card {
+    width: 92%;
+    max-width: 650px;
+    background: rgba(255,255,255,0.6);
+    padding: 30px;
+    border-radius: 25px;
+    border: 2px solid rgba(255,150,100,0.3);
+    box-shadow: 0 10px 30px rgba(200,90,50,0.25);
+    animation: fadeIn 2s ease;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6d4132;
+    line-height: 1.75;
+}
+
+.card span {
+    color: #b04b3d;
+    font-size: 1.9rem;
+    font-family: 'DancingScript', cursive;
+    font-weight: 600;
+}
+
+/* Highlight Box */
+.special {
+    background: rgba(255,180,140,0.35);
+    border-left: 4px solid rgba(200,110,80,0.8);
+    padding: 14px 20px;
+    border-radius: 16px;
+    margin: 25px auto;
+    width: 90%;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 14px rgba(200,100,70,0.22);
+}
+
+/* Back Button */
+.back-btn {
+    display: block;
+    width: fit-content;
+    margin: 35px auto 10px auto;
+    padding: 12px 27px;
+    background: #f39c7f;
+    color: white;
+    font-weight: 600;
+    border-radius: 25px;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 12px rgba(200, 100, 70, 0.35);
+    transition: 0.3s ease;
+}
+.back-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: #e18667;
+    box-shadow: 0 8px 22px rgba(200,100,70,0.45);
+}
+
+/* Floating Glow Particles */
+.glow {
+    position: fixed;
+    bottom: -20px;
+    color: #ffd9c2;
+    opacity: 0.8;
+    animation: floatUp 6s linear infinite;
+    z-index: -1;
+}
+@keyframes floatUp {
+    from { transform:translateY(0) scale(1); }
+    to { transform:translateY(-120vh) scale(1.6); opacity:0; }
+}
+
+/* Cursor sparkles */
+.sparkle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ffe8d8;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleFade .8s linear forwards;
+}
+@keyframes sparkleFade {
+    from { opacity:1; transform:scale(1); }
+    to { opacity:0; transform:scale(2.2); }
+}
+
+@keyframes fadeIn {
+    from { opacity:0; transform:translateY(-10px); }
+    to { opacity:1; transform:translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌅 Our First 5 Days, My Love 💗</h1>
+<div class="sun-divider">✨☀️✨</div>
+
+<div class="card">
+    <p>
+        My dearest <span>Elina</span>,  
+        these 5 days with you feel like watching the softest sunset,  
+        warm, peaceful, and full of gentle colors I never knew existed. 🌅💗
+    </p>
+
+    <div class="special">
+        You bring warmth to my heart  
+        the same way the sun brings warmth to the sky.  
+        Everything feels softer, calmer, and more beautiful with you. 🧡
+    </div>
+
+    <p>
+        The way you talk, the way you smile,  
+        the way you make me feel seen and loved…  
+        it all fills my world with a warm golden glow.  
+    </p>
+
+    <p style="font-size:1.5rem; margin-top:25px; color:#b04b3d; font-family:'Dancing Script';">
+        I adore you, my sunset angel.  
+        — Your Sam 💞
+    </p>
+</div>
+
+<a href="earlydays.html" class="back-btn">← Back </a>
+
+<script>
+// Floating Glow
+setInterval(()=>{
+    const g=document.createElement("div");
+    g.className="glow";
+    g.innerHTML="🌟";
+    g.style.left=Math.random()*100+"vw";
+    g.style.fontSize=(Math.random()*18+16)+"px";
+    document.body.appendChild(g);
+    setTimeout(()=>g.remove(),7000);
+},800);
+
+// Sparkles
+document.addEventListener("mousemove",e=>{
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=e.pageX+"px";
+    s.style.top=e.pageY+"px";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),800);
+});
+</script>
+
+</body>
+</html>

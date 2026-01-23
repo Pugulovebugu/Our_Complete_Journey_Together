@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Menu 💔</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+a{text-decoration:none}
+
+/* Background like specialdays but slightly deeper pinks */
+body{
+    margin:0;
+    text-align:center;
+    background:linear-gradient(135deg,#ffe3ec,#ffeaf7,#ffe0f1);
+    font-family:'Poppins',sans-serif;
+    background-size:300% 300%;
+    animation:bgShift 12s infinite alternate;
+}
+@keyframes bgShift{from{background-position:left}to{background-position:right}}
+
+h1{
+    margin-top:40px;
+    font-family:'Dancing Script';
+    font-size:3rem;
+    color:#ff4b8d;
+}
+
+.subtitle{
+    font-family:'Poppins';
+    font-size:1.2rem;
+    margin-top:10px;
+    color:#ad4f74;
+}
+
+/* Grid same as specialdays */
+.grid{
+    width:90%;
+    max-width:850px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:22px;
+}
+
+/* Buttons slightly different color */
+.btn{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    border:2px solid #ffb6d2;
+    font-size:1.3rem;
+    font-weight:600;
+    color:#444;
+    transition:.3s;
+    box-shadow:0 10px 24px rgba(255,110,160,0.25);
+}
+.btn:hover{
+    background:#ffe6f1;
+    transform:scale(1.06);
+    color:#ff3f8c;
+}
+
+/* Back button */
+.back{
+    display:inline-block;
+    padding:12px 25px;
+    background:#ff9fc3;
+    color:white;
+    border-radius:20px;
+    margin-bottom:40px;
+    font-weight:600;
+}
+.back:hover{transform:translateY(-3px);}
+
+/* Floating hearts same as specialdays */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    color:#ff7fb6;
+    font-size:18px;
+    opacity:.8;
+    animation:floatUp 7s linear infinite;
+    z-index:-1;
+}
+@keyframes floatUp{
+    from{transform:translateY(0)}
+    to{transform:translateY(-110vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<h1>💔 Sorry, My Love 💔</h1>
+<div class="subtitle">Choose the chapter from my heart</div>
+
+<div class="grid">
+    <a class="btn" href="sorrylittle.html">🌸 My Little Mistake</a>
+    <a class="btn" href="storybook.html">💔 My Biggest Mistake</a>
+</div>
+
+<a class="back" href="specialdays.html">← Back</a>
+
+<script>
+// floating hearts
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💗";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7000);
+},800);
+</script>
+
+</body>
+</html>

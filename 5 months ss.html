@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Elina 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#1a0010,#000);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden
+}
+.screen{display:none;flex-direction:column;align-items:center;text-align:center;gap:20px;animation:fade .6s ease}
+.screen.active{display:flex}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+
+.avatar{
+  width:90px;height:90px;border-radius:50%;
+  background:#ff4f9a;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 25px #ff4f9a66;font-size:40px
+}
+h1.script{font-family:'Pacifico',cursive;color:#ff6fae;font-size:42px}
+p.sub{opacity:.85;font-size:16px}
+
+.btn{
+  background:linear-gradient(135deg,#ff5fa2,#ff2f7d);
+  border:none;color:#fff;padding:14px 28px;border-radius:30px;
+  font-size:16px;cursor:pointer;box-shadow:0 0 20px #ff2f7d66
+}
+
+.card{
+  background:rgba(255,255,255,.06);
+  border-radius:18px;padding:25px;width:300px;
+  box-shadow:0 0 25px rgba(255,80,150,.25)
+}
+
+.note{
+  background:linear-gradient(135deg,#ffd1e6,#ff9fc8);
+  color:#333
+}
+
+.progress{
+  width:100%;height:12px;border-radius:20px;background:#333;margin:15px 0
+}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#ff8ac9,#ff2f7d);border-radius:20px;transition:2s}
+
+.list{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  width:300px;
+  max-height:260px;
+  overflow-y:auto;
+  padding-right:6px
+}
+.list::-webkit-scrollbar{width:4px}
+.list::-webkit-scrollbar-thumb{background:#ff4f9a;border-radius:10px}
+
+.item{
+  background:#111;
+  border-radius:14px;
+  padding:14px;
+  opacity:.85;
+  cursor:pointer
+}
+
+@keyframes float{
+  to{transform:translateY(-100vh);opacity:0}
+}
+</style>
+</head>
+<body>
+
+<audio id="bgm" loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_3b8c7c1c74.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Screen 1 -->
+<div class="screen active" id="s1">
+  <div class="avatar">😊</div>
+  <h1 class="script">Hey Elina</h1>
+  <p class="sub">Five months of loving you, even from afar</p>
+  <button class="btn" onclick="playMusic();next(2)">Open My Heart ❤</button>
+</div>
+
+<!-- Screen 2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <p>Measuring our love…</p>
+    <h1 style="color:#ff6fae">∞</h1>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <p style="color:#ff6fae">Distance can’t measure us</p>
+  </div>
+  <button class="btn" onclick="next(3)">Continue →</button>
+</div>
+
+<!-- Screen 3 -->
+<div class="screen" id="s3">
+  <div class="avatar">💗</div>
+  <h1 class="script">Just for you</h1>
+  <p class="sub">Scroll & tap every heart slowly…</p>
+  <div class="list">
+    <div class="item" onclick="reveal(this,'Five months of patience, trust, and endless love 💞')">♡</div>
+    <div class="item" onclick="reveal(this,'Even miles apart, my heart chooses you every day')">♡</div>
+    <div class="item" onclick="reveal(this,'Your voice feels like home to me')">♡</div>
+    <div class="item" onclick="reveal(this,'Loving you from afar made my love deeper')">♡</div>
+    <div class="item" onclick="reveal(this,'I miss you, but I love you even more')">♡</div>
+    <div class="item" onclick="reveal(this,'You are my comfort, my peace, my favorite person')">♡</div>
+    <div class="item" onclick="reveal(this,'Elina, my heart belongs to you 💗')">♡</div>
+  </div>
+  <button class="btn" onclick="next(4)">See more →</button>
+</div>
+
+<!-- Screen 4 -->
+<div class="screen" id="s4">
+  <h1 class="script">A little note for you</h1>
+  <div class="card note">
+    <p>
+      Elina… five months ago, distance tried to stand between us,
+      but instead it showed me how strong love can really be.
+      <br><br>
+      Thank you for choosing me every day.
+      I promise to keep choosing you too.
+    </p>
+  </div>
+  <button class="btn" onclick="next(5)">One last thing →</button>
+</div>
+
+<!-- Screen 5 -->
+<div class="screen" id="s5">
+  <div class="avatar">🐻</div>
+  <h1 class="script">I love you, Elina 💗</h1>
+  <p class="sub">Happy 5 Months to us<br>— Sam 💗</p>
+  <p class="sub" id="counter"></p>
+  <p class="sub" id="secret" style="display:none;color:#ff6fae;margin-top:12px">
+    Only you can see this, Elina… you are my forever 🤍
+  </p>
+</div>
+
+<script>
+function next(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+  if(n===2) setTimeout(()=>document.getElementById('bar').style.width='100%',300);
+}
+
+function reveal(el,text){
+  if(el.dataset.opened) return;
+  el.dataset.opened=true;
+  el.textContent=text;
+  el.style.background='linear-gradient(135deg,#ff8ac9,#ff4f9a)';
+  el.style.boxShadow='0 0 20px #ff4f9a99';
+  spawnHeart();
+}
+
+function playMusic(){
+  document.getElementById('bgm').play();
+  startCounter();
+}
+
+function startCounter(){
+  const start=new Date('2025-07-22');
+  const now=new Date('2025-12-22');
+  const diff=now-start;
+  const days=Math.floor(diff/(1000*60*60*24));
+  document.getElementById('counter').innerText=days+' days of loving you';
+  setTimeout(()=>document.getElementById('secret').style.display='block',4000);
+}
+
+function spawnHeart(){
+  const h=document.createElement('div');
+  h.innerHTML='💗';
+  h.style.position='fixed';
+  h.style.left=Math.random()*100+'vw';
+  h.style.bottom='0';
+  h.style.fontSize='20px';
+  h.style.animation='float 3s linear forwards';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),3000);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,314 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For bugu 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Pacifico&display=swap" rel="stylesheet">
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff4f9a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Poppins',sans-serif}
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#1a0010,#000);
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden
+}
+.screen{display:none;flex-direction:column;align-items:center;text-align:center;gap:20px;max-width:92vw}
+.screen.active{display:flex}
+
+/* PASSWORD SCREEN */
+.pass{
+  position:fixed;inset:0;z-index:200;
+  background:linear-gradient(180deg,#000,#1a0010);
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:18px
+}
+.pass input{
+  width:160px;
+  padding:12px;
+  border-radius:25px;
+  border:none;
+  text-align:center;
+  font-size:18px;
+  letter-spacing:4px
+}
+
+/* LOCK SCREEN */
+.lock{
+  position:fixed;inset:0;
+  background:linear-gradient(180deg,#000,#1a0010);
+  display:none;
+  flex-direction:column;
+  justify-content:center;align-items:center;
+  gap:25px;z-index:100
+}
+.swipe{
+  width:260px;height:50px;border-radius:30px;
+  background:#222;position:relative;overflow:hidden
+}
+.swipe span{
+  position:absolute;left:0;top:0;height:100%;width:50px;
+  background:linear-gradient(135deg,#ff9fc8,#ff4f9a);
+  border-radius:30px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px
+}
+
+.names{
+  font-family:'Pacifico',cursive;
+  font-size:36px;
+  background:linear-gradient(135deg,#ff9fc8,#ff4f9a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent
+}
+
+.bugu{
+  font-family:'Pacifico',cursive;
+  font-size:38px;
+  background:linear-gradient(135deg,#ffb6d9,#ff4f9a);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  cursor:pointer;
+  transition:.3s
+}
+.bugu.glow{transform:scale(1.08);text-shadow:0 0 20px #ff4f9a}
+
+.btn{
+  background:linear-gradient(135deg,#ff8ac9,#ff4f9a);
+  border:none;color:#fff;padding:14px 28px;border-radius:30px;
+  font-size:16px;cursor:pointer;box-shadow:0 0 20px #ff4f9a88
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  border-radius:20px;padding:22px;
+  box-shadow:0 0 25px rgba(255,80,150,.25)
+}
+
+.photo{width:220px;border-radius:22px;box-shadow:0 0 30px rgba(255,105,180,.7)}
+.signature{
+  font-family:'Pacifico',cursive;font-size:42px;
+  background:linear-gradient(135deg,#ffb6d9,#ff4f9a);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent
+}
+.footer{
+  position:absolute;bottom:14px;
+  font-size:13px;opacity:.85;
+  color:#ff9fc8;font-family:'Pacifico',cursive
+}
+
+/* floating words */
+.word{
+  position:fixed;font-family:'Pacifico',cursive;
+  font-size:28px;color:#ff9fc8;
+  animation:floatWord 3s forwards
+}
+@keyframes floatWord{
+  0%{opacity:0;transform:translateY(20px)}
+  30%{opacity:1}
+  100%{opacity:0;transform:translateY(-30px)}
+}
+
+/* secret letter */
+.secret-letter{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.85);
+  display:none;justify-content:center;align-items:center;z-index:300
+}
+.secret-card{
+  background:linear-gradient(135deg,#ffd1e6,#ff9fc8);
+  color:#333;padding:26px;border-radius:22px;
+  max-width:85%;font-family:'Pacifico',cursive
+}
+
+/* hearts */
+.heart{position:fixed;top:-10px;font-size:18px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh);opacity:0}}
+</style>
+</head>
+<body>
+
+<!-- PASSWORD -->
+<div class="pass" id="pass">
+  <div class="names">Only for you 💗</div>
+  <p style="opacity:.7">Enter your special date</p>
+  <input type="password" maxlength="4" id="pwd" placeholder="••••">
+  <button class="btn" onclick="checkPass()">Unlock</button>
+  <p id="err" style="color:#ff9fc8"></p>
+</div>
+
+<!-- LOCK -->
+<div class="lock" id="lock">
+  <div class="names">Sam ❤ Elina</div>
+  <p style="opacity:.7">Swipe to unlock my heart</p>
+  <div class="swipe"><span id="slider">💗</span></div>
+</div>
+
+<audio id="whisper">
+<source src="https://cdn.pixabay.com/audio/2021/08/04/audio_8b9b3c66e0.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="screen active" id="s1">
+  <h1 class="names">
+    Hey <span class="bugu" onclick="tapBugu(event)">bugu 🦋</span>
+  </h1>
+  <p>22 July 2025 — 22 December 2025</p>
+  <p style="color:#ff9fc8">153 days together 💞</p>
+  <p style="opacity:.8">You unlocked more than a page… you unlocked my heart.</p>
+  <button class="btn" onclick="next(2)">Open My Heart ❤</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <p>I don’t count days anymore,</p>
+    <h2 style="color:#ff9fc8">I feel them</h2>
+    <p>because every day with you matters.</p>
+  </div>
+  <button class="btn" onclick="next(3)">Continue →</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="screen" id="s3">
+  <h1 class="names">Our Moment</h1>
+  <img src="https://i.ibb.co/hP8bh7m/1759645351686.png" class="photo">
+  <p style="font-family:'Pacifico',cursive;color:#ff9fc8">Sam Loves Eli</p>
+  <button class="btn" onclick="next(4)">Our future →</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="screen" id="s4">
+  <h1 class="names">Our little forever plan ✨</h1>
+  <div class="card">
+    <p>💞 6 months — more memories, more us</p>
+    <p>💍 1 year — stronger, closer, deeper</p>
+    <p>🎂 5 September — your birthday, my favorite day</p>
+    <p>♾ Forever — you & me, always</p>
+  </div>
+  <button class="btn" onclick="next(5);startSnow()">One last thing →</button>
+</div>
+
+<!-- FINAL -->
+<div class="screen" id="s5">
+  <h1 class="names">
+    I love you, <span class="bugu" onclick="tapBugu(event)">bugu 🦋</span>
+  </h1>
+  <p style="font-family:'Pacifico',cursive;font-size:26px;color:#ff9fc8">always be mine</p>
+  <div class="signature">— sam</div>
+  <button class="btn" onclick="restart()">View from beginning 🔁</button>
+  <div class="footer">made with love, for someone truly special 💗</div>
+</div>
+
+<!-- SECRET LETTER -->
+<div class="secret-letter" id="secretLetter" onclick="closeSecret()">
+  <div class="secret-card">
+    My bugu,<br><br>
+    Loving you isn’t something I try to do — it just happens,
+    quietly, deeply, every single day.<br><br>
+    You are my comfort, my excitement, my safe place.
+    My heart chooses you — always.<br><br>
+    Forever yours,<br>sam 💗
+  </div>
+</div>
+
+<script>
+/* password */
+function checkPass(){
+  const p=document.getElementById('pwd').value;
+  if(p==='0509'){
+    document.getElementById('pass').style.display='none';
+    document.getElementById('lock').style.display='flex';
+  }else{
+    document.getElementById('err').innerText='Wrong date… try again 💗';
+  }
+}
+
+/* swipe */
+const slider=document.getElementById('slider');
+let down=false,startX=0;
+slider.addEventListener('touchstart',e=>{down=true;startX=e.touches[0].clientX});
+slider.addEventListener('touchmove',e=>{
+  if(!down)return;
+  let dx=e.touches[0].clientX-startX;
+  dx=Math.max(0,Math.min(dx,210));
+  slider.style.transform=`translateX(${dx}px)`;
+  if(dx>200)unlock();
+});
+slider.addEventListener('touchend',()=>down=false);
+function unlock(){
+  document.getElementById('lock').style.display='none';
+  navigator.vibrate?.([80,40,80]);
+}
+
+/* nav */
+function next(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s'+n).classList.add('active');
+}
+function restart(){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('s1').classList.add('active');
+  document.getElementById('lock').style.display='flex';
+}
+
+/* snow */
+let snow=null;
+function startSnow(){
+  if(snow)return;
+  snow=setInterval(()=>{
+    const h=document.createElement('div');
+    h.className='heart';
+    h.innerHTML='💗';
+    h.style.left=Math.random()*100+'vw';
+    h.style.animationDuration=3+Math.random()*3+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },700);
+}
+
+/* bugu tap */
+let lastTap=0;
+function tapBugu(e){
+  const el=e.currentTarget;
+  el.classList.add('glow');
+  setTimeout(()=>el.classList.remove('glow'),500);
+  document.getElementById('whisper').play();
+  const now=Date.now();
+  if(now-lastTap<350){
+    document.getElementById('secretLetter').style.display='flex';
+  }else{
+    floatWord('always yours');
+    setTimeout(()=>floatWord('forever love'),600);
+  }
+  lastTap=now;
+}
+function floatWord(text){
+  const w=document.createElement('div');
+  w.className='word';
+  w.innerText=text;
+  w.style.left=Math.random()*70+15+'%';
+  w.style.top=Math.random()*60+20+'%';
+  document.body.appendChild(w);
+  setTimeout(()=>w.remove(),5000);
+}
+function closeSecret(){document.getElementById('secretLetter').style.display='none';}
+
+/* offline */
+if('serviceWorker'in navigator){
+  const sw=`self.addEventListener('install',e=>{e.waitUntil(caches.open('bugu-v2').then(c=>c.addAll(['./'])))});
+  self.addEventListener('fetch',e=>{e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))});`;
+  navigator.serviceWorker.register(URL.createObjectURL(new Blob([sw])));
+}
+</script>
+</body>
+</html>

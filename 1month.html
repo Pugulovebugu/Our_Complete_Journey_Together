@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 Month with Elina ❤️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f9;
+            min-height: 100vh;
+        }
+        
+        .heartbeat {
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-6">
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center">
+        <h1 class="text-3xl font-bold text-pink-600 mb-2" style="font-family: 'Dancing Script', cursive;">
+            Happy 1 Month, Elina
+        </h1>
+        
+        <div class="heartbeat text-5xl text-pink-500 my-6">❤️</div>
+        
+        <div class="space-y-4 text-gray-700 mb-8">
+            <p>"In just 30 days, you've made my world brighter than I imagined possible."</p>
+            <p>"Every message, every call, every moment - they all mean everything."</p>
+            <p class="font-semibold text-pink-600">"The distance means nothing when what we have means everything."</p>
+        </div>
+        
+        <div class="bg-pink-50 rounded-lg p-4 mb-6 border border-pink-100">
+            <p class="text-sm text-pink-800">Counting our moments together:</p>
+            <div class="flex justify-center gap-3 mt-2">
+                <div class="bg-white px-3 py-1 rounded-md shadow-sm">
+                    <div class="font-mono text-lg">30</div>
+                    <div class="text-xs">Days</div>
+                </div>
+                <div class="bg-white px-3 py-1 rounded-md shadow-sm">
+                    <div class="font-mono text-lg">720</div>
+                    <div class="text-xs">Hours</div>
+                </div>
+                <div class="bg-white px-3 py-1 rounded-md shadow-sm">
+                    <div class="font-mono text-lg">∞</div>
+                    <div class="text-xs">Love</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-pink-100 pt-6">
+            <p class="text-gray-600 mb-2">With all my heart,</p>
+            <p class="text-xl font-bold text-pink-600" style="font-family: 'Dancing Script', cursive;">Sam</p>
+        </div>
+    </div>
+
+    <script>
+        // Make heart pulse periodically
+        setInterval(() => {
+            const heart = document.querySelector('.heartbeat');
+            heart.style.animation = 'none';
+            void heart.offsetWidth; // Trigger reflow
+            heart.style.animation = 'heartbeat 1.5s infinite';
+        }, 4000);
+    </script>
+</body>
+</html>

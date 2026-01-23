@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise 🌙✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+a{ text-decoration:none; }
+
+/* Background — Midnight Sky */
+body{
+    margin:0;
+    background:radial-gradient(circle at top, #3c1b47, #1c0f2b, #12091c, #090412);
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    overflow-x:hidden;
+    color:white;
+    position:relative;
+}
+
+/* Soft Glow Stars */
+.star{
+    position:fixed;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:0.8;
+    animation:twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle{
+    0%,100%{ opacity:0.3; transform:scale(1); }
+    50%{ opacity:1; transform:scale(1.7); }
+}
+
+/* Heading */
+h1{
+    margin-top:50px;
+    font-size:3rem;
+    font-family:'Great Vibes';
+    color:#ffde9f;
+    text-shadow:0 0 18px rgba(255,220,170,0.7),
+                 0 0 28px rgba(255,200,150,0.4);
+    animation:fadeDown 1.5s ease;
+}
+@keyframes fadeDown{
+    from{opacity:0; transform:translateY(-20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Divider — golden beam */
+.divider{
+    width:180px;
+    height:4px;
+    margin:12px auto 28px;
+    border-radius:5px;
+    background:linear-gradient(90deg,#ffda9a,#ffe8c3,#ffda9a);
+    box-shadow:0 0 16px rgba(255,220,150,0.7);
+}
+
+/* Card */
+.card{
+    width:90%;
+    max-width:750px;
+    margin:30px auto;
+    padding:30px;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,240,200,0.15);
+    backdrop-filter:blur(8px);
+    border-radius:28px;
+    box-shadow:0 0 35px rgba(255,220,150,0.15);
+    animation:fadeUp 1.6s ease;
+}
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(35px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+.card p{
+    font-size:1.22rem;
+    line-height:1.85;
+    color:#ffe8d8;
+    text-shadow:0 0 10px rgba(255,240,200,0.2);
+}
+
+/* Highlight Golden */
+.highlight{
+    background:rgba(255,220,170,0.12);
+    padding:18px;
+    border-radius:20px;
+    border-left:4px solid #ffcf8d;
+    margin:22px 0;
+    animation:softPop 1.4s ease;
+}
+@keyframes softPop{
+    from{opacity:0; transform:scale(0.95);}
+    to{opacity:1; transform:scale(1);}
+}
+
+/* Reveal box */
+.reveal-box{
+    margin:30px auto;
+    background:rgba(255,240,200,0.12);
+    border:1px dashed #ffcf92;
+    padding:20px;
+    border-radius:20px;
+    font-size:1.20rem;
+    color:#ffe7c8;
+    cursor:pointer;
+    width:80%;
+    max-width:420px;
+    transition:0.3s ease;
+}
+.reveal-box:hover{
+    background:rgba(255,240,200,0.22);
+    transform:scale(1.03);
+}
+
+/* Hidden message */
+.hidden-msg{
+    display:none;
+    margin-top:18px;
+    font-size:1.55rem;
+    color:#ffd9a2;
+    font-family:'Great Vibes';
+    animation:fadeIn 1s ease;
+}
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(12px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Back Button */
+.back{
+    display:inline-block;
+    margin:38px 0;
+    padding:12px 25px;
+    background:#ffcf92;
+    color:#2c1b1d;
+    border-radius:22px;
+    font-weight:600;
+}
+.back:hover{
+    background:#ffbe71;
+}
+
+/* Soft floating golden dots */
+.float{
+    position:fixed;
+    bottom:-20px;
+    font-size:22px;
+    color:#ffddaa;
+    opacity:0.8;
+    animation:rise 8s linear infinite;
+}
+@keyframes rise{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(-120vh); opacity:0; }
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>✨ Birthday Surprise ✨</h1>
+<div class="divider"></div>
+
+<div class="card">
+
+<p>
+    My sweetest <b>Bugu</b>,  
+    this was the surprise I made for you on your birthday…  
+    something soft, warm, and magical —  
+    just like the way you made that whole day feel for me. 🌙
+</p>
+
+<div class="highlight">
+    Even from miles away,  
+    your birthday carried a glow.  
+    Everything felt gentle,  
+    dreamy,  
+    and full of love  
+    because it was your special day. ✨
+</div>
+
+<p>
+    I remember wanting nothing more  
+    than to be beside you,  
+    holding your cheeks,  
+    seeing your smile up close,  
+    telling you how precious you were to me.  
+    That day meant more to my heart  
+    than you’ll ever know. 💛
+</p>
+
+<div class="reveal-box" onclick="showSecret()">
+    🌟 Tap gently… this was the message I saved for you 💗
+</div>
+
+<div id="secret" class="hidden-msg">
+    “You were the warmest light in my life…  
+    even on a distant birthday night.  
+    My heart glowed because of you.  
+    My softest forever —  
+    my Bugu.” ✨💛
+</div>
+
+</div>
+
+<a href="birthday_main.html" class="back">← Back</a>
+
+<script>
+/* Stars */
+for(let i=0;i<70;i++){
+    const star=document.createElement("div");
+    star.className="star";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.animationDuration=(2+Math.random()*3)+"s";
+    document.body.appendChild(star);
+}
+
+/* Floating golden dots */
+setInterval(()=>{
+    const f=document.createElement("div");
+    f.className="float";
+    const icons=["✨","🌙","⭐","💛"];
+    f.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+    f.style.left=Math.random()*100+"vw";
+    document.body.appendChild(f);
+    setTimeout(()=>f.remove(),8000);
+},600);
+
+function showSecret(){
+    document.getElementById("secret").style.display="block";
+}
+</script>
+
+</body>
+</html>

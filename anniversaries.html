@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anniversaries 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+a { text-decoration: none; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #ffe0f3, #e9f0ff, #ffe9df);
+  background-size: 300% 300%;
+  animation: bgShift 14s infinite alternate;
+  text-align: center;
+  overflow-x: hidden;
+}
+@keyframes bgShift {
+  from { background-position: left; }
+  to { background-position: right; }
+}
+
+h1 {
+  margin-top: 40px;
+  font-size: 3rem;
+  font-family: "Dancing Script", cursive;
+  color: #ff3f8f;
+}
+
+.grid {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+.btn {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #ffd7ea;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #444;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(255, 120, 180, 0.25);
+}
+.btn:hover {
+  background: #ffeafe;
+  transform: scale(1.05);
+  color: #ff4f9a;
+}
+
+/* Locked Button Style */
+.locked {
+  background: #ffe6f2;
+  border: 2px solid #ffb3d7;
+  color: #c76a8f;
+  cursor: default;
+  pointer-events: none;
+}
+.locked:hover {
+  transform: none;
+  background: #ffe6f2;
+}
+
+/* Countdown text */
+.countdown {
+  font-size: 0.9rem;
+  margin-top: 8px;
+  color: #ff4f9a;
+  font-weight: 600;
+}
+
+/* Back Button */
+.back {
+  margin-bottom: 40px;
+  display: inline-block;
+  padding: 10px 22px;
+  background: #ffb6d9;
+  color: white;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  color: #ff74bb;
+  opacity: 0.85;
+  animation: floatUp 7s linear infinite;
+  z-index: -1;
+  font-size: 18px;
+}
+@keyframes floatUp {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>💗 Anniversaries 💗</h1>
+
+<div class="grid">
+
+  <!-- 1st Year Anniversary (Unlocked) -->
+  <a class="btn" href="1year_anniversary.html">✨ 1 Year Anniversary ✨</a>
+
+  <!-- 2nd Year Anniversary (Locked until 22 July 2026 12:27 AM IST) -->
+  <div class="btn locked">
+    🌟 2 Year Anniversary 🌟
+    <div class="countdown" id="year2count">Calculating...</div>
+  </div>
+
+</div>
+
+<a class="back" href="index.html">← Back</a>
+
+<script>
+// Hearts Animation
+setInterval(() => {
+  const h = document.createElement("div");
+  h.className = "heart";
+  h.innerHTML = "💗";
+  h.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(h);
+  setTimeout(() => h.remove(), 7000);
+}, 800);
+
+// Unlock Timer
+const unlockTime = new Date("July 22, 2026 00:27:00 GMT+5:30").getTime();
+
+function updateCountdown() {
+  const now = Date.now();
+  const diff = unlockTime - now;
+
+  if (diff <= 0) {
+    document.getElementById("year2count").innerHTML = "Unlocked!";
+    const btn = document.querySelector(".locked");
+    btn.classList.remove("locked");
+    btn.innerHTML = "🌟 2 Year Anniversary 🌟";
+    btn.href = "2year_anniversary.html";
+    btn.style.cursor = "pointer";
+    return;
+  }
+
+  const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+  document.getElementById("year2count").innerHTML =
+    `💗 Unlocks in<br>${d}d ${h}h ${m}m ${s}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>

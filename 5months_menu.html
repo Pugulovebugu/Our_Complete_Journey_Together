@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Months Menu 💗</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+/* Remove underline everywhere */
+a { text-decoration: none !important; }
+
+/* Background */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe6f7, #e3f0ff, #fff2e6);
+    background-size: 300% 300%;
+    animation: bgShift 12s infinite alternate;
+    overflow-x: hidden;
+}
+@keyframes bgShift {
+    from { background-position: left top; }
+    to { background-position: right bottom; }
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 14px 0;
+    background: rgba(255,255,255,0.55);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 3px 10px rgba(255,150,190,0.25);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.navbar a {
+    font-weight: 600;
+    color: #ff4f9a;
+    transition: 0.3s ease;
+}
+.navbar a:hover {
+    transform: scale(1.12);
+    color: #ff82c7;
+}
+
+/* Title */
+h1 {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 2.6rem;
+    color: #ff4f9a;
+    font-family: 'Dancing Script', cursive;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Buttons */
+.menu {
+    margin: 50px auto;
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.btn {
+    background: rgba(255,255,255,0.7);
+    padding: 20px;
+    border-radius: 22px;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #444;
+    border: 2px solid #ffe1ef;
+    box-shadow: 0 6px 18px rgba(255,120,180,0.25);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.btn:hover {
+    background: white;
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 12px 28px rgba(255,120,160,0.38);
+}
+
+/* Back */
+.back {
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 600;
+    color: #ff6faa;
+}
+
+/* Floating Hearts */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: #ff74bb;
+    opacity: 0.8;
+    animation: floatUp 6s linear infinite;
+    z-index: -1;
+}
+@keyframes floatUp {
+    from { transform: translateY(0) scale(1); }
+    to { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+}
+
+/* Cursor Sparkles */
+.sparkle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ffb6d9;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleFade 0.7s linear forwards;
+}
+@keyframes sparkleFade {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(2); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <a href="index.html">🏠 Home</a>
+</div>
+
+<h1>🌙 5 Months Options</h1>
+
+<div class="menu">
+    <a class="btn" href="5 MONTHS LOVE.html">💗 5 Months 1st</a>
+    <a class="btn" href="5 months ss.html">💌 5 Months 2nd</a>
+</div>
+
+<a class="back" href="1year_anniversary.html">← Back </a>
+
+<script>
+/* Floating Hearts */
+setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "💗";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.fontSize = (Math.random()*18+16) + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 6000);
+}, 700);
+
+/* Cursor Sparkles */
+document.addEventListener("mousemove", e => {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.left = e.pageX + "px";
+    s.style.top = e.pageY + "px";
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 700);
+});
+</script>
+
+</body>
+</html>

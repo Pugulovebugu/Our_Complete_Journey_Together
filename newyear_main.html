@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our New Years 🎆</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffdde9,#ffe6f2,#ffd9ec,#ffe8f7);
+    background-size:350% 350%;
+    animation:bgShift 12s infinite alternate;
+    text-align:center;
+    color:#a63f6b;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    margin-top:40px;
+    font-size:3rem;
+    font-family:'Dancing Script',cursive;
+    color:#ff3f8e;
+    text-shadow:0 0 16px rgba(255,120,170,0.4);
+}
+
+.subtitle{
+    margin-top:-10px;
+    font-size:1.2rem;
+    opacity:0.7;
+    font-weight:500;
+}
+
+.container{
+    margin-top:40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+}
+
+.btn-box{
+    background:white;
+    width:80%;
+    max-width:350px;
+    padding:20px;
+    border-radius:25px;
+    border:2px solid #ffb6d9;
+    box-shadow:0 8px 22px rgba(255,140,180,0.25);
+    transition:0.3s ease;
+    font-size:1.3rem;
+    font-weight:600;
+    color:#b83572;
+    text-decoration:none;
+}
+
+.btn-box:hover{
+    transform:scale(1.05);
+    box-shadow:0 12px 30px rgba(255,140,180,0.35);
+}
+
+/* cute fireworks */
+.firework{
+    position:fixed;
+    width:6px;height:6px;
+    background:#ff5fa7;
+    border-radius:50%;
+    animation:explode 1.5s infinite ease-out;
+    opacity:0.8;
+}
+
+@keyframes explode {
+    0%{transform:translate(0,0) scale(1); opacity:1;}
+    100%{transform:translate(var(--x),var(--y)) scale(0); opacity:0;}
+}
+
+.back-btn{
+    margin-top:40px;
+    display:inline-block;
+    padding:12px 28px;
+    background:#ff5fa7;
+    color:white;
+    border-radius:22px;
+    font-size:1.1rem;
+    text-decoration:none;
+    box-shadow:0 6px 20px rgba(255,80,150,0.35);
+    transition:0.3s;
+}
+.back-btn:hover{
+    transform:scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<h1>Our New Year Memories 🎆</h1>
+<p class="subtitle">Every year… new wishes, new hope, same forever love.</p>
+
+<div class="container">
+
+    <a href="newyearcelebration.html" class="btn-box">✨ 1st New Year — 2026</a>
+
+    <a href="newyear_2.html" class="btn-box">✨ 2nd New Year — 2027</a>
+
+    <a href="newyear_3.html" class="btn-box">✨ 3rd New Year — 2028</a>
+
+</div>
+
+<a href="specialdays.html" class="back-btn">⟵ Back </a>
+
+<!-- Fireworks -->
+<div class="firework" style="--x:80px; --y:-120px; left:20%; top:20%;"></div>
+<div class="firework" style="--x:-100px; --y:-150px; left:70%; top:50%;"></div>
+<div class="firework" style="--x:120px; --y:-180px; left:40%; top:70%;"></div>
+
+</body>
+</html>

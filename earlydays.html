@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Early Days 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+
+<style>
+body{
+    margin:0;
+    background:linear-gradient(135deg,#ffe6f4,#fff0fb,#ffe8fa,#ffe9f7);
+    background-size:350% 350%;
+    animation:bgShift 12s infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    margin-top:40px;
+    font-size:2.8rem;
+    font-family:'Dancing Script';
+    color:#ff4f9a;
+    text-shadow:0 0 16px rgba(255,120,170,0.5);
+}
+
+/* Card Buttons */
+.container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:25px;
+    margin-top:40px;
+}
+
+.btn-box{
+    background:white;
+    width:80%;
+    max-width:350px;
+    padding:20px;
+    border-radius:25px;
+    border:2px solid #ffc3e7;
+    box-shadow:0 8px 22px rgba(255,140,180,0.25);
+    transition:0.3s ease;
+}
+
+.btn-box:hover{
+    transform:scale(1.04);
+    box-shadow:0 12px 28px rgba(255,140,180,0.35);
+}
+
+.btn-box a{
+    text-decoration:none;
+    font-size:1.3rem;
+    font-weight:600;
+    color:#ff3f9d;
+}
+
+.date{
+    margin-top:4px;
+    font-size:0.95rem;
+    color:#d65e95;
+    font-weight:500;
+}
+
+/* Back Button */
+.back{
+    display:inline-block;
+    padding:12px 25px;
+    background:#ffb6d9;
+    color:white;
+    border-radius:22px;
+    font-weight:600;
+    margin:40px 0;
+    text-decoration:none;
+}
+.back:hover{
+    background:#ff9acb;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🌸 Our Early Days</h1>
+
+<div class="container">
+
+    <!-- Proposal -->
+    <div class="btn-box">
+        <a href="proposal.html">💍 Proposal</a>
+        <div class="date">22 July 2025</div>
+    </div>
+
+    <!-- 5 Days -->
+    <div class="btn-box">
+        <a href="5days.html">🌅 5 Days</a>
+        <div class="date">27 July 2025</div>
+    </div>
+
+    <!-- 7 Days -->
+    <div class="btn-box">
+        <a href="7days.html">🌸 7 Days</a>
+        <div class="date">29 July 2025</div>
+    </div>
+
+    <!-- 15 Days -->
+    <div class="btn-box">
+        <a href="15days.html">💗 15 Days</a>
+        <div class="date">06 August 2025</div>
+    </div>
+
+</div>
+
+<a href="index.html" class="back">← Back</a>
+
+</body>
+</html>
