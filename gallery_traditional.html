@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traditional Dress Gallery 👗✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:25px;
+    background:linear-gradient(135deg,#3c0f14,#5a1f24,#7a2e33);
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    color:#f8e7d9;
+    background-size:300% 300%;
+    animation:bgShift 13s infinite alternate;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;
+    color:#ffd7a3;
+    text-shadow:0 0 20px rgba(255,200,150,0.4);
+    margin-bottom:5px;
+}
+
+.subtitle{
+    font-size:1.15rem;
+    color:#ffefdc;
+    opacity:0.85;
+    margin-bottom:30px;
+}
+
+/* Royal border decoration */
+.decor{
+    width:70%;
+    max-width:350px;
+    height:4px;
+    background:linear-gradient(90deg,transparent,#f6d5a4,transparent);
+    margin:10px auto 25px auto;
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+/* Polaroid but royal style */
+.photo{
+    background:#fff9f2;
+    width:170px;
+    padding:12px 12px 28px;
+    border-radius:12px;
+    border:3px solid #f1d0a8;
+    box-shadow:0 10px 28px rgba(0,0,0,0.35);
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.photo:hover{
+    transform:scale(1.08) rotate(1deg);
+    box-shadow:0 14px 40px rgba(0,0,0,0.45);
+}
+
+.photo img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* Caption */
+.caption{
+    font-family:'Playfair Display',serif;
+    font-size:1.2rem;
+    margin-top:8px;
+    color:#a04333;
+    font-weight:600;
+}
+
+/* Lightbox */
+#lightbox{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+    box-shadow:0 0 40px rgba(0,0,0,0.6);
+    animation:pop 0.4s ease;
+}
+
+@keyframes pop{
+    from{opacity:0; transform:scale(0.85);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.close-btn{
+    position:fixed;
+    top:20px;
+    right:25px;
+    font-size:2.4rem;
+    color:white;
+    cursor:pointer;
+}
+
+/* Back Button */
+.back-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:12px 30px;
+    background:#d08d5e;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:25px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.3);
+}
+.back-btn:hover{
+    transform:scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<h1>Traditional Beauty 👗✨</h1>
+<p class="subtitle">Her elegance, grace, charm… in every outfit.</p>
+
+<div class="decor"></div>
+
+<div class="gallery">
+
+    <!-- SAMPLE PHOTOS — Replace with your own -->
+    <div class="photo" onclick="openLightbox('trad1.jpg')">
+        <img src="trad1.jpg">
+        <div class="caption">Royal & Gorgeous ✨</div>
+    </div>
+
+    <div class="photo" onclick="openLightbox('trad2.jpg')">
+        <img src="trad2.jpg">
+        <div class="caption">Ethnic Grace 👑</div>
+    </div>
+
+    <div class="photo" onclick="openLightbox('trad3.jpg')">
+        <img src="trad3.jpg">
+        <div class="caption">Pure Elegance 💛</div>
+    </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src){
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox(){
+    document.getElementByallow="popup;picture-in-picture" style.display = "none";
+}
+</script>
+
+<a href="gallery.html" class="back-btn">⟵ Back to Gallery</a>
+
+</body>
+</html>

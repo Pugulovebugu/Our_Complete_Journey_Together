@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Daily Moments 🌸📷</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:25px;
+    background:linear-gradient(135deg,#f7f1e8,#f3eadf,#f6e6d8);
+    background-size:300% 300%;
+    animation:bgShift 12s infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    color:#7a675a;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:3rem;
+    color:#b87964;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    font-size:1.1rem;
+    margin-top:5px;
+    opacity:0.7;
+    margin-bottom:30px;
+}
+
+/* Soft leaf decoration */
+.leaf{
+    position:fixed;
+    font-size:2.5rem;
+    opacity:0.18;
+    animation:floatLeaf 6s infinite alternate ease-in-out;
+}
+
+.l1{ top:18%; left:10%; }
+.l2{ top:55%; right:10%; animation-duration:7s; }
+.l3{ bottom:15%; left:20%; animation-duration:8s; }
+
+@keyframes floatLeaf{
+    0%{transform:translateY(0) rotate(0deg);}
+    100%{transform:translateY(-12px) rotate(8deg);}
+}
+
+/* Gallery */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+/* Polaroid style */
+.photo{
+    background:white;
+    width:170px;
+    padding:12px 12px 28px;
+    border-radius:12px;
+    border:2px solid #e8d4c4;
+    box-shadow:0 8px 20px rgba(0,0,0,0.18);
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.photo:hover{
+    transform:scale(1.06) rotate(1deg);
+    box-shadow:0 12px 28px rgba(0,0,0,0.22);
+}
+
+.photo img{
+    width:100%;
+    border-radius:10px;
+}
+
+.caption{
+    font-family:'Dancing Script',cursive;
+    font-size:1.2rem;
+    color:#a56f5c;
+    margin-top:8px;
+}
+
+/* Lightbox */
+#lightbox{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:12px;
+    box-shadow:0 0 35px rgba(0,0,0,0.5);
+    animation:pop 0.4s ease;
+}
+
+@keyframes pop{
+    from{opacity:0; transform:scale(0.85);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.close-btn{
+    position:fixed;
+    top:20px;
+    right:25px;
+    font-size:2.4rem;
+    color:white;
+    cursor:pointer;
+}
+
+/* Back button */
+.back-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:12px 30px;
+    background:#b47964;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:25px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.3);
+}
+.back-btn:hover{
+    transform:scale(1.05);
+}
+</style>
+</head>
+<body>
+
+<!-- leaves -->
+<div class="leaf l1">🍃</div>
+<div class="leaf l2">🌿</div>
+<div class="leaf l3">🍂</div>
+
+<h1>Random Daily Photos 🌸</h1>
+<p class="subtitle">The little moments that make you love her even more.</p>
+
+<div class="gallery">
+
+    <!-- SAMPLE — Replace with your images -->
+    <div class="photo" onclick="openLightbox('random1.jpg')">
+        <img src="random1.jpg">
+        <div class="caption">Just her 🌼</div>
+    </div>
+
+    <div class="photo" onclick="openLightbox('random2.jpg')">
+        <img src="random2.jpg">
+        <div class="caption">Daily cuteness 🩷</div>
+    </div>
+
+    <div class="photo" onclick="openLightbox('random3.jpg')">
+        <img src="random3.jpg">
+        <div class="caption">Soft moment ☁️</div>
+    </div>
+
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+    <span class="close-btn">&times;</span>
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src){
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox(){
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+<a href="gallery.html" class="back-btn">⟵ Back to Gallery</a>
+
+</body>
+</html>

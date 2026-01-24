@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:25px;
+    font-family:'Poppins',sans-serif;
+    background:linear-gradient(135deg,#ffe0ec,#ffd6f5,#ffe9f7);
+    background-size:300% 300%;
+    animation:bgShift 10s ease-in-out infinite alternate;
+    text-align:center;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:3rem;
+    color:#ff3e8f;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    font-size:1.15rem;
+    color:#a73e6e;
+    margin-bottom:25px;
+}
+
+.container{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    width:90%;
+    max-width:370px;
+    margin:auto;
+}
+
+.btn{
+    background:white;
+    padding:15px;
+    border-radius:20px;
+    font-size:1.15rem;
+    font-weight:600;
+    color:#b43470;
+    text-decoration:none;
+    border:2px solid #ffb2d5;
+    box-shadow:0 6px 20px rgba(255,140,180,0.25);
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 30px rgba(255,120,170,0.35);
+    background:#fff7fa;
+}
+
+.back{
+    margin-top:25px;
+    display:inline-block;
+    padding:12px 30px;
+    background:#ff5da8;
+    color:white;
+    font-weight:600;
+    border-radius:25px;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(255,90,160,0.35);
+}
+.back:hover{
+    transform:scale(1.05);
+}
+</style>
+
+</head>
+<body>
+
+<h1>Photo Gallery 💗</h1>
+<p class="subtitle">Choose what you want to relive today…</p>
+
+<div class="container">
+    <a href="gallery_selfies.html" class="btn">📸 Selfies</a>
+    <a href="gallery_birthdays.html" class="btn">🎂 Birthdays</a>
+    <a href="gallery_traditional.html" class="btn">👗 Traditional Dress</a>
+    <a href="gallery_festivals.html" class="btn">🎉 Festival / Occasion</a>
+    <a href="gallery_videocall.html" class="btn">🤳 Video Call Screenshots</a>
+    <a href="gallery_random.html" class="btn">🌸 Random Daily Photos</a>
+    <a href="gallery_moments.html" class="btn">💞 Our Relationship Moments</a>
+</div>
+
+<a href="index.html" class="back">⟵ Back to Home</a>
+
+</body>
+</html>

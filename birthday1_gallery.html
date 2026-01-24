@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1st Birthday — Aesthetic Gallery 🎂💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* Heart Cursor */
+body{
+    margin:0;
+    padding:25px;
+    cursor:url('https://cur.cursors-4u.net/others/oth-6/oth568.cur'), auto;
+    background:linear-gradient(135deg,#fff1f8,#ffe6f1,#ffeef7);
+    animation:bgShift 14s infinite alternate;
+    background-size:300% 300%;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    position:relative;
+}
+
+/* Soft lighting around edges */
+body::before{
+    content:"";
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    pointer-events:none;
+    background:radial-gradient(circle at center,
+        rgba(255,255,255,0) 40%,
+        rgba(255,200,220,0.3) 100%);
+    z-index:-1;
+}
+
+/* Texture overlay */
+body::after{
+    content:"";
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    pointer-events:none;
+    background:url('https://www.transparenttextures.com/patterns/paper-1.png');
+    opacity:0.35;
+    z-index:-1;
+}
+
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    font-size:2.6rem;
+    font-weight:600;
+    color:#ff4f9a;
+    margin-bottom:5px;
+}
+
+.subtitle{
+    font-size:1rem;
+    color:#b64f7c;
+    opacity:0.75;
+    margin-bottom:30px;
+}
+
+/* Falling confetti */
+.confetti{
+    position:fixed;
+    top:-10px;
+    font-size:1.2rem;
+    animation:fall 6s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes fall{
+    0%{ transform:translateY(0) rotate(0deg); }
+    100%{ transform:translateY(120vh) rotate(360deg); }
+}
+
+/* Random confetti placement */
+.confetti:nth-child(1){ left:10%; animation-delay:0s; }
+.confetti:nth-child(2){ left:25%; animation-delay:1.5s; }
+.confetti:nth-child(3){ left:40%; animation-delay:0.8s; }
+.confetti:nth-child(4){ left:55%; animation-delay:2.3s; }
+.confetti:nth-child(5){ left:70%; animation-delay:1.1s; }
+.confetti:nth-child(6){ left:85%; animation-delay:0.4s; }
+
+/* Gallery layout */
+.gallery{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:0px;
+}
+
+/* Premium Polaroid stacked frame */
+.photo{
+    background:white;
+    width:180px;
+    padding:12px 12px 25px;
+    border-radius:14px;
+    border:2px solid #ffd0e7;
+    box-shadow:
+        0 12px 25px rgba(255,140,180,0.35),
+        0 4px 12px rgba(0,0,0,0.12);
+    cursor:pointer;
+    position:relative;
+    margin:32px;
+    transition:0.45s ease;
+    animation:float 5s infinite ease-in-out alternate;
+}
+
+/* Soft floating */
+@keyframes float{
+    from{ transform:translateY(0px); }
+    to{ transform:translateY(-10px); }
+}
+
+/* Random tilt */
+.photo:nth-child(odd){ transform:rotate(-5deg); }
+.photo:nth-child(even){ transform:rotate(6deg); }
+.photo:nth-child(3n){ transform:rotate(-3deg); }
+.photo:nth-child(4n){ transform:rotate(4deg); }
+
+/* Sparkle on hover */
+.photo:hover::after{
+    content:"✨";
+    position:absolute;
+    top:-18px;
+    right:-12px;
+    font-size:1.6rem;
+    animation:sparkle 0.6s ease forwards;
+}
+
+@keyframes sparkle{
+    0%{ opacity:0; transform:scale(0.8); }
+    100%{ opacity:1; transform:scale(1.2); }
+}
+
+/* Straighten on hover */
+.photo:hover{
+    transform:scale(1.18) rotate(0deg);
+    z-index:20;
+}
+
+/* Tape stickers */
+.tape{
+    position:absolute;
+    top:-10px;
+    left:50%;
+    transform:translateX(-50%) rotate(-2deg);
+    background:#ffccdd;
+    width:60px;
+    height:18px;
+    border-radius:4px;
+    opacity:0.8;
+    box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.photo img{
+    width:100%;
+    border-radius:10px;
+}
+
+/* Lightbox */
+#lightbox{
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.75);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+#lightbox img{
+    max-width:90%;
+    max-height:90%;
+    border-radius:15px;
+}
+
+/* Back button */
+.back-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:12px 28px;
+    background:#ff5da8;
+    color:white;
+    text-decoration:none;
+    border-radius:25px;
+    font-weight:600;
+    box-shadow:0 8px 22px rgba(255,80,150,0.3);
+}
+.back-btn:hover{
+    transform:scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- Falling confetti -->
+<div class="confetti">💗</div>
+<div class="confetti">🎉</div>
+<div class="confetti">✨</div>
+<div class="confetti">💞</div>
+<div class="confetti">🎀</div>
+<div class="confetti">💖</div>
+
+<h1>1st Birthday Gallery 🎂💗</h1>
+<p class="subtitle">05 • 09 • 2025</p>
+
+<div class="gallery">
+
+    <!-- 15 PREMIUM STACKED PHOTOS -->
+    <div class="photo" onclick="openLightbox('bday1.jpg')">
+        <div class="tape"></div>
+        <img src="bday1.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday2.jpg')">
+        <div class="tape"></div>
+        <img src="bday2.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday3.jpg')">
+        <div class="tape"></div>
+        <img src="bday3.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday4.jpg')">
+        <div class="tape"></div>
+        <img src="bday4.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday5.jpg')">
+        <div class="tape"></div>
+        <img src="bday5.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday6.jpg')">
+        <div class="tape"></div>
+        <img src="bday6.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday7.jpg')">
+        <div class="tape"></div>
+        <img src="bday7.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday8.jpg')">
+        <div class="tape"></div>
+        <img src="bday8.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday9.jpg')">
+        <div class="tape"></div>
+        <img src="bday9.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday10.jpg')">
+        <div class="tape"></div>
+        <img src="bday10.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday11.jpg')">
+        <div class="tape"></div>
+        <img src="bday11.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday12.jpg')">
+        <div class="tape"></div>
+        <img src="bday12.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday13.jpg')">
+        <div class="tape"></div>
+        <img src="bday13.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday14.jpg')">
+        <div class="tape"></div>
+        <img src="bday14.jpg">
+    </div>
+
+    <div class="photo" onclick="openLightbox('bday15.jpg')">
+        <div class="tape"></div>
+        <img src="bday15.jpg">
+    </div>
+
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img">
+</div>
+
+<script>
+function openLightbox(src){
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+}
+function closeLightbox(){
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+<a href="birthday1.html" class="back-btn">← Back</a>
+
+</body>
+</html>
