@@ -3,35 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Complete Journey Together 💗</title>
+<title>Emotional Support 💗</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
 a { text-decoration: none; }
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg,#ffe0f3,#e9f0ff,#ffe9df);
-    background-size: 300% 300%;
-    animation: bgShift 14s infinite alternate;
-    overflow-x: hidden;
-    text-align: center;
+body{
+    margin:0;
+    padding:30px;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    background:linear-gradient(135deg,#ffe7f2,#e8f1ff,#ffe9f6);
+    background-size:300% 300%;
+    animation:bgShift 14s infinite alternate;
 }
-@keyframes bgShift { from {background-position:left} to {background-position:right} }
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
 
 h1{
-    margin-top:45px;
-    font-size:3.2rem;
+    margin-top:40px;
     font-family:'Dancing Script',cursive;
-    color:#ff3f8f;
-    text-shadow:0 0 15px rgba(255,120,180,0.3);
-}
-h2{
-    margin-top:-5px;
-    font-size:1.3rem;
-    color:#ff7ab3;
+    font-size:3rem;
+    color:#ff4f9a;
+    text-shadow:0 0 12px rgba(255,120,180,0.3);
 }
 
 .grid{
@@ -44,12 +42,12 @@ h2{
 }
 
 .btn{
-    background:rgba(255,255,255,0.78);
+    background:rgba(255,255,255,0.82);
     border:2px solid #ffd7ea;
-    padding:24px 10px;
+    padding:22px 10px;
     border-radius:22px;
     font-weight:600;
-    font-size:1.3rem;
+    font-size:1.2rem;
     color:#444;
     box-shadow:0 8px 22px rgba(255,120,180,0.25);
     transition:.3s ease;
@@ -57,11 +55,28 @@ h2{
 .btn:hover{
     background:white;
     transform:translateY(-6px) scale(1.05);
-    box-shadow:0 12px 28px rgba(255,120,170,0.35);
+    box-shadow:0 12px 28px rgba(255,120,180,0.35);
     color:#ff4f9a;
 }
 
-/* Hearts */
+/* Back button */
+.back{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 30px;
+    background:#ff5da8;
+    color:white;
+    font-weight:600;
+    border-radius:24px;
+    font-size:1.1rem;
+    box-shadow:0 8px 20px rgba(255,120,180,0.25);
+}
+.back:hover{
+    transform:scale(1.07);
+    background:#ff3f90;
+}
+
+/* Floating hearts */
 .heart{
     position:fixed;
     bottom:-20px;
@@ -94,21 +109,21 @@ h2{
 
 <body>
 
-<h1>💗 Our Complete Journey Together 💗</h1>
-<h2>A timeline of our love & memories ✨</h2>
+<h1>Emotional Support 💗</h1>
 
 <div class="grid">
-    <a class="btn" href="earlydays.html">💞 Early Days</a>
-    <a class="btn" href="anniversaries.html">🌙 Anniversaries</a>
-    <a class="btn" href="specialdays.html">🌸 Special Days</a>
-    <a class="btn" href="gallery.html">📷 Photo Gallery</a>
-
-    <!-- NEW Emotional Support Button (same style, theme, color) -->
-    <a class="btn" href="emotional_support.html">💗 Emotional Support</a>
+    <a class="btn" href="heartbeat.html">❤️ Heartbeat</a>
+    <a class="btn" href="distance.html">🌍 Distance Map</a>
+    <a class="btn" href="hug.html">🤗 Warm Hug</a>
+    <a class="btn" href="touch_me.html">🌙 Touch Me</a>
+    <a class="btn" href="open_when.html">💌 Open When…</a>
+    <a class="btn" href="mood_letters.html">✨ Mood Letters</a>
 </div>
 
+<a class="back" href="index.html">← Back to Home</a>
+
 <script>
-// Hearts
+// Hearts floating
 setInterval(()=>{
     const h=document.createElement("div");
     h.className="heart";
@@ -119,7 +134,7 @@ setInterval(()=>{
     setTimeout(()=>h.remove(),7000);
 },800);
 
-// Sparkles
+// Sparkles follow mouse
 document.addEventListener("mousemove",e=>{
     const s=document.createElement("div");
     s.className="sparkle";

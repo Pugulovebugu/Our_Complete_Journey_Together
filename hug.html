@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pugu’s Hug for Bugu 🤗💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cookie&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#ffe6f7,#ffd9e8,#ffeefb);
+    background-size:280% 280%;
+    animation:bgShift 12s infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    overflow-x:hidden;
+    padding:25px 0 60px;
+}
+@keyframes bgShift{
+    from{background-position:left;}
+    to{background-position:right;}
+}
+
+/* Falling petals */
+.petal{
+    position:fixed;
+    color:#ff8dbf;
+    opacity:0.75;
+    font-size:1.7rem;
+    animation:fall linear infinite;
+    z-index:-1;
+}
+@keyframes fall{
+    0%{transform:translateY(-10vh) rotate(0deg);}
+    100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
+}
+.p1{left:10%; animation-duration:7s;}
+.p2{left:35%; animation-duration:9s; animation-delay:2s;}
+.p3{left:60%; animation-duration:6s; animation-delay:1s;}
+.p4{left:80%; animation-duration:8s; animation-delay:3s;}
+.p5{left:50%; animation-duration:10s; animation-delay:4s;}
+
+/* Title */
+h1{
+    font-family:'Cookie',cursive;
+    font-size:3.1rem;
+    color:#ff4f9d;
+    text-shadow:0 0 16px rgba(255,100,160,0.45);
+    margin-bottom:6px;
+}
+.subtitle{
+    color:#b14f81;
+    font-size:1rem;
+    opacity:0.85;
+}
+
+/* Hug Image */
+.hug-illustration{
+    width:75%;
+    max-width:300px;
+    margin:35px auto 10px auto;
+    filter:drop-shadow(0 8px 18px rgba(255,120,180,0.45));
+    border-radius:22px;
+    animation:floatHeart 4s infinite ease-in-out;
+}
+@keyframes floatHeart{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+    100%{transform:translateY(0);}
+}
+
+/* Hug Button */
+.hug-btn{
+    padding:15px 42px;
+    background:#ff5da8;
+    color:white;
+    font-size:1.15rem;
+    font-weight:600;
+    border:none;
+    border-radius:32px;
+    box-shadow:0 10px 24px rgba(255,80,160,0.35);
+    transition:0.25s;
+    animation:softPulse 2.4s infinite ease-in-out;
+}
+.hug-btn:active{
+    transform:scale(0.92);
+    background:#ff3d8d;
+}
+@keyframes softPulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.06);}
+}
+
+/* Message text */
+#status{
+    margin-top:25px;
+    font-size:1.15rem;
+    color:#9e3f70;
+    opacity:0;
+    line-height:1.7;
+    padding:0 20px;
+    transition:1s;
+}
+
+/* Back Button */
+.back{
+    display:inline-block;
+    margin-top:40px;
+    padding:13px 33px;
+    background:#ff95c5;
+    color:white;
+    font-size:1.1rem;
+    font-weight:600;
+    border-radius:28px;
+    text-decoration:none;
+    box-shadow:0 8px 22px rgba(255,140,190,0.35);
+}
+.back:active{
+    transform:scale(0.95);
+}
+
+/* Sparkles */
+.sparkle{
+    position:fixed;
+    width:8px;
+    height:8px;
+    background:#ffd0ea;
+    border-radius:50%;
+    pointer-events:none;
+    animation:sparkleFade .8s linear forwards;
+}
+@keyframes sparkleFade{
+    from{opacity:1; transform:scale(1);}
+    to{opacity:0; transform:scale(2);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Falling petals -->
+<div class="petal p1">🌸</div>
+<div class="petal p2">💗</div>
+<div class="petal p3">🌸</div>
+<div class="petal p4">💞</div>
+<div class="petal p5">🌸</div>
+
+<h1>Pugu’s Warmest Hug 🤗💗</h1>
+<p class="subtitle">Come here… let me hold you tight, my Bugu.</p>
+
+<!-- Your Hug Bears Image -->
+<img class="hug-illustration" src="hug_bears.png">
+
+<button class="hug-btn" onclick="sendHug()">Squeeze Hug 🤗💗</button>
+
+<p id="status">I’m wrapping you in the warmest hug ever… and I’m never letting go 💞</p>
+
+<script>
+function sendHug(){
+    let s=document.getElementById("status");
+    s.style.opacity="1";
+    s.innerHTML="I feel your hug, my love… holding you tight, chest-to-chest 🤗💗";
+
+    setTimeout(()=>{
+        s.innerHTML="Come closer… let me hold you even tighter 💞";
+    },2600);
+
+    setTimeout(()=>{
+        s.innerHTML="My arms are around you right now… you’re safe here 💗";
+    },5000);
+
+    setTimeout(()=>{
+        s.innerHTML="I wish I could hug you in real… but this one is only for you 🤍";
+    },8000);
+}
+
+// Sparkles
+function sparkle(x,y){
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=x+"px";
+    s.style.top=y+"px";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),800);
+}
+document.addEventListener("mousemove",e=>sparkle(e.pageX,e.pageY));
+document.addEventListener("touchmove",e=>{
+    let t=e.touches[0];
+    sparkle(t.pageX,t.pageY);
+});
+</script>
+
+<a href="emotional_support.html" class="back">← Back</a>
+
+</body>
+</html>

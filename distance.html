@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pugu ❤️ Bugu — Distance Between Us</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* Soft romantic background */
+body {
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffe6f2, #fff0fa, #ffe9f8);
+    background-size: 300% 300%;
+    animation: bgFlow 14s ease-in-out infinite;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+@keyframes bgFlow {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+/* Hearts floating */
+.heart {
+    position: fixed;
+    font-size: 1.4rem;
+    animation: floatUp 6s infinite ease-in-out;
+    opacity: 0.55;
+}
+@keyframes floatUp {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.15); }
+    100% { transform: translateY(0) scale(1); }
+}
+.heart:nth-child(1) { top: 10%; left: 8%; }
+.heart:nth-child(2) { top: 20%; left: 85%; animation-delay: .5s; }
+.heart:nth-child(3) { top: 70%; left: 12%; animation-delay: 1s; }
+.heart:nth-child(4) { top: 65%; left: 80%; animation-delay: .8s; }
+
+h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: 3rem;
+    margin-top: 15px;
+    color: #ff4f9a;
+}
+p.subtitle {
+    font-size: 1.1rem;
+    color: #b45f89;
+}
+
+/* Map Container + Gradient Border */
+#mapContainerSmall {
+    position: relative;
+    margin: 30px auto;
+    width: 300px;
+    height: 300px;
+    padding: 12px;
+
+    background: rgba(255,255,255,0.6);
+    border-radius: 25px;
+
+    border: 4px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        linear-gradient(to bottom right, #ffb3d9, #ffc7ea, #ffd5f7, #ffc0d8);
+    background-clip: padding-box, border-box;
+
+    box-shadow: 0 0 28px rgba(255,140,170,0.35);
+}
+
+/* Cute corner stickers */
+.corner {
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.75;
+}
+.corner.top-left { top: -8px; left: -8px; }
+.corner.top-right { top: -8px; right: -8px; }
+.corner.bottom-left { bottom: -8px; left: -8px; }
+.corner.bottom-right { bottom: -8px; right: -8px; }
+
+#mapSmall {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+/* Dot markers (clean) */
+.pinkMarker {
+    background: #ff4f9a;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+/* Labels – upper-right & thin */
+.markerLabel {
+    background: #ffe1f0;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.70rem;
+    color: #ff4f9a;
+    font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 0 6px rgba(255,130,170,0.25);
+    transform: translate(6px, -20px);
+}
+
+/* Distance box */
+.distanceBox {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #ffe1f0;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    color: #ff4f9a;
+    font-weight: 600;
+}
+
+#animatedDistance {
+    font-size: 1.4rem;
+    color: #ff2f88;
+    font-weight: 700;
+}
+
+#randomQuote {
+    margin-top: 14px;
+    color: #b45f89;
+    font-style: italic;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: #ff4f9a;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+.footer {
+    margin-top: 25px;
+    font-size: .8rem;
+    color: #b45f89;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Floating hearts -->
+<div class="heart">💖</div>
+<div class="heart">💞</div>
+<div class="heart">💗</div>
+<div class="heart">💝</div>
+
+<h1>Pugu ❤️ Bugu</h1>
+<p class="subtitle">No matter the distance… you're always close to me.</p>
+
+<div id="mapContainerSmall">
+
+    <!-- Decorative cute stickers -->
+    <div class="corner top-left">🌸</div>
+    <div class="corner top-right">💖</div>
+    <div class="corner bottom-left">✨</div>
+    <div class="corner bottom-right">🎀</div>
+
+    <div id="mapSmall"></div>
+</div>
+
+<div class="distanceBox">
+    Distance:<br>
+    <span id="animatedDistance">0</span> km<br>
+    Flight: ~3.5 hrs • Road: ~33 hrs
+</div>
+
+<p id="daysCounter"></p>
+<p id="randomQuote"></p>
+
+<a href="emotional_support.html" class="back">← Back </a>
+<p class="footer">Made with love by Pugu 💗</p>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+
+/* Coordinates */
+const pugu = [29.92009, 73.87496];
+const bugu = [20.48101, 84.23063];
+
+/* Map WITHOUT zoom buttons */
+var mapSmall = L.map('mapSmall', { zoomControl: false }).setView([25, 78], 5);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(mapSmall);
+
+/* Dot marker */
+var dotIcon = L.divIcon({
+    className:"",
+    html:`<div class="pinkMarker"></div>`,
+    iconSize:[14,14],
+    iconAnchor:[7,7]
+});
+
+/* Labels */
+var labelP = L.divIcon({
+    className:"",
+    html:`<div class="markerLabel">❤️ Pugu</div>`,
+    iconSize:[60,20],
+    iconAnchor:[0,0]
+});
+var labelB = L.divIcon({
+    className:"",
+    html:`<div class="markerLabel">💗 Bugu</div>`,
+    iconSize:[60,20],
+    iconAnchor:[0,0]
+});
+
+/* Add markers */
+L.marker(pugu,{icon:dotIcon}).addTo(mapSmall);
+L.marker(pugu,{icon:labelP}).addTo(mapSmall);
+
+L.marker(bugu,{icon:dotIcon}).addTo(mapSmall);
+L.marker(bugu,{icon:labelB}).addTo(mapSmall);
+
+/* Short dotted line */
+function shortenPoint(a,b,f){
+    return [
+        a[0] + (b[0]-a[0])*f,
+        a[1] + (b[1]-a[1])*f
+    ];
+}
+let startShort = shortenPoint(pugu, bugu, 0.04);
+let endShort   = shortenPoint(pugu, bugu, 0.96);
+
+L.polyline([startShort,endShort],{
+    color:"#ff4f9a",
+    weight:4,
+    opacity:0.85,
+    dashArray:"6 8"
+}).addTo(mapSmall);
+
+/* Fit map */
+mapSmall.fitBounds([pugu,bugu],{padding:[20,20]});
+
+/* Animated Distance Counter */
+let targetDistance = 1860;
+let current = 0;
+let counter = setInterval(()=>{
+    current += 18;
+    if(current >= targetDistance){
+        current = targetDistance;
+        clearInterval(counter);
+    }
+    document.getElementById("animatedDistance").innerText = current;
+},15);
+
+/* Days counter */
+let start = new Date("July 22, 2025");
+let today = new Date();
+let diff = Math.floor((today - start) / (1000*60*60*24));
+document.getElementById("daysCounter").innerHTML =
+"We have been together for <b>"+diff+"</b> beautiful days ❤️";
+
+/* Random quotes */
+const quotes=[
+"Every kilometre between us reminds me how deeply I love you.",
+"Even far away, your presence feels closer than ever.",
+"Distance means nothing when someone means everything.",
+"One day, this distance will be a story we smile about.",
+"Love travels faster than any plane ever could.",
+"No matter the miles, my heart chooses you daily."
+];
+document.getElementById("randomQuote").innerText =
+quotes[Math.floor(Math.random()*quotes.length)];
+
+</script>
+
+</body>
+</html>

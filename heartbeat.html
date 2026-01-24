@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Pugu’s Heartbeat for Bugu 💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cookie&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    height:100%;
+    overflow-x:hidden;
+    background:linear-gradient(135deg,#ffe3f1,#ffd7ec,#ffeaf6);
+    background-size:300% 300%;
+    animation:bg 12s infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    -webkit-tap-highlight-color: transparent;
+}
+@keyframes bg{
+    from{background-position:left;}
+    to{background-position:right;}
+}
+
+a{
+    text-decoration:none !important; /* removes underline globally */
+}
+
+/* Title */
+h1{
+    font-family:'Cookie',cursive;
+    font-size:2.8rem;
+    color:#ff3f9d;
+    text-shadow:0 0 20px rgba(255,100,170,0.5);
+    margin-top:20px;
+}
+.subtitle{
+    margin-top:5px;
+    font-size:1rem;
+    color:#b14f7d;
+    opacity:0.75;
+}
+
+/* CLOUDS */
+.cloud{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    filter:blur(18px);
+    opacity:0.5;
+    animation:float 18s linear infinite;
+    z-index:-1;
+}
+
+.cloud.x1{width:130px;height:60px;top:8%;left:-40%;animation-duration:25s;}
+.cloud.x2{width:180px;height:80px;top:55%;left:-45%;animation-duration:30s;}
+.cloud.x3{width:150px;height:70px;top:78%;left:-50%;animation-duration:32s;}
+
+@keyframes float{
+    from{transform:translateX(0);}
+    to{transform:translateX(160vw);}
+}
+
+/* HEARTBEAT LINE */
+.heartbeat-line{
+    width:92%;
+    max-width:400px;
+    margin:35px auto 15px auto;
+    stroke:#ff3f9d;
+    fill:none;
+    stroke-width:4;
+    animation:linePulse 2s infinite ease-in-out;
+    filter:drop-shadow(0 0 8px rgba(255,70,150,0.5));
+}
+@keyframes linePulse{
+    0%{stroke-width:3;}
+    50%{stroke-width:5;}
+    100%{stroke-width:3;}
+}
+
+/* Heart */
+.big-heart{
+    font-size:3.3rem;
+    animation:heartPulse 1.3s infinite ease-in-out;
+}
+@keyframes heartPulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.3);}
+    100%{transform:scale(1);}
+}
+
+/* Card */
+.card{
+    background:white;
+    width:90%;
+    max-width:430px;
+    margin:15px auto 20px auto;
+    padding:18px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(255,140,190,0.25);
+}
+.card p{
+    color:#6b3460;
+    font-size:1rem;
+    line-height:1.65;
+}
+
+/* Back button */
+.back{
+    display:inline-block;
+    margin:20px auto 40px auto;
+    padding:12px 28px;
+    background:#ff5da8;
+    color:white;
+    border-radius:26px;
+    font-weight:600;
+    font-size:1.05rem;
+    box-shadow:0 6px 20px rgba(255,80,160,0.3);
+}
+.back:active{
+    transform:scale(0.96);
+    background:#ff3f92;
+}
+
+/* Sparkles */
+.sparkle{
+    position:fixed;
+    width:8px;
+    height:8px;
+    background:#ffb6d9;
+    border-radius:50%;
+    pointer-events:none;
+    animation:sparkleFade .8s linear forwards;
+}
+@keyframes sparkleFade{
+    from{opacity:1; transform:scale(1);}
+    to{opacity:0; transform:scale(2);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Clouds -->
+<div class="cloud x1"></div>
+<div class="cloud x2"></div>
+<div class="cloud x3"></div>
+
+<h1>Pugu’s Heartbeat for Bugu 💗</h1>
+<p class="subtitle">My heartbeat stays with you… always.</p>
+
+<!-- Heartbeat Line -->
+<svg class="heartbeat-line" viewBox="0 0 500 100">
+    <path d="M0 50 L80 50 L110 20 L140 80 L170 50 L230 50 L260 10 L290 90 L320 50 L500 50"></path>
+</svg>
+
+<!-- Heart -->
+<div class="big-heart">💗</div>
+
+<!-- Card -->
+<div class="card">
+    <p>
+        Every heartbeat inside me whispers your name, my Bugu.  
+        No matter how far we are…  
+        my heart keeps repeating:
+        <br><br>
+        <strong>“I love you. I miss you. I’m yours.”</strong>
+        <br><br>
+        Whenever you feel lonely,  
+        place your hand on your heart…  
+        that’s me — beating for you.
+    </p>
+</div>
+
+<!-- Back -->
+<a href="emotional_support.html" class="back">← Back </a>
+
+<script>
+// Sparkles (mobile + mouse)
+function sparkle(x,y){
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=x+"px";
+    s.style.top=y+"px";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),800);
+}
+
+document.addEventListener("mousemove", e=> sparkle(e.pageX,e.pageY));
+document.addEventListener("touchmove", e=>{
+    let t=e.touches[0];
+    sparkle(t.pageX,t.pageY);
+});
+</script>
+
+</body>
+</html>

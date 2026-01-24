@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Touch Me, My Love 🌙💗</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    height:100vh;
+    overflow:hidden;
+    background:radial-gradient(circle at bottom,#0d0f26,#0a0b1a,#060712);
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+    color:white;
+}
+
+/* Stars */
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:0.7;
+    animation:twinkle 3s infinite ease-in-out;
+}
+@keyframes twinkle{
+    0%{opacity:0.3;}
+    50%{opacity:1;}
+    100%{opacity:0.3;}
+}
+
+/* Title */
+h1{
+    margin-top:30px;
+    font-family:'Dancing Script',cursive;
+    font-size:2.7rem;
+    color:#ffd6f5;
+    text-shadow:0 0 15px rgba(255,180,230,0.6);
+}
+p{
+    margin-top:-10px;
+    font-size:1.1rem;
+    opacity:0.8;
+    color:#d7c6e8;
+}
+
+/* Touch Glow (multiple) */
+.touch-glow{
+    position:absolute;
+    width:110px;
+    height:110px;
+    background:radial-gradient(circle,#ff6ec7,#ff3ea5,transparent 70%);
+    border-radius:50%;
+    pointer-events:none;
+    opacity:0.9;
+    filter:blur(3px);
+    animation:fadeOut 1s forwards;
+}
+@keyframes fadeOut{
+    from{opacity:0.9;}
+    to{opacity:0;}
+}
+
+/* Heart trail */
+.heart{
+    position:absolute;
+    font-size:2rem;
+    animation:heartFade 1.2s forwards ease-out;
+    pointer-events:none;
+}
+@keyframes heartFade{
+    0%{opacity:1; transform:scale(1);}
+    100%{opacity:0; transform:scale(1.6);}
+}
+
+/* Back button */
+.back{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:10px 25px;
+    background:#ff6ec7;
+    border-radius:22px;
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+    box-shadow:0 0 15px rgba(255,90,200,0.35);
+}
+.back:hover{
+    transform:translateX(-50%) scale(1.06);
+}
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<script>
+// Create floating stars
+for(let i=0;i<90;i++){
+    let s=document.createElement("div");
+    s.className="star";
+    s.style.top=Math.random()*100+"vh";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDelay=(Math.random()*2)+"s";
+    document.body.appendChild(s);
+}
+</script>
+
+<h1>Touch the Screen, My Love 🌙💗</h1>
+<p>Every touch brings me closer to you.</p>
+
+<script>
+// MULTI-TOUCH SUPPORT
+document.addEventListener("touchmove", (e)=>{
+    for(let t of e.touches){
+
+        // glowing circle
+        let glow=document.createElement("div");
+        glow.className="touch-glow";
+        glow.style.left=(t.pageX - 55)+"px";
+        glow.style.top=(t.pageY - 55)+"px";
+        document.body.appendChild(glow);
+
+        setTimeout(()=> glow.remove(), 1100);
+
+        // floating heart
+        let heart=document.createElement("div");
+        heart.className="heart";
+        heart.innerHTML="💗";
+        heart.style.left=(t.pageX - 15)+"px";
+        heart.style.top=(t.pageY - 15)+"px";
+        document.body.appendChild(heart);
+
+        setTimeout(()=> heart.remove(), 1200);
+    }
+});
+</script>
+
+<a href="emotional_support.html" class="back">← Back</a>
+
+</body>
+</html>

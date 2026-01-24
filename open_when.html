@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open When… 💌🌸</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:30px;
+    background:linear-gradient(135deg,#ffeef5,#fff8fb,#ffeaf2);
+    background-size:250% 250%;
+    animation:bgShift 12s infinite alternate;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+}
+@keyframes bgShift{
+    from{background-position:left;}
+    to{background-position:right;}
+}
+
+/* Title */
+h1{
+    font-family:'Dancing Script',cursive;
+    font-size:3rem;
+    color:#ff6fa5;
+    text-shadow:0 0 15px rgba(255,120,170,0.35);
+    margin-bottom:10px;
+}
+p{
+    color:#b86f8e;
+    opacity:0.7;
+    margin-top:-10px;
+}
+
+/* Button style */
+.option{
+    display:block;
+    margin:18px auto;
+    padding:15px 25px;
+    width:80%;
+    max-width:300px;
+    background:#ffbcd8;
+    color:#6b2d4b;
+    text-decoration:none;
+    font-weight:600;
+    border-radius:18px;
+    box-shadow:0 8px 22px rgba(255,150,180,0.3);
+    transition:0.3s ease;
+}
+.option:hover{
+    transform:scale(1.05);
+}
+
+/* Back button */
+.back{
+    display:inline-block;
+    margin-top:35px;
+    padding:12px 30px;
+    background:#ff6fa5;
+    color:white;
+    text-decoration:none;
+    border-radius:24px;
+    font-weight:600;
+}
+.back:hover{
+    transform:scale(1.07);
+}
+</style>
+</head>
+
+<body>
+
+<h1>Open When… 💌</h1>
+<p>Because I want to hold your heart even from far away.</p>
+
+<a class="option" href="open_when_sad.html">When you're sad 💧</a>
+<a class="option" href="open_when_miss.html">When you miss me 💗</a>
+<a class="option" href="open_when_cantsleep.html">When you can’t sleep 🌙</a>
+<a class="option" href="open_when_insecure.html">When you feel insecure 🤍</a>
+<a class="option" href="open_when_overthink.html">When you overthink 💭</a>
+<a class="option" href="open_when_lonely.html">When you feel lonely 🕊</a>
+
+<a href="emotional_support.html" class="back">← Home</a>
+
+</body>
+</html>
