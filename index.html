@@ -23,7 +23,10 @@ body {
     overflow-x: hidden;
     text-align: center;
 }
-@keyframes bgShift { from {background-position:left} to {background-position:right} }
+@keyframes bgShift { 
+  from {background-position:left} 
+  to {background-position:right}
+}
 
 h1{
     margin-top:45px;
@@ -128,7 +131,7 @@ h2{
 </div>
 
 <script>
-// Hearts
+// Floating Hearts
 setInterval(()=>{
     const h=document.createElement("div");
     h.className="heart";
@@ -137,10 +140,15 @@ setInterval(()=>{
     h.style.fontSize=(Math.random()*18+16)+"px";
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),7000);
-},800);
+},900);
 
-// Sparkles
-document.addEventListener("mousemove",e=>{
+// Sparkles (optimized)
+let lastSparkle = 0;
+document.addEventListener("mousemove", e=>{
+    const now = Date.now();
+    if(now - lastSparkle < 40) return; 
+    lastSparkle = now;
+
     const s=document.createElement("div");
     s.className="sparkle";
     s.style.left=e.pageX+"px";
@@ -149,28 +157,29 @@ document.addEventListener("mousemove",e=>{
     setTimeout(()=>s.remove(),800);
 });
 
-// PWA Install Banner
+// Install Banner PWA
 let deferredPrompt;
-const installBanner = document.getElementById("installBanner");
+const banner = document.getElementById("installBanner");
 
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  installBanner.style.display = "block";
+  banner.style.display = "block";
 });
 
-installBanner.addEventListener("click", async () => {
-  installBanner.style.display = "none";
+banner.addEventListener("click", async () => {
+  banner.style.display = "none";
   if (!deferredPrompt) return;
   deferredPrompt.prompt();
   await deferredPrompt.userChoice;
   deferredPrompt = null;
 });
 
-// Service Worker
+// Service Worker (fixed path)
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
-    .then(() => console.log("Service Worker Registered"));
+  navigator.serviceWorker.register('service-worker.js')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.log("SW error:", err));
 }
 </script>
 
