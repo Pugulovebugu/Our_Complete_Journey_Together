@@ -1,10 +1,10 @@
 {
   "name": "Our Complete Journey Together",
-  "short_name": "OCJT",
+  "short_name": "Pugu💖Bugu",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#ffe6ef",
-  "theme_color": "#ff89c3",
+  "theme_color": "#ff99c8",
   "icons": [
     {
       "src": "icon-192.png",
@@ -15,6 +15,9 @@
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ]
+}
     }
   ]
 }

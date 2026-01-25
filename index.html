@@ -10,11 +10,8 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#ff89c3">
 <link rel="icon" href="icon-192.png">
-
-<!-- Firebase MUST load BEFORE firebase-notification.js -->
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging.js"></script>
 <style>
 a { text-decoration: none; }
 
@@ -27,10 +24,7 @@ body {
     overflow-x: hidden;
     text-align: center;
 }
-@keyframes bgShift {
-    from { background-position: left; }
-    to   { background-position: right; }
-}
+@keyframes bgShift { from {background-position:left} to {background-position:right} }
 
 h1{
     margin-top:45px;
@@ -45,7 +39,6 @@ h2{
     color:#ff7ab3;
 }
 
-/* Grid Buttons */
 .grid{
     width:90%;
     max-width:850px;
@@ -83,8 +76,8 @@ h2{
     z-index:-1;
 }
 @keyframes floatUp{
-    from { transform:translateY(0) scale(1); }
-    to   { transform:translateY(-110vh) scale(1.5); opacity:0; }
+    from{transform:translateY(0) scale(1)}
+    to{transform:translateY(-110vh) scale(1.5);opacity:0}
 }
 
 /* Sparkles */
@@ -98,19 +91,16 @@ h2{
     animation:sparkleFade .8s linear forwards;
 }
 @keyframes sparkleFade{
-    from{opacity:1;transform:scale(1);}
-    to{opacity:0;transform:scale(2.2);}
+    from{opacity:1;transform:scale(1)}
+    to{opacity:0;transform:scale(2.2)}
 }
 </style>
-
 </head>
 
 <body>
 
 <h1>💗 Our Complete Journey Together 💗</h1>
 <h2>A timeline of our love & memories ✨</h2>
-
-<!-- Install App Banner -->
 <div id="installBanner" style="
   display:none;
   background:#ff8fc8;
@@ -127,18 +117,18 @@ h2{
 ">
 💗 Install App — Tap Here 💗
 </div>
-
-<!-- Main Buttons -->
 <div class="grid">
     <a class="btn" href="earlydays.html">💞 Early Days</a>
     <a class="btn" href="anniversaries.html">🌙 Anniversaries</a>
     <a class="btn" href="specialdays.html">🌸 Special Days</a>
     <a class="btn" href="gallery.html">📷 Photo Gallery</a>
+
+    <!-- NEW Emotional Support Button (same style, theme, color) -->
     <a class="btn" href="emotional_support.html">💗 Emotional Support</a>
 </div>
 
-<!-- Floating Hearts -->
 <script>
+// Hearts
 setInterval(()=>{
     const h=document.createElement("div");
     h.className="heart";
@@ -148,10 +138,8 @@ setInterval(()=>{
     document.body.appendChild(h);
     setTimeout(()=>h.remove(),7000);
 },800);
-</script>
 
-<!-- Sparkles -->
-<script>
+// Sparkles
 document.addEventListener("mousemove",e=>{
     const s=document.createElement("div");
     s.className="sparkle";
@@ -161,21 +149,15 @@ document.addEventListener("mousemove",e=>{
     setTimeout(()=>s.remove(),800);
 });
 </script>
-
-<!-- Your Script -->
-<script src="script.js"></script>
-
-<!-- Firebase Notification Logic -->
-<script src="./firebase-notification.js"></script>
-
-<!-- Correct Service Worker Registration -->
+    <script src="script.js"></script>
 <script>
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('./service-worker.js')
-    .then(() => console.log("SW Registered Successfully"))
-    .catch(err => console.error("SW Registration Error:", err));
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log("Service Worker Registered"))
+    .catch(err => console.error("SW registration failed:", err));
 }
 </script>
+    <script src="firebase-notification.js"></script>
 
 </body>
 </html>
