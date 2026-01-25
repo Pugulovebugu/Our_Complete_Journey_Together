@@ -6,7 +6,9 @@
 <title>Complete Journey Together 💗</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff99c8">
+<link rel="icon" href="icons/icon-192.png">
 <style>
 a { text-decoration: none; }
 
@@ -128,6 +130,12 @@ document.addEventListener("mousemove",e=>{
     document.body.appendChild(s);
     setTimeout(()=>s.remove(),800);
 });
+</script>
+    <script>
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log("Service Worker Registered"));
+}
 </script>
 
 </body>
