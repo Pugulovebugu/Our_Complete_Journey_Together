@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scal
-e=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Open When You Overthink 🌿💚</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
@@ -16,6 +15,12 @@ body{
     font-family:'Poppins',sans-serif;
     text-align:center;
     color:#2a6b53;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
 .leaf{
@@ -23,6 +28,7 @@ body{
     animation:float 3s infinite ease-in-out;
     opacity:0.6;
 }
+
 @keyframes float{
     0%{transform:translateY(0);}
     50%{transform:translateY(-20px);}
@@ -32,7 +38,6 @@ body{
 .letter{
     background:white;
     padding:25px;
-    margin:auto;
     margin-top:20px;
     width:90%;
     max-width:500px;
@@ -60,9 +65,6 @@ p{
     text-decoration:none;
     border-radius:20px;
     font-weight:600;
-}
-.back:hover{
-    transform:scale(1.07);
 }
 </style>
 </head>

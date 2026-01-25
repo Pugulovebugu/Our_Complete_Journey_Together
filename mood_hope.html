@@ -15,12 +15,19 @@ body{
     font-family:'Poppins',sans-serif;
     text-align:center;
     color:#80632e;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
 .sun{
     font-size:3rem;
     animation:shine 2s infinite ease-in-out;
 }
+
 @keyframes shine{
     0%{opacity:0.6;}
     50%{opacity:1;}
@@ -30,7 +37,6 @@ body{
 .letter{
     background:white;
     padding:25px;
-    margin:auto;
     margin-top:20px;
     max-width:500px;
     width:90%;

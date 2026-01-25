@@ -8,6 +8,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script&display=swap" rel="stylesheet">
 
 <style>
+/* RAINDROP CONTAINER (full screen, behind everything) */
+.rain-container{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
 body{
     margin:0;
     padding:30px;
@@ -17,7 +29,17 @@ body{
     font-family:'Poppins',sans-serif;
     text-align:center;
     color:#2f506d;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+
+    position:relative;
+    z-index:1;
 }
+
 @keyframes bgShift{
     from{background-position:left;}
     to{background-position:right;}
@@ -31,9 +53,10 @@ body{
     background:#6fa8dc;
     opacity:0.6;
     animation:rain 1s infinite linear;
+    border-radius:2px;
 }
 @keyframes rain{
-    from{transform:translateY(-10px);}
+    from{transform:translateY(-20px);}
     to{transform:translateY(110vh);}
 }
 
@@ -41,7 +64,6 @@ body{
 .letter{
     background:white;
     padding:25px;
-    margin:auto;
     margin-top:20px;
     width:90%;
     max-width:500px;
@@ -49,6 +71,7 @@ body{
     box-shadow:0 10px 25px rgba(0,80,130,0.2);
     animation:fadeIn 1.2s ease;
 }
+
 @keyframes fadeIn{
     from{opacity:0; transform:translateY(20px);}
     to{opacity:1;}
@@ -76,21 +99,23 @@ p{
     border-radius:20px;
     font-weight:600;
 }
-.back:hover{
-    transform:scale(1.07);
-}
 </style>
 </head>
 
 <body>
 
+<!-- FIXED FULLSCREEN RAIN LAYER -->
+<div class="rain-container" id="rainLayer"></div>
+
 <script>
-for(let i=0;i<45;i++){
-    let drop=document.createElement("div");
-    drop.className="raindrop";
-    drop.style.left=Math.random()*100+"vw";
-    drop.style.animationDelay=Math.random()+"s";
-    document.body.appendChild(drop);
+const rainLayer = document.getElementById("rainLayer");
+for(let i = 0; i < 45; i++){
+    let drop = document.createElement("div");
+    drop.className = "raindrop";
+    drop.style.left = Math.random() * 100 + "vw";
+    drop.style.animationDelay = Math.random() + "s";
+    drop.style.animationDuration = (0.8 + Math.random()*0.8) + "s";
+    rainLayer.appendChild(drop);
 }
 </script>
 

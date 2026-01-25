@@ -15,20 +15,27 @@ body{
     font-family:'Poppins',sans-serif;
     text-align:center;
     color:#8b5368;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
-/* floating hearts */
 .heart{
     font-size:2rem;
     position:absolute;
     animation:float 3s infinite ease-in-out;
     opacity:0.6;
 }
+
 @keyframes float{
     0%{transform:translateY(0);}
     50%{transform:translateY(-18px);}
     100%{transform:translateY(0);}
 }
+
 .heart:nth-child(1){top:20%; left:20%;}
 .heart:nth-child(2){top:55%; left:80%;}
 .heart:nth-child(3){top:75%; left:35%;}
@@ -36,7 +43,6 @@ body{
 .letter{
     background:white;
     padding:25px;
-    margin:auto;
     margin-top:20px;
     width:90%;
     max-width:500px;
@@ -54,7 +60,6 @@ p{
     line-height:1.7;
 }
 
-/* back */
 .back{
     margin-top:25px;
     display:inline-block;
