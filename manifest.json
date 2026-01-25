@@ -1,8 +1,8 @@
 {
   "name": "Our Complete Journey 💗",
   "short_name": "Journey💗",
-  "start_url": "index.html",
-  "scope": "./",
+  "start_url": "Our_Complete_Journey_Together/index.html",
+  "scope": "Our_Complete_Journey_Together/",
   "display": "standalone",
   "background_color": "#ffe0f3",
   "theme_color": "#ff89c3",
