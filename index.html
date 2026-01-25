@@ -169,11 +169,11 @@ installBanner.addEventListener("click", async () => {
 
 // Service Worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js')
+  navigator.serviceWorker.register('service-worker.js')
     .then(() => console.log("Service Worker Registered"));
 }
     if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/service-worker.js").then(reg => {
+  navigator.serviceWorker.register("service-worker.js").then(reg => {
 
     reg.onupdatefound = () => {
       const newWorker = reg.installing;
