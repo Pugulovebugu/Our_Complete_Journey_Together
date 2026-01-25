@@ -1,3 +1,4 @@
+/* Update Popup */
 .update-popup {
   position: fixed;
   bottom: 25px;
@@ -14,17 +15,43 @@
   animation: fadeIn 0.3s ease-out;
   cursor: pointer;
 }
+
+/* Fade In */
 @keyframes fadeIn {
   from { opacity: 0; transform: translate(-50%, 10px); }
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
-/* App icon glow animation for PWA */
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; -webkit-transform: translate(-50%, 10px); }
+  to   { opacity: 1; -webkit-transform: translate(-50%, 0); }
+}
+
+/* Optional Fade Out (in case you want to hide popup smoothly) */
+@keyframes fadeOut {
+  from { opacity: 1; transform: translate(-50%, 0); }
+  to   { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+@-webkit-keyframes fadeOut {
+  from { opacity: 1; -webkit-transform: translate(-50%, 0); }
+  to   { opacity: 0; -webkit-transform: translate(-50%, 10px); }
+}
+
+/* PWA Icon Glow */
 @keyframes iconGlow {
-    0% { box-shadow: 0 0 0px rgba(255,150,200,0.6); }
-    50% { box-shadow: 0 0 20px rgba(255,150,200,1); }
-    100% { box-shadow: 0 0 0px rgba(255,150,200,0.6); }
+  0% { box-shadow: 0 0 0px rgba(255,150,200,0.6); }
+  50% { box-shadow: 0 0 20px rgba(255,150,200,1); }
+  100% { box-shadow: 0 0 0px rgba(255,150,200,0.6); }
+}
+
+@-webkit-keyframes iconGlow {
+  0% { box-shadow: 0 0 0px rgba(255,150,200,0.6); }
+  50% { box-shadow: 0 0 20px rgba(255,150,200,1); }
+  100% { box-shadow: 0 0 0px rgba(255,150,200,0.6); }
 }
 
 .pwa-launch-glow {
-    animation: iconGlow 2.5s ease-in-out infinite;
+  animation: iconGlow 2.5s ease-in-out infinite;
+  -webkit-animation: iconGlow 2.5s ease-in-out infinite;
 }
