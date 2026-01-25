@@ -41,3 +41,11 @@ function showUpdatePopup() {
   popup.onclick = () => location.reload();
   document.body.appendChild(popup);
 }
+// Detect if running as installed PWA
+const isPWA = window.matchMedia('(display-mode: standalone)').matches ||
+              window.navigator.standalone === true;
+
+// Add glow to body when app is opened like a real app
+if (isPWA) {
+    document.body.classList.add("pwa-launch-glow");
+}
