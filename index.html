@@ -169,34 +169,9 @@ installBanner.addEventListener("click", async () => {
 
 // Service Worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('service-worker.js')
+  navigator.serviceWorker.register('/service-worker.js')
     .then(() => console.log("Service Worker Registered"));
 }
-    if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js").then(reg => {
-
-    reg.onupdatefound = () => {
-      const newWorker = reg.installing;
-
-      newWorker.onstatechange = () => {
-        if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
-          // Instantly activate new worker
-          newWorker.postMessage("skipWaiting");
-
-          // Auto refresh page immediately
-          window.location.reload();
-        }
-      };
-    };
-
-  });
-}
-
-// Listen inside SW
-navigator.serviceWorker.addEventListener("controllerchange", () => {
-  window.location.reload();
-});
-
 </script>
 
 </body>
