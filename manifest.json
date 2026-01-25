@@ -1,10 +1,11 @@
 {
-  "name": "Our Complete Journey Together",
-  "short_name": "Pugu💖Bugu",
-  "start_url": "index.html",
+  "name": "Our Complete Journey 💗",
+  "short_name": "Journey💗",
+  "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#ffe6ef",
-  "theme_color": "#ff99c8",
+  "background_color": "#ffe0f3",
+  "theme_color": "#ff89c3",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
@@ -15,9 +16,6 @@
       "src": "icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
-    }
-  ]
-}
     }
   ]
 }

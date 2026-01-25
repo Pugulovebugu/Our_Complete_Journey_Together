@@ -6,12 +6,11 @@
 <title>Complete Journey Together 💗</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#ff89c3">
 <link rel="icon" href="icon-192.png">
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-messaging.js"></script>
+
 <style>
 a { text-decoration: none; }
 
@@ -94,14 +93,9 @@ h2{
     from{opacity:1;transform:scale(1)}
     to{opacity:0;transform:scale(2.2)}
 }
-</style>
-</head>
 
-<body>
-
-<h1>💗 Our Complete Journey Together 💗</h1>
-<h2>A timeline of our love & memories ✨</h2>
-<div id="installBanner" style="
+/* Install Banner */
+#installBanner{
   display:none;
   background:#ff8fc8;
   color:white;
@@ -114,16 +108,22 @@ h2{
   font-weight:600;
   box-shadow:0 6px 15px rgba(0,0,0,0.2);
   cursor:pointer;
-">
-💗 Install App — Tap Here 💗
-</div>
+}
+</style>
+</head>
+
+<body>
+
+<h1>💗 Our Complete Journey Together 💗</h1>
+<h2>A timeline of our love & memories ✨</h2>
+
+<div id="installBanner">💗 Install App — Tap Here 💗</div>
+
 <div class="grid">
     <a class="btn" href="earlydays.html">💞 Early Days</a>
     <a class="btn" href="anniversaries.html">🌙 Anniversaries</a>
     <a class="btn" href="specialdays.html">🌸 Special Days</a>
     <a class="btn" href="gallery.html">📷 Photo Gallery</a>
-
-    <!-- NEW Emotional Support Button (same style, theme, color) -->
     <a class="btn" href="emotional_support.html">💗 Emotional Support</a>
 </div>
 
@@ -148,16 +148,31 @@ document.addEventListener("mousemove",e=>{
     document.body.appendChild(s);
     setTimeout(()=>s.remove(),800);
 });
-</script>
-    <script src="script.js"></script>
-<script>
+
+// PWA Install Banner
+let deferredPrompt;
+const installBanner = document.getElementById("installBanner");
+
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  installBanner.style.display = "block";
+});
+
+installBanner.addEventListener("click", async () => {
+  installBanner.style.display = "none";
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+  deferredPrompt = null;
+});
+
+// Service Worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/service-worker.js')
-    .then(() => console.log("Service Worker Registered"))
-    .catch(err => console.error("SW registration failed:", err));
+    .then(() => console.log("Service Worker Registered"));
 }
 </script>
-    <script src="firebase-notification.js"></script>
 
 </body>
 </html>
