@@ -6,10 +6,10 @@
 <title>Complete Journey Together 💗</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#ff89c3">
 <link rel="icon" href="icon-192.png">
-<meta name="theme-color" content="#ff99c8">
-    <link rel="stylesheet" href="style.css">
 <style>
 a { text-decoration: none; }
 
@@ -132,13 +132,13 @@ document.addEventListener("mousemove",e=>{
     setTimeout(()=>s.remove(),800);
 });
 </script>
-    <script>
+    <script src="script.js"></script>
+<script>
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-    .then(() => console.log("Service Worker Registered"));
+  navigator.serviceWorker.register('/service-worker.js')
+    .then(() => console.log("SW Registered"));
 }
 </script>
-    <script src="script.js"></script>
 
 </body>
 </html>
