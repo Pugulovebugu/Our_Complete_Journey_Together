@@ -158,10 +158,11 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.error("SW registration failed:", err));
 }
 </script>
-    <script src="firebase-notification.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <!-- Firebase Scripts MUST be loaded BEFORE your file -->
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-messaging.js"></script>
 
+<!-- Your notification handler -->
 <script src="./firebase-notification.js"></script>
 
 <script>
@@ -171,6 +172,7 @@ if ('serviceWorker' in navigator) {
     .catch(err => console.log("SW ERROR:", err));
 }
 </script>
+
 
 
 </body>
