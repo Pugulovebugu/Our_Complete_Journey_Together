@@ -1,25 +1,28 @@
-const CACHE_NAME = "love-journey-v3";
+const CACHE_NAME = "journey-cache-v4";
+
+// The base folder of your GitHub Pages site
+const BASE = "/Our_Complete_Journey_Together/";
 
 const FILES_TO_CACHE = [
-  "index.html",
-  "earlydays.html",
-  "anniversaries.html",
-  "specialdays.html",
-  "gallery.html",
-  "emotional_support.html",
-  "style.css",          // ✅ FIX: included safely
-  "icon-192.png",
-  "icon-512.png",
-  "manifest.json"
+  BASE + "index.html",
+  BASE + "earlydays.html",
+  BASE + "anniversaries.html",
+  BASE + "specialdays.html",
+  BASE + "gallery.html",
+  BASE + "emotional_support.html",
+  BASE + "style.css",
+  BASE + "icon-192.png",
+  BASE + "icon-512.png",
+  BASE + "manifest.json"
 ];
 
-// Install Service Worker → Cache files safely
+// INSTALL — Cache everything safely
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(async (cache) => {
       try {
         await cache.addAll(FILES_TO_CACHE);
-        console.log("✨ Files cached successfully!");
+        console.log("✨ Cached Successfully");
       } catch (err) {
         console.warn("⚠️ Cache error:", err);
       }
@@ -28,13 +31,16 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-// Activate Service Worker → Remove old caches
+// ACTIVATE — Clean old caches
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(
         keys.map((key) => {
-          if (key !== CACHE_NAME) return caches.delete(key);
+          if (key !== CACHE_NAME) {
+            console.log("🗑️ Removing old cache:", key);
+            return caches.delete(key);
+          }
         })
       )
     )
@@ -42,13 +48,13 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Fetch → Offline first, then network fallback
+// FETCH — Offline support
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((cached) => {
+    caches.match(event.request).then((cachedResponse) => {
       return (
-        cached ||
-        fetch(event.request).catch(() => caches.match("index.html"))
+        cachedResponse ||
+        fetch(event.request).catch(() => caches.match(BASE + "index.html"))
       );
     })
   );
