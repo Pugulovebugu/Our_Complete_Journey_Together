@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Message From My Heart </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+a { text-decoration: none; }
+
+/* ✨ Korean Aesthetic Pastel Theme */
+body{
+    margin:0;
+    padding:30px;
+    font-family:'Poppins',sans-serif;
+    text-align:center;
+
+    /* Softer Korean pastel gradient */
+    background:linear-gradient(135deg,#fdf2f8,#e8f3ff,#fdeff6);
+    background-size:300% 300%;
+    animation:bgShift 16s infinite alternate;
+}
+@keyframes bgShift{
+    from{background-position:left}
+    to{background-position:right}
+}
+
+h1{
+    margin-top:40px;
+    font-family:'Dancing Script',cursive;
+    font-size:2.5rem;
+
+    /* Korean soft pink */
+    color:#ff7aa4;
+    text-shadow:0 0 12px rgba(255,140,190,0.25);
+}
+
+/* MESSAGE BOX — only color theme changed */
+.message-box{
+    background:rgba(255,255,255,0.82);
+
+    /* Korean soft pastel pink border */
+    border:2px solid #ffdce9;
+
+    border-radius:22px;
+    padding:25px 22px;
+    font-size:1.01rem;
+
+    line-height:1.8;
+
+    /* softer gray for Korean look */
+    color:#505050;
+
+    box-shadow:0 8px 22px rgba(255,170,200,0.25);
+    white-space:pre-line;
+    margin-bottom:30px;
+}
+
+/* Back button */
+.back{
+    display:inline-block;
+    margin-top:30px;
+    padding:14px 30px;
+
+    /* Korean tint pink */
+    background:#ff7dad;
+    color:white;
+
+    font-weight:600;
+    border-radius:24px;
+    font-size:1.1rem;
+    box-shadow:0 8px 20px rgba(255,150,190,0.25);
+}
+.back:hover{
+    transform:scale(1.07);
+    background:#ff5c95;
+}
+
+/* Floating hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+
+    /* pastel pink hearts */
+    color:#ff9ac9;
+
+    opacity:.8;
+    animation:floatUp 7s linear infinite;
+    z-index:-1;
+}
+@keyframes floatUp{
+    from{transform:translateY(0) scale(1)}
+    to{transform:translateY(-110vh) scale(1.5);opacity:0}
+}
+
+/* Sparkles */
+.sparkle{
+    position:fixed;
+    width:10px;
+    height:10px;
+
+    /* pastel sparkle */
+    background:#ffcbe4;
+
+    border-radius:50%;
+    pointer-events:none;
+    animation:sparkleFade .8s linear forwards;
+}
+@keyframes sparkleFade{
+    from{opacity:1;transform:scale(1)}
+    to{opacity:0;transform:scale(2.2)}
+}
+</style>
+</head>
+
+<body>
+
+<h1>A Message From My Heart</h1>
+
+<div class="message-box">
+Bugu… today is 25 Jan 2026, and you’re in so much pain. It hurts me that because of this long distance, I can’t do anything to help you. I’m missing you so much right now.
+I’m feeling really bad for you, but I’m not able to express it properly… because your pain feels bigger than my feelings. I don’t want to add anything more to what you’re already going through.
+But I want you to know this — I do care for you, more than I show. I know you need me, and I wish I could be there with you. I’m feeling guilty and I regret not being by your side in this moment.
+I’m really sorry, my bugu. I love you so much, I care for you so much… I just fail to express it sometimes. Today feels painful for me too, because seeing you in pain, even from far away, breaks me. And it hurts even more knowing you have to suffer it alone.
+You might think that I don’t care, but that’s not true. The truth is, I feel everything — I just don’t know how to say it when you’re hurting.
+I’m very sad today, and I feel guilty for not being with you right now. I just want you to recover soon and smile again… that cute smile that makes everything feel okay. I want my happy bugu back.
+Get well soon, bugu… this is everything that’s in my heart and mind right now. And I’m really, really sorry.
+</div>
+
+<a class="back" href="message_from_my_heart.html">← Back</a>
+
+<script>
+// Hearts floating
+setInterval(()=>{
+    const h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💗";
+    h.style.left=Math.random()*100+"vw";
+    h.style.fontSize=(Math.random()*18+16)+"px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7000);
+},800);
+
+// Sparkles follow mouse
+document.addEventListener("mousemove",e=>{
+    const s=document.createElement("div");
+    s.className="sparkle";
+    s.style.left=e.pageX+"px";
+    s.style.top=e.pageY+"px";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),800);
+});
+</script>
+
+</body>
+</html>

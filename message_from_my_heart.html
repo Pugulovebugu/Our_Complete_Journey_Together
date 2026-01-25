@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emotional Support 💗</title>
+<title>A Message From My Heart 💗</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
@@ -32,27 +32,21 @@ h1{
     text-shadow:0 0 12px rgba(255,120,180,0.3);
 }
 
-.grid{
-    width:90%;
-    max-width:850px;
-    margin:40px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-    gap:22px;
-}
-
-.btn{
+/* Big button */
+.big-btn{
+    display:inline-block;
+    margin-top:40px;
+    padding:22px 40px;
     background:rgba(255,255,255,0.82);
     border:2px solid #ffd7ea;
-    padding:22px 10px;
     border-radius:22px;
     font-weight:600;
-    font-size:1.2rem;
+    font-size:1.5rem;
     color:#444;
     box-shadow:0 8px 22px rgba(255,120,180,0.25);
     transition:.3s ease;
 }
-.btn:hover{
+.big-btn:hover{
     background:white;
     transform:translateY(-6px) scale(1.05);
     box-shadow:0 12px 28px rgba(255,120,180,0.35);
@@ -62,7 +56,7 @@ h1{
 /* Back button */
 .back{
     display:inline-block;
-    margin-top:30px;
+    margin-top:40px;
     padding:14px 30px;
     background:#ff5da8;
     color:white;
@@ -109,22 +103,11 @@ h1{
 
 <body>
 
-<h1>Emotional Support 💗</h1>
+<h1>A Message From My Heart 💗</h1>
 
-<div class="grid">
+<a class="big-btn" href="sad_message.html">📅 25 Jan 2026</a>
 
-    <!-- ⭐ NEW BUTTON ADDED HERE ⭐ -->
-    <a class="btn" href="message_from_my_heart.html">💗 A Message From My Heart</a>
-
-    <a class="btn" href="heartbeat.html">❤️ Heartbeat</a>
-    <a class="btn" href="distance.html">🌍 Distance Map</a>
-    <a class="btn" href="hug.html">🤗 Warm Hug</a>
-    <a class="btn" href="touch_me.html">🌙 Touch Me</a>
-    <a class="btn" href="open_when.html">💌 Open When…</a>
-    <a class="btn" href="mood_letters.html">✨ Mood Letters</a>
-</div>
-
-<a class="back" href="index.html">← Back to Home</a>
+<a class="back" href="emotional_support.html">← Back</a>
 
 <script>
 // Hearts floating
