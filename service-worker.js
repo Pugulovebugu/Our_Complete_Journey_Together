@@ -1,54 +1,56 @@
-const CACHE_NAME = "ocjt-cache-v1";
-
-// Files to cache (add more if needed)
-const urlsToCache = [
+const CACHE_NAME = "ocjt-cache-v3"; // change number whenever you update
+const FILES_TO_CACHE = [
   "/",
   "/index.html",
   "/style.css",
-  "/script.js"
+  "/script.js",
+  "/icon-192.png",
+  "/icon-512.png"
 ];
 
-// Install (cache files)
+// INSTALL
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(FILES_TO_CACHE);
+    })
   );
+  self.skipWaiting();
 });
 
-// Activate and delete old caches
+// ACTIVATE — remove old caches
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys => {
       return Promise.all(
-        keys
-          .filter(key => key !== CACHE_NAME)
-          .map(key => caches.delete(key))
+        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
       );
     })
   );
+  self.clients.claim();
 });
 
-// Update mechanism
+// FETCH with auto-update detection
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(cached => {
-      // Fetch fresh version in background
-      const fetchPromise = fetch(event.request)
-        .then(networkResponse => {
+      const networkFetch = fetch(event.request)
+        .then(response => {
           caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, networkResponse.clone());
-            // Notify page that update is ready
+            cache.put(event.request, response.clone());
+
+            // Notify page about update
             self.clients.matchAll().then(clients => {
               clients.forEach(client => {
-                client.postMessage({ type: "NEW_VERSION" });
+                client.postMessage({ type: "UPDATE_AVAILABLE" });
               });
             });
           });
-          return networkResponse.clone();
+          return response.clone();
         })
         .catch(() => cached);
 
-      return cached || fetchPromise;
+      return cached || networkFetch;
     })
   );
 });
