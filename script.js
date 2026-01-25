@@ -1,27 +1,19 @@
-// Listen for service worker update messages
-if ('serviceWorker' in navigator) {
+// Listen for update messages
+if ("serviceWorker" in navigator) {
   navigator.serviceWorker.addEventListener("message", event => {
-    if (event.data.type === "NEW_VERSION") {
+    if (event.data.type === "UPDATE_AVAILABLE") {
       showUpdatePopup();
     }
   });
 }
 
-// Popup function
+// Show pink update popup
 function showUpdatePopup() {
-  // Create popup div
   const popup = document.createElement("div");
-  popup.id = "updatePopup";
-  popup.innerHTML = `
-    <div class="update-message">
-      💖 New update available — Tap to refresh
-    </div>
-  `;
+  popup.className = "update-popup";
+  popup.innerHTML = "💖 New update available — Tap to refresh";
 
-  // Click to refresh
   popup.onclick = () => location.reload();
 
-  // Add to page
   document.body.appendChild(popup);
 }
-
