@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pugu ❤️ Bugu – 7 Months</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+/* ---------------------------------------------------
+   ROOT VARIABLES
+--------------------------------------------------- */
+:root{
+  --wave1:#fff5ec;
+  --wave2:#fbeee3;
+
+  --nebula1:rgba(180,0,255,0.25);
+  --nebula2:rgba(0,120,255,0.25);
+  --nebula3:rgba(255,0,180,0.20);
+
+  --card-bg:rgba(255,255,255,0.78);
+  --text-main:#3a2f2f;
+  --text-sub:#8d7f7f;
+
+  --btn-bg:#e8dcd3;
+  --btn-text:#4b3f3f;
+
+  --petal-color:rgba(255,210,180,0.9);
+}
+
+/* ---------------------------------------------------
+   UI ROOT (BUTTONS NEVER MOVE)
+--------------------------------------------------- */
+#ui-root{
+  position:fixed !important;
+  inset:0;
+  width:100vw;
+  height:100vh;
+  pointer-events:none !important;
+  z-index:999999999 !important;
+}
+
+#ui-root button{
+  pointer-events:auto !important;
+  position:fixed !important;
+  z-index:999999999 !important;
+  filter:none !important;
+  transform:none !important;
+}
+
+/* ---------------------------------------------------
+   BACKGROUND WAVES
+--------------------------------------------------- */
+body{
+  margin:0;
+  background:linear-gradient(135deg,var(--wave1),var(--wave2));
+  background-size:300% 300%;
+  animation:waveMove 16s ease infinite;
+  height:100vh;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+@keyframes waveMove{
+  0%{background-position:0 0;}
+  50%{background-position:100% 100%;}
+  100%{background-position:0 0;}
+}
+
+/* ---------------------------------------------------
+   SCREENS
+--------------------------------------------------- */
+.screen{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  padding:30px;
+  text-align:center;
+  opacity:0;
+  filter:blur(12px);
+  transition:1s ease;
+}
+.screen.active{
+  opacity:1;
+  filter:blur(0);
+  z-index:10;
+}
+.screen.fade-out{
+  opacity:0;
+  filter:blur(14px);
+}
+
+/* ---------------------------------------------------
+   CARD
+--------------------------------------------------- */
+.card{
+  background:var(--card-bg);
+  padding:28px;
+  width:90%;
+  max-width:620px;
+  border-radius:18px;
+  line-height:1.7;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  backdrop-filter:blur(10px);
+  color:var(--text-main);
+}
+
+/* ---------------------------------------------------
+   HEADINGS
+--------------------------------------------------- */
+.k-title{
+  font-family:'Nanum Myeongjo',serif;
+  font-size:36px;
+}
+.sub{
+  font-size:14px;
+  color:var(--text-sub);
+  margin-bottom:22px;
+}
+
+/* ---------------------------------------------------
+   NEXT BUTTON
+--------------------------------------------------- */
+.btn{
+  margin-top:25px;
+  padding:12px 26px;
+  border:none;
+  border-radius:18px;
+  background:var(--btn-bg);
+  color:var(--btn-text);
+  cursor:pointer;
+  box-shadow:0 0 15px var(--btn-bg);
+}
+
+/* ---------------------------------------------------
+   FLOATING BUTTONS
+--------------------------------------------------- */
+.color-btn{
+  bottom:20px;
+  right:20px;
+  padding:10px 18px;
+  border-radius:18px;
+  background:var(--btn-bg);
+  color:var(--btn-text);
+  border:none;
+  animation:btnBounce 2.5s ease-in-out infinite;
+}
+@keyframes btnBounce{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.06);}
+}
+
+.night-btn{
+  top:20px;
+  right:20px;
+  width:52px;
+  height:52px;
+  background:rgba(255,255,255,0.75);
+  border:none;
+  border-radius:50%;
+  font-size:24px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  animation:moonPulse 3s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------
+   PETALS & STARS FIXED Z-INDEX
+--------------------------------------------------- */
+.petal, .star {
+  position:fixed;
+  z-index:900000 !important;
+}
+
+/* PETALS animation */
+.petal{
+  bottom:-20px;
+  font-size:22px;
+  color:var(--petal-color);
+  animation:float 7s linear infinite;
+}
+@keyframes float{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-120vh);}
+}
+
+/* STARS */
+.star{
+  width:4px;
+  height:4px;
+  background:white;
+  border-radius:50%;
+  animation:starFloat 7s linear infinite;
+}
+@keyframes starFloat{
+  0%{transform:translateY(0);}
+  100%{transform:translateY(-120vh);}
+}
+
+/* ---------------------------------------------------
+   NIGHT MODE (NEBULA + CONSTELLATIONS)
+--------------------------------------------------- */
+body.night{background:transparent !important;}
+
+body.night::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(circle at 20% 30%,var(--nebula1),transparent 60%),
+    radial-gradient(circle at 80% 70%,var(--nebula2),transparent 60%),
+    radial-gradient(circle at 50% 50%,var(--nebula3),transparent 65%);
+  filter:blur(50px);
+  animation:nebulaMove 18s ease-in-out infinite;
+  z-index:-1;
+}
+
+@keyframes nebulaMove{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.15);}
+  100%{transform:scale(1);}
+}
+
+body.night::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    repeating-linear-gradient(90deg,rgba(255,255,255,0.05)0,transparent 2px 110px),
+    repeating-linear-gradient(180deg,rgba(255,255,255,0.04)0,transparent 2px 130px);
+  mix-blend-mode:screen;
+  z-index:-1;
+}
+  
+/* BACK BUTTON */
+.back-btn{
+  left:20px;
+  bottom:20px;
+  padding:10px 22px;
+  border:none;
+  border-radius:18px;
+  background:var(--btn-bg);
+  color:var(--btn-text);
+  box-shadow:0 0 15px var(--btn-bg);
+  cursor:pointer;
+  animation:btnBounce 2.5s ease-in-out infinite;
+  position:fixed;
+  z-index:999999999;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- UI buttons in separate root -->
+<div id="ui-root">
+  <button id="nightIcon" onclick="toggleNightMode()" class="night-btn">🌙</button>
+  <button onclick="changeTheme()" class="color-btn">Change Theme</button>
+</div>
+  <!-- NEW BACK BUTTON -->
+  <button id="backBtn" onclick="goBack()" class="back-btn">⟵ Back</button>
+
+
+<!-- SCREENS -->
+<div class="screen active" id="s1">
+  <div class="k-title">Pugu ❤️ Bugu</div>
+  <div class="sub">7 Months of Us</div>
+
+  <div class="card">
+    <p>My sweetest Bugu,</p>
+    <p>Seven months with you feels soft, warm, and peaceful — like a gentle morning.</p>
+  </div>
+
+  <button class="btn" onclick="next(2)">Next</button>
+</div>
+  <div class="screen" id="s2">
+  <div class="k-title">You Are My Warmth</div>
+  <div class="sub">A soft presence in my everyday</div>
+
+  <div class="card">
+    <p>You make my world slow down in the sweetest way.</p>
+    <p>Your voice, your kindness — everything feels peaceful with you.</p>
+  </div>
+
+  <button class="btn" onclick="next(3)">Next</button>
+</div>
+
+<div class="screen" id="s3">
+  <div class="k-title">My Most Precious One</div>
+  <div class="sub">The one my heart chooses</div>
+
+  <div class="card">
+    <p>You aren’t just someone I love.</p>
+    <p>You are someone my heart rests with — someone who feels like home.</p>
+  </div>
+
+  <button class="btn" onclick="next(4)">Next</button>
+</div>
+
+<div class="screen" id="s4">
+  <div class="k-title">Thank You for Being You</div>
+  <div class="sub">Soft, gentle, and beautiful</div>
+
+  <div class="card">
+    <p>I love the quiet comfort you bring.</p>
+    <p>Everything feels softer, calmer, sweeter when it’s you.</p>
+  </div>
+
+  <button class="btn" onclick="next(5)">Next</button>
+</div>
+
+<div class="screen" id="s5">
+  <div class="k-title">A Beautiful Beginning</div>
+  <div class="sub">Seven months of love</div>
+
+  <div class="card">
+    <p>Seven months isn’t a long time…</p>
+    <p>But with you, it feels full, meaningful, and warm — like something blooming slowly and beautifully.</p>
+  </div>
+
+  <button class="btn" onclick="next(6)">Next</button>
+</div>
+
+<div class="screen" id="s6">
+  <div class="card">
+    <div class="k-title">My Bugu</div>
+    <p>You are my calm.</p>
+    <p>You are my softness.</p>
+    <p>You are my sweetest feeling.</p>
+    <p>I LOVE YOU </p>
+    <p class="k-title" style="font-size:26px;">— Your Pugu</p>
+  </div>
+
+  <button class="btn" onclick="restart()">Restart</button>
+</div>
+
+
+<script>
+
+/* ---------------------------------------------------
+   PARTICLES — PETALS (DAY) & STARS (NIGHT)
+--------------------------------------------------- */
+
+// 🌸 PETALS generated ONLY on first load
+function createPetals(){
+  const arr=["🌸","🌺","🌼","🌱","🌿"];
+  for(let i=0; i<28; i++){
+    let p=document.createElement("div");
+    p.className="petal";
+    p.innerHTML=arr[Math.floor(Math.random()*arr.length)];
+    p.style.left=Math.random()*100+"vw";
+    p.style.animationDelay=Math.random()*6+"s";
+    document.body.appendChild(p);
+  }
+}
+
+// ⭐ STARS regenerate when theme changes in night mode
+function createStars(){
+  document.querySelectorAll('.star').forEach(e=>e.remove());
+  for(let i=0; i<45; i++){
+    let s=document.createElement("div");
+    s.className="star";
+    s.style.left=Math.random()*100+"vw";
+    s.style.animationDelay=Math.random()*7+"s";
+    document.body.appendChild(s);
+  }
+}
+
+// Load day petals once
+createPetals();
+
+
+/* ---------------------------------------------------
+   SLIDE NAVIGATION
+--------------------------------------------------- */
+function next(n){
+  const curr=document.querySelector(".screen.active");
+  const nxt=document.getElementById("s"+n);
+
+  curr.classList.add("fade-out");
+
+  setTimeout(()=>{
+    curr.classList.remove("active","fade-out");
+    nxt.classList.add("active");
+  },500);
+}
+
+function restart(){
+  const curr=document.querySelector(".screen.active");
+  const first=document.getElementById("s1");
+
+  curr.classList.add("fade-out");
+
+  setTimeout(()=>{
+    curr.classList.remove("active","fade-out");
+    first.classList.add("active");
+  },500);
+}
+
+
+/* ---------------------------------------------------
+   THEMES (DAY)
+--------------------------------------------------- */
+let themeIndex=1;
+
+const dayThemes=[
+  {
+    bg1:"#ffeef6", bg2:"#fde7f1",
+    card:"rgba(255,255,255,0.78)", main:"#4b3f3f", sub:"#b792a1",
+    btn:"#f4d9e4", btnText:"#4b3f3f",
+    petal:"rgba(255,180,200,0.9)"
+  },
+  {
+    bg1:"#fff5ec", bg2:"#fbeee3",
+    card:"rgba(255,255,255,0.78)", main:"#3a2f2f", sub:"#8d7f7f",
+    btn:"#e8dcd3", btnText:"#4b3f3f",
+    petal:"rgba(255,210,180,0.9)"
+  },
+  {
+    bg1:"#f7f2ff", bg2:"#f0e7ff",
+    card:"rgba(255,255,255,0.78)", main:"#4c3f54", sub:"#9e90b7",
+    btn:"#e3d9f7", btnText:"#463c54",
+    petal:"rgba(210,175,255,0.9)"
+  },
+  {
+    bg1:"#e9fff7", bg2:"#e0faf1",
+    card:"rgba(255,255,255,0.78)", main:"#3e544e", sub:"#7ea59b",
+    btn:"#d5f2e8", btnText:"#324842",
+    petal:"rgba(170,235,210,0.9)"
+  },
+  {
+    bg1:"#fff0e8", bg2:"#ffe4d7",
+    card:"rgba(255,255,255,0.78)", main:"#5b403c", sub:"#d19b91",
+    btn:"#f8d8cc", btnText:"#5a3f3a",
+    petal:"rgba(255,190,170,0.9)"
+  }
+];
+
+
+/* ---------------------------------------------------
+   THEMES (NIGHT)
+--------------------------------------------------- */
+let galaxyIndex=0;
+
+const galaxyThemes=[
+  {
+    neb1:"rgba(180,0,255,0.25)",
+    neb2:"rgba(0,120,255,0.25)",
+    neb3:"rgba(255,0,180,0.20)",
+    card:"rgba(25,20,40,0.55)",
+    main:"#e8e4ff", sub:"#b7abd8",
+    btn:"#392b5a", btnText:"#f5f1ff"
+  },
+  {
+    neb1:"rgba(0,50,255,0.25)",
+    neb2:"rgba(0,140,255,0.25)",
+    neb3:"rgba(0,200,255,0.20)",
+    card:"rgba(18,22,40,0.55)",
+    main:"#dceaff", sub:"#9fb6d9",
+    btn:"#20314a", btnText:"#dceaff"
+  },
+  {
+    neb1:"rgba(255,0,200,0.25)",
+    neb2:"rgba(255,0,100,0.25)",
+    neb3:"rgba(255,80,180,0.20)",
+    card:"rgba(30,0,40,0.55)",
+    main:"#ffd8ff", sub:"#d8a0d8",
+    btn:"#3a003a", btnText:"#ffd8ff"
+  }
+];
+
+
+/* ---------------------------------------------------
+   APPLY THEME
+--------------------------------------------------- */
+function applyTheme(t,isNight){
+
+  if(!isNight){
+    document.documentElement.style.setProperty("--wave1", t.bg1);
+    document.documentElement.style.setProperty("--wave2", t.bg2);
+  }else{
+    document.documentElement.style.setProperty("--nebula1", t.neb1);
+    document.documentElement.style.setProperty("--nebula2", t.neb2);
+    document.documentElement.style.setProperty("--nebula3", t.neb3);
+  }
+
+  document.documentElement.style.setProperty("--card-bg", t.card);
+  document.documentElement.style.setProperty("--text-main", t.main);
+  document.documentElement.style.setProperty("--text-sub", t.sub);
+  document.documentElement.style.setProperty("--btn-bg", t.btn);
+  document.documentElement.style.setProperty("--btn-text", t.btnText);
+}
+
+
+/* ---------------------------------------------------
+   NIGHT MODE TOGGLE
+--------------------------------------------------- */
+let night=false;
+
+function toggleNightMode(){
+  night=!night;
+
+  if(night){
+    document.body.classList.add("night");
+    document.getElementById("nightIcon").innerHTML="☀️";
+
+    galaxyIndex=0;
+    applyTheme(galaxyThemes[galaxyIndex],true);
+    createStars(); // ⭐ stars appear
+
+  }else{
+    document.body.classList.remove("night");
+    document.getElementById("nightIcon").innerHTML="🌙";
+
+    applyTheme(dayThemes[themeIndex],false);
+    // 🌸 petals stay exactly where they are (no reset)
+  }
+}
+
+
+/* ---------------------------------------------------
+   THEME CHANGE BUTTON
+--------------------------------------------------- */
+function changeTheme(){
+
+  if(!night){
+    // DAY MODE — DO NOT TOUCH PETALS
+    themeIndex=(themeIndex+1)%dayThemes.length;
+    applyTheme(dayThemes[themeIndex],false);
+
+  }else{
+    // NIGHT MODE — update nebula + stars
+    galaxyIndex=(galaxyIndex+1)%galaxyThemes.length;
+    applyTheme(galaxyThemes[galaxyIndex],true);
+    createStars();
+  }
+}
+  /* BACK BUTTON */
+function goBack(){
+  window.location.href = "1year_anniversary.html";
+}
+
+
+</script>
+
+</body>
+</html>

@@ -47,7 +47,7 @@ h2 {
   gap: 20px;
 }
 
-/* Normal Button */
+/* Button */
 .btn {
   background: rgba(255, 255, 255, 0.8);
   padding: 20px;
@@ -65,7 +65,20 @@ h2 {
   color: #ff4f9a;
 }
 
-/* Locked Button */
+/* Cute pastel sticker-style date */
+.date {
+  margin-top: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ff77a9;
+  background: #fff0f7;
+  padding: 2px 10px;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(255, 140, 185, 0.25);
+  display: inline-block;
+}
+
+/* Locked Buttons */
 .locked {
   background: #ffe6f2;
   border: 2px solid #ffb3d7;
@@ -121,41 +134,70 @@ h2 {
 <div class="grid">
 
   <!-- UNLOCKED MONTHS 1–6 -->
-  <a class="btn" href="1month.html">1 Month</a>
-  <a class="btn" href="2months.html">2 Months</a>
-  <a class="btn" href="3months.html">3 Months</a>
-  <a class="btn" href="4months.html">4 Months</a>
-  <a class="btn" href="5months_menu.html">5 Months</a>
-  <a class="btn" href="6months.html">6 Months</a>
+  <a class="btn" href="1month.html">
+    1 Month
+    <div class="date">22 Aug 2025</div>
+  </a>
+
+  <a class="btn" href="2months.html">
+    2 Months
+    <div class="date">22 Sep 2025</div>
+  </a>
+
+  <a class="btn" href="3months.html">
+    3 Months
+    <div class="date">22 Oct 2025</div>
+  </a>
+
+  <a class="btn" href="4months.html">
+    4 Months
+    <div class="date">22 Nov 2025</div>
+  </a>
+
+  <a class="btn" href="5months_menu.html">
+    5 Months
+    <div class="date">22 Dec 2025</div>
+  </a>
+
+  <a class="btn" href="6months.html">
+    6 Months
+    <div class="date">22 Jan 2026</div>
+  </a>
 
   <!-- LOCKED MONTHS 7–12 -->
-  <div class="btn locked">
+  <a class="btn locked" href="7months1.html">
     7 Months
+    <div class="date">22 Feb 2026</div>
     <div class="countdown" id="m7"></div>
-  </div>
+  </a>
 
   <div class="btn locked">
     8 Months
+    <div class="date">22 Mar 2026</div>
     <div class="countdown" id="m8"></div>
   </div>
 
   <div class="btn locked">
     9 Months
+    <div class="date">22 Apr 2026</div>
     <div class="countdown" id="m9"></div>
   </div>
 
   <div class="btn locked">
     10 Months
+    <div class="date">22 May 2026</div>
     <div class="countdown" id="m10"></div>
   </div>
 
   <div class="btn locked">
     11 Months
+    <div class="date">22 Jun 2026</div>
     <div class="countdown" id="m11"></div>
   </div>
 
   <div class="btn locked">
     12 Months
+    <div class="date">22 Jul 2026</div>
     <div class="countdown" id="m12"></div>
   </div>
 
@@ -174,7 +216,7 @@ setInterval(() => {
   setTimeout(() => h.remove(), 7000);
 }, 800);
 
-// Unlock schedule for Months 7–12
+// Unlock schedule
 const unlocks = {
   m7: new Date("Feb 22, 2026 00:27:00 GMT+5:30"),
   m8: new Date("Mar 22, 2026 00:27:00 GMT+5:30"),
@@ -198,10 +240,8 @@ function updateAll() {
       container.classList.remove("locked");
       container.classList.add("btn");
 
-      // Add correct link
       const monthNum = index + 7;
       container.onclick = () => location.href = `${monthNum}months.html`;
-
       container.style.cursor = "pointer";
       return;
     }
