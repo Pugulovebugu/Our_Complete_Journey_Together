@@ -155,16 +155,34 @@ dots.forEach(d=>d.classList.remove('active'));
 dots[index].classList.add('active');
 },3000);
 
-let startDate=new Date('2025-07-22');
+let startDate = new Date('2025-07-22T00:27:00');
+
 setInterval(()=>{
-let now=new Date();
-let diff=now-startDate;
-let days=Math.floor(diff/(1000*60*60*24));
-let months=Math.floor(days/30.44);
-let hours=Math.floor(diff/(1000*60*60));
-let minutes=Math.floor(diff/(1000*60));
-document.getElementById('months').innerText=`${months} Months Together`;
-document.getElementById('timer').innerText=`${days} Days ${hours%24} Hours ${minutes%60} Minutes`;
+let now = new Date();
+
+let years = now.getFullYear() - startDate.getFullYear();
+let months = now.getMonth() - startDate.getMonth() + (years*12);
+
+let days = now.getDate() - startDate.getDate();
+let hours = now.getHours() - startDate.getHours();
+let minutes = now.getMinutes() - startDate.getMinutes();
+let seconds = now.getSeconds() - startDate.getSeconds();
+
+if(seconds < 0){ seconds += 60; minutes--; }
+if(minutes < 0){ minutes += 60; hours--; }
+if(hours < 0){ hours += 24; days--; }
+if(days < 0){
+  months--;
+  let prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+  days += prevMonth.getDate();
+}
+
+document.getElementById('months').innerText =
+`${months} Months Together`;
+
+document.getElementById('timer').innerText =
+`${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+
 },1000);
 
 let eightIndex=0;
