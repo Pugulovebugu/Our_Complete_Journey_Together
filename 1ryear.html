@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Eli 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* 🌸 DREAMY BACKGROUND */
+body{
+margin:0;
+overflow:hidden;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(-45deg,#ff8fab,#ffb3c6,#ffc2d1,#fff0f3);
+background-size:400% 400%;
+animation:bg 12s ease infinite;
+color:#6b2d5c;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%}
+50%{background-position:100% 50%}
+100%{background-position:0% 50%}
+}
+
+/* 💫 SLIDES */
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+opacity:0;
+transform:scale(1.1);
+transition:1.2s cubic-bezier(.22,1,.36,1);
+padding:20px;
+}
+
+.slide.active{
+opacity:1;
+transform:scale(1);
+z-index:2;
+}
+
+/* 💎 GLASS CARD */
+.card{
+background:rgba(255,255,255,0.5);
+backdrop-filter:blur(25px);
+padding:45px;
+border-radius:30px;
+max-width:600px;
+box-shadow:0 15px 50px rgba(255,182,193,0.3);
+transition:0.5s;
+}
+ .surpriseBtn{
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#ff8fab,#ff5fa2);
+color:white;
+font-size:1rem;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(255,105,180,0.35);
+transition:.3s;
+}
+
+.surpriseBtn:hover{
+transform:scale(1.08);
+}
+
+.card:hover{
+transform:scale(1.02);
+}
+
+/* 💖 TEXT */
+h1{
+font-family:'Great Vibes',cursive;
+font-size:3rem;
+color:#d63384;
+text-shadow:0 0 10px rgba(255,182,193,0.6);
+}
+
+p{
+font-size:1.2rem;
+line-height:1.9;
+}
+
+/* 🌸 PETALS */
+.petal{
+position:fixed;
+top:-20px;
+font-size:18px;
+animation:fall linear forwards;
+opacity:0.7;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* 💗 FLOATING HEARTS */
+.heart{
+position:fixed;
+bottom:-20px;
+font-size:18px;
+animation:floatUp linear forwards;
+opacity:0.6;
+}
+
+@keyframes floatUp{
+to{
+transform:translateY(-110vh);
+opacity:0;
+}
+}
+
+/* 💖 FINAL TEXT */
+.big{
+font-size:3.8rem;
+animation:zoom 1.5s ease;
+}
+
+@keyframes zoom{
+from{transform:scale(0.6);opacity:0}
+to{transform:scale(1);opacity:1}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🌸 SLIDES -->
+
+<div class="slide active">
+<div class="card">
+<h1>Eli 💌</h1>
+<p>I want to tell you something…</p>
+</div>
+</div>
+
+<div class="slide">
+<div class="card">
+<h1>22 March 2025</h1>
+<p>It was just a random game 🎮</p>
+<p>Or maybe… it wasn’t</p>
+</div>
+</div>
+
+<div class="slide">
+<div class="card">
+<h1>That Message 🐱</h1>
+<p>"hey meow, I'm also a meow"</p>
+<p>And somehow… everything started there</p>
+</div>
+</div>
+
+<div class="slide">
+<div class="card">
+<h1>Two Strangers</h1>
+<p>Two cat DPs 🐱🐱</p>
+<p>But something just felt right</p>
+</div>
+</div>
+
+<div class="slide">
+<div class="card">
+<h1>And then…</h1>
+<p>You became my comfort 💫</p>
+<p>My peace… my safe place</p>
+</div>
+</div>
+
+<div class="slide">
+<div class="card">
+<h1>Today 💞</h1>
+<p>22 March 2026</p>
+<p>1 year since we met…</p>
+<p>And 8 months of us 💖</p>
+</div>
+</div>
+
+<div class="slide">
+<div class="card">
+<h1>Eli…</h1>
+<p>I would choose you again</p>
+<p>In every life, every time</p>
+</div>
+</div>
+  
+ <div class="slide">
+<div class="card">
+<h1> Happy First Meet Anniversary My Love💖</h1>
+<p>I will never Forget this day </p>
+</div>
+</div>
+
+<div class="slide">
+<div class="card">
+<h1 class="big">I Love You Eli 💖</h1>
+<p>from one meow… to forever 🐱</p>
+
+<br><br>
+
+<button onclick="openSurprise()" class="surpriseBtn">
+🎁 Open Surprise
+</button>
+
+</div>
+</div>
+
+<script>
+
+/* 📱 SLIDE CONTROL */
+let current = 0;
+const slides = document.querySelectorAll(".slide");
+
+function showSlide(i){
+slides.forEach(s=>s.classList.remove("active"));
+slides[i].classList.add("active");
+}
+
+/* 👉 TAP / CLICK */
+document.addEventListener("click",()=>{
+current++;
+if(current >= slides.length) current = slides.length-1;
+showSlide(current);
+});
+
+/* 📱 SWIPE */
+let startY = 0;
+
+window.addEventListener("touchstart",e=>{
+startY = e.touches[0].clientY;
+});
+
+window.addEventListener("touchend",e=>{
+let endY = e.changedTouches[0].clientY;
+
+if(startY - endY > 50){
+current++;
+if(current >= slides.length) current = slides.length-1;
+showSlide(current);
+}
+});
+
+/* 🌷 PETALS */
+function petals(){
+let p=document.createElement("div");
+p.className="petal";
+p.innerHTML=["🌸","💮","💗"][Math.floor(Math.random()*3)];
+
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(Math.random()*5+5)+"s";
+
+document.body.appendChild(p);
+
+setTimeout(()=>p.remove(),8000);
+}
+setInterval(petals,500);
+ 
+ function openSurprise(){
+window.location.href="8months1.html";
+}
+
+</script>
+ <div style="position:fixed;bottom:25px;width:100%;text-align:center;z-index:10;">
+<a href="8months_menu.html" 
+style="
+padding:12px 28px;
+background:#ff8fab;
+color:white;
+border-radius:25px;
+font-family:Poppins;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+">
+⬅ Back
+</a>
+</div>
+
+</body>
+</html>

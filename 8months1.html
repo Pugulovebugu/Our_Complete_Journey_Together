@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Chat 💜🐱</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* 🌌 APP BACKGROUND */
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#0f172a;
+display:flex;
+flex-direction:column;
+height:100vh;
+}
+
+/* 📱 CHAT HEADER */
+.header{
+padding:15px;
+background:#020617;
+color:#fff;
+text-align:center;
+font-weight:500;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+/* 💬 CHAT AREA */
+.chat{
+flex:1;
+overflow-y:auto;
+padding:15px;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+/* 📨 MESSAGE */
+.msg{
+max-width:75%;
+padding:12px 15px;
+border-radius:18px;
+font-size:14px;
+opacity:0;
+transform:translateY(20px);
+animation:fadeIn 0.5s forwards;
+}
+
+/* LEFT (HER) */
+.left{
+background:#1e293b;
+color:#e2e8f0;
+align-self:flex-start;
+border-bottom-left-radius:5px;
+}
+
+/* RIGHT (YOU) */
+.right{
+background:#7c3aed;
+color:white;
+align-self:flex-end;
+border-bottom-right-radius:5px;
+}
+
+/* ✨ ANIMATION */
+@keyframes fadeIn{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ⏳ TIMER BAR */
+.footer{
+padding:12px;
+background:#020617;
+text-align:center;
+color:#a78bfa;
+font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">🐱 Bugu 💜</div>
+
+<div class="chat" id="chat"></div>
+
+<div class="footer" id="timer"></div>
+
+<script>
+
+/* 💬 CHAT STORY */
+const messages = [
+{ text: "hey meow , I'm also a meow 🐱", side: "right" },
+{ text: "😹 really?? same here", side: "left" },
+{ text: "spin the bottle really did something crazy", side: "right" },
+{ text: "yeah… I didn’t expect this at all", side: "left" },
+{ text: "but I’m glad it was you 💜", side: "right" },
+{ text: "me too…", side: "left" },
+{ text: "that random chat became my favorite part of the day", side: "right" },
+{ text: "you became my comfort 🌙", side: "right" },
+{ text: "my safe place…", side: "right" },
+{ text: "my person 💖", side: "right" },
+{ text: "1 year later… and I still choose you", side: "right" },
+{ text: "I love you 🐱💜", side: "right", showBack:true }
+];
+
+const chat = document.getElementById("chat");
+
+let i = 0;
+
+function showMessage(){
+
+if(i < messages.length){
+
+let m = document.createElement("div");
+m.className = "msg " + messages[i].side;
+m.innerText = messages[i].text;
+
+chat.appendChild(m);
+chat.scrollTop = chat.scrollHeight;
+
+/* add back button after last message */
+
+if(messages[i].showBack){
+
+let btn = document.createElement("a");
+
+btn.href = "8months_menu.html";
+
+btn.innerText = "⬅ Back";
+
+btn.style.display = "inline-block";
+btn.style.marginTop = "10px";
+btn.style.padding = "10px 18px";
+btn.style.borderRadius = "20px";
+btn.style.background = "#7c3aed";
+btn.style.color = "white";
+btn.style.textDecoration = "none";
+btn.style.fontSize = "13px";
+btn.style.alignSelf = "center";
+
+chat.appendChild(btn);
+
+}
+
+i++;
+
+setTimeout(showMessage,1200);
+
+}
+
+}
+
+showMessage();
+
+/* ⏳ TIMER */
+let start = new Date("2025-03-22");
+
+setInterval(()=>{
+let now = new Date();
+let diff = now - start;
+
+let days = Math.floor(diff/(1000*60*60*24));
+let months = Math.floor(days/30.44);
+
+document.getElementById("timer").innerText =
+months + " Months • " + days + " Days 💜";
+},1000);
+
+</script>
+  
+
+</body>
+</html>

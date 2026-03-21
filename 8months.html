@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pugu ❤️ Bugu</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:linear-gradient(135deg,#ffe4ec,#ffd6e0,#fff0f6);overflow-x:hidden;transition:0.5s}
+body.dark{background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);color:white}
+section{min-height:100vh;display:flex;justify-content:center;align-items:center;text-align:center;padding:40px 20px;opacity:0;transform:translateY(40px) scale(0.95);transition:0.8s ease}
+section.show{opacity:1;transform:translateY(0) scale(1)}
+.glass{background:rgba(255,255,255,0.35);backdrop-filter:blur(20px);border-radius:30px;padding:40px;box-shadow:0 8px 30px rgba(0,0,0,0.08);transition:0.5s}
+.glass:hover{transform:scale(1.02)}
+body.dark .glass{background:rgba(255,255,255,0.08)}
+h1{font-family:'Playfair Display',serif;font-size:2.8rem;color:#d6336c}
+body.dark h1{color:#ffb3c6}
+p{max-width:600px;font-size:1.2rem;color:#6a2c40}
+body.dark p{color:#eee}
+.card-box{display:flex;flex-direction:column;gap:15px;margin-top:20px}
+.card{background:rgba(255,255,255,0.45);backdrop-filter:blur(12px);padding:20px;border-radius:20px;transition:0.4s}
+.card:hover{transform:translateY(-8px) scale(1.05)}
+button{padding:12px 20px;border-radius:20px;border:none;background:#ff8fab;color:white;cursor:pointer;margin:10px;transition:0.3s}
+button:hover{transform:scale(1.1)}
+.toggle{position:fixed;top:20px;right:20px;padding:10px 15px;border-radius:20px;background:#ff8fab;color:white;cursor:pointer;z-index:10}
+.fade{animation:fadeIn 0.6s ease}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+.slider{position:relative;width:260px;overflow:hidden;margin:auto}
+.slides{display:flex;transition:0.6s}
+.slides img{width:260px;border-radius:20px}
+.dots{margin-top:15px}
+.dot{height:10px;width:10px;background:#ff8fab;border-radius:50%;display:inline-block;margin:5px;opacity:0.4}
+.dot.active{opacity:1}
+.timer{font-size:1.4rem;margin-top:10px}
+.floating-heart{position:fixed;color:#ff8fab;animation:floatUp 6s linear infinite;opacity:0.7}
+@keyframes floatUp{from{transform:translateY(100vh) scale(0.8);opacity:0.8}to{transform:translateY(-10vh) scale(1.4);opacity:0}}
+</style>
+</head>
+<body>
+<div id="hearts-container"></div>
+<div class="toggle" onclick="toggleMode()">🌙</div><section class="show">
+<div class="glass fade">
+<h1>Pugu ❤️ Bugu</h1>
+<p>Our forever since 22 July 2025</p>
+</div>
+</section><section>
+<div class="glass fade">
+<h1>Our Memories 📸</h1>
+<div class="slider">
+<div class="slides" id="slides">
+<img src="memory1.jpg">
+<img src="memory2.jpg">
+<img src="memory3.jpg">
+<img src="memory4.jpg">
+<img src="memory5.jpg">
+</div>
+</div>
+<div class="dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+</div>
+</section><section>
+<div class="glass fade">
+<h1>The 8th 💖</h1>
+<p>Tap below to enter our 8th world</p>
+<button onclick="open8th()">Enter The 8th</button>
+</div>
+</section><section id="eightFlow" style="display:none;">
+<div class="glass fade">
+<h1 id="eightTitle">8 Ways I Love You ❤️</h1>
+ <p id="progressText" style="margin-bottom:15px;font-size:0.9rem;opacity:0.7"></p>
+<div class="card-box" id="eightContent">
+</div>
+<button onclick="nextEight()">Next ➡</button></div>
+</section><section id="reasonsPage" style="display:none;">
+<div class="glass fade">
+<h1>8 Reasons I Stay 💖</h1>
+<div class="card-box">
+<div class="card">You are my peace</div>
+<div class="card">You are my safe place</div>
+<div class="card">You are my happiness</div>
+<div class="card">You are my calm</div>
+<div class="card">You are my comfort</div>
+<div class="card">You are my strength</div>
+<div class="card">You are my forever</div>
+<div class="card">You are my home</div>
+</div>
+<button onclick="backTo8th()">⬅ Back</button>
+</div>
+</section><section id="promisesPage" style="display:none;">
+<div class="glass fade">
+<h1>8 Promises 💞</h1>
+<div class="card-box">
+<div class="card">I promise to choose you every day</div>
+<div class="card">I promise to stay even on hard days</div>
+<div class="card">I promise to understand before reacting</div>
+<div class="card">I promise to protect your happiness</div>
+<div class="card">I promise to grow with you</div>
+<div class="card">I promise to hold your hand through everything</div>
+<div class="card">I promise to make you feel loved always</div>
+<div class="card">I promise to be yours — today, tomorrow, forever</div>
+</div>
+<button onclick="backTo8th()">⬅ Back</button>
+</div>
+</section><section id="loveLetter">
+<div class="glass fade">
+<h1>Love Letter 💌</h1>
+<p>Dear Bugu,<br><br>You didn’t just enter my life… You became my peace.<br><br>I promise to keep choosing you — every day.</p>
+</div>
+</section><section>
+<div class="glass fade">
+<h1>Love Timer ⏳</h1>
+<p class="timer" id="months"></p>
+<p class="timer" id="timer"></p>
+</div>
+</section><section>
+ <div class="glass fade">
+<h1>My Bugu</h1>
+<p>Our story doesn't end here...</p>
+<p>This is our always.</p>
+<p>This is our forever.</p>
+<p>And forever begins with you 💗</p>
+<br>
+<h1 style="font-size:2rem;">I Love You Bugu 💞</h1>
+<p>You are my today, my tomorrow, and my always.</p>
+  <button onclick="openClosing()">Final Surprise 💝</button>
+</div>
+</section>
+ <script>
+function toggleMode(){document.body.classList.toggle('dark')}
+
+const sections=document.querySelectorAll('section');
+window.addEventListener('scroll',()=>{
+sections.forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){sec.classList.add('show')}
+})
+});
+
+window.addEventListener('load',()=>{
+sections.forEach((sec,i)=>{
+if(i<3){sec.classList.add('show');}
+});
+});
+
+let index=0;
+const slides=document.getElementById('slides');
+const dots=document.querySelectorAll('.dot');
+setInterval(()=>{
+index=(index+1)%5;
+slides.style.transform=`translateX(-${index*260}px)`;
+dots.forEach(d=>d.classList.remove('active'));
+dots[index].classList.add('active');
+},3000);
+
+let startDate=new Date('2025-07-22');
+setInterval(()=>{
+let now=new Date();
+let diff=now-startDate;
+let days=Math.floor(diff/(1000*60*60*24));
+let months=Math.floor(days/30.44);
+let hours=Math.floor(diff/(1000*60*60));
+let minutes=Math.floor(diff/(1000*60));
+document.getElementById('months').innerText=`${months} Months Together`;
+document.getElementById('timer').innerText=`${days} Days ${hours%24} Hours ${minutes%60} Minutes`;
+},1000);
+
+let eightIndex=0;
+
+const eightPages=[
+{
+title:"8 Ways I Love You ❤️",
+items:["Your Smile","Your Voice","Your Laugh","Your Care","Your Madness","Your Hugs","Your Eyes","Everything about you"]
+},
+{
+title:"8 Reasons I Stay 💖",
+items:["You are my peace","You are my safe place","You are my happiness","You are my calm","You are my comfort","You are my strength","You are my forever","You are my home"]
+},
+{
+title:"8 Promises 💞",
+items:["I promise to choose you every day","I promise to stay even on hard days","I promise to understand before reacting","I promise to protect your happiness","I promise to grow with you","I promise to hold your hand through everything","I promise to make you feel loved always","I promise to be yours — today, tomorrow, forever"]
+}
+];
+
+function renderEightPage(){
+
+const page = eightPages[eightIndex];
+
+document.getElementById('eightTitle').innerText = page.title;
+
+// progress text
+document.getElementById('progressText').innerText =
+`Step ${eightIndex+1} of ${eightPages.length}`;
+
+const container=document.getElementById('eightContent');
+
+container.innerHTML="";
+
+page.items.forEach(item=>{
+const div=document.createElement('div');
+div.className='card';
+div.innerText=item;
+container.appendChild(div);
+});
+
+}
+
+
+function hideAll8thPages(){
+  document.getElementById('eightFlow').style.display='none';
+}
+
+function open8th(){
+  hideAll8thPages();
+
+  eightIndex=0;
+  renderEightPage();
+
+  const section = document.getElementById('eightFlow');
+  section.style.display='flex';
+
+  section.scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
+}
+ document.getElementById('eightFlow').scrollIntoView({behavior:'smooth'});
+
+function nextEight(){
+
+  eightIndex++;
+
+  // if last page completed → go to Love Letter slide
+  if(eightIndex >= eightPages.length){
+
+    document.getElementById('eightFlow').style.display='none';
+
+    const letter = document.getElementById('loveLetter');
+
+    letter.scrollIntoView({
+      behavior:'smooth',
+      block:'start'
+    });
+
+    return;
+  }
+
+  renderEightPage();
+
+  document.getElementById('eightFlow').scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
+}
+
+function openClosing(){
+  document.getElementById('closingPage').style.display='flex';
+  document.getElementById('closingPage').classList.add('show');
+  document.getElementById('closingPage').scrollIntoView({behavior:'smooth'});
+}
+ function startAgain(){
+
+  // hide closing page
+  document.getElementById('closingPage').style.display='none';
+
+  // scroll to first section
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+
+  // reset 8th flow
+  eightIndex = 0;
+}
+
+function spawnHeart(){
+  const heart=document.createElement('div');
+  heart.className='floating-heart';
+  heart.innerHTML='💗';
+  heart.style.left=Math.random()*100+'vw';
+  heart.style.fontSize=(Math.random()*10+15)+'px';
+  heart.style.animationDuration=(Math.random()*3+4)+'s';
+  document.getElementById('hearts-container').appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+setInterval(spawnHeart,400);
+</script>
+ <section id="closingPage" style="display:none;">
+<div class="glass fade">
+<h1>Forever With You 💗</h1>
+
+<p>
+From our first hello…  
+to every laugh…  
+to every moment we hold close in our hearts…
+</p>
+
+<p>
+These 8 months are not just time…  
+they are memories… feelings… a story still being written.
+</p>
+
+<p>
+No matter where life takes us…  
+I will always choose you.
+</p>
+
+<p>
+Because you are not just part of my life…  
+you are my life.
+</p>
+
+<br>
+
+<h1 style="font-size:2rem;">Happy First Meet Anniversary 💞</h1>
+
+<p>
+Thank you for coming into my world  
+and making everything softer, warmer, happier.
+</p>
+
+<p>
+I promise… this is just the beginning.
+</p>
+
+<br>
+
+<h1 style="font-size:2.2rem;">I Love You Forever ❤️</h1>
+
+<p>
+∞ months down… forever to go.
+</p>
+
+<button onclick="startAgain()">Start Again 💗</button>
+</div>
+</section>
+ <div style="position:fixed;bottom:25px;width:100%;text-align:center;z-index:10;">
+<a href="8months_menu.html" 
+style="
+padding:12px 28px;
+background:#ff8fab;
+color:white;
+border-radius:25px;
+font-family:Poppins;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+">
+⬅ Back
+</a>
+</div>
+</body>
+</html>
