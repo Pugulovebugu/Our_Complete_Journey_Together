@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy 9 Months My Love❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins;
+background:linear-gradient(135deg,#ffe4ec,#e8f0ff,#fff6e5);
+color:#555;
+overflow-x:hidden;
+}
+
+.slide{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+animation:fade 1.2s ease;
+}
+
+h1{
+font-family:'Dancing Script';
+font-size:44px;
+color:#ff6f91;
+margin-bottom:10px;
+}
+
+p{
+max-width:520px;
+font-size:18px;
+line-height:1.7;
+}
+
+.timer{
+font-size:22px;
+margin-top:20px;
+color:#6a7cff;
+font-weight:500;
+background:white;
+padding:10px 18px;
+border-radius:20px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+button{
+margin-top:30px;
+padding:12px 26px;
+border:none;
+border-radius:25px;
+background:#ff8fab;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+button:hover{
+background:#ff6f91;
+transform:scale(1.05);
+}
+
+.heart{
+font-size:45px;
+animation:beat 1.5s infinite;
+margin:15px;
+}
+
+@keyframes beat{
+0%{transform:scale(1)}
+50%{transform:scale(1.25)}
+100%{transform:scale(1)}
+}
+
+@keyframes fade{
+from{opacity:0; transform:translateY(30px)}
+to{opacity:1; transform:translateY(0)}
+}
+
+.hidden{
+display:none;
+}
+
+.letter{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 6px 20px rgba(0,0,0,0.08);
+font-size:17px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="slide" id="s1">
+<h1>Happy 9 Months My World ❤️</h1>
+
+<p>22 July 2025 was the day our story began...</p>
+
+<div class="timer" id="timer"></div>
+
+<button onclick="next()">Next ➜</button>
+</div>
+
+
+<div class="slide hidden" id="s2">
+<h1>9 Beautiful Months 🌸</h1>
+
+<p>
+9 months of love<br>
+9 months of memories<br>
+9 months of happiness<br>
+and a lifetime to go...only with you 
+</p>
+
+<button onclick="next()">Next ➜</button>
+</div>
+
+
+<div class="slide hidden" id="s3">
+<h1>You are My Peace 💗</h1>
+
+<p>
+With you, everything feels calm and perfect.  
+You make ordinary days feel magical.
+</p>
+
+<button onclick="next()">Next ➜</button>
+</div>
+
+
+<div class="slide hidden" id="s4">
+<h1>Every Moment ✨</h1>
+
+<p>
+Every chat, every laugh, every little moment  
+became my favorite memory.
+</p>
+
+<button onclick="next()">Next ➜</button>
+</div>
+
+
+<div class="slide hidden" id="s5">
+<h1>Thank You Bugu💕</h1>
+
+<p>
+Thank you for being in my life.  
+Thank you for your care, your love, and your patience.
+</p>
+
+<button onclick="next()">Next ➜</button>
+</div>
+
+
+<div class="slide hidden" id="s6">
+<h1>Forever Wish 💍</h1>
+
+<p>
+I wish this journey never ends.  
+I wish we keep creating beautiful memories together.
+</p>
+
+<button onclick="next()">Next ➜</button>
+</div>
+
+
+<div class="slide hidden" id="s7">
+<h1>Tap for Surprise 🎁</h1>
+
+<button onclick="showLove()">Open</button>
+</div>
+
+
+<div class="slide hidden" id="love">
+<h1>I Love You Bugu Babyyyy❤️</h1>
+
+<div class="heart">❤️</div>
+
+<p>
+Happy 9 Months Anniversary Eli❤️  
+You are the best thing that ever happened to me.
+</p>
+
+<button onclick="letter()">Read Letter 💌</button>
+
+<br>
+
+<button onclick="goBack()">Back</button>
+
+</div>
+
+
+<div class="slide hidden" id="letter">
+
+<h1>Love Letter 💌</h1>
+
+<div class="letter">
+
+<p>
+
+From the moment you came into my life,  
+everything started feeling more beautiful.
+
+These 9 months are not just time...  
+they are memories, smiles, feelings and emotions.
+
+You made my ordinary life special.
+
+Your smile makes my day better.  
+Your presence makes my heart calm.
+
+I feel lucky to have you.
+
+No matter what happens,  
+I will always care for you, respect you and love you.
+
+Thank you for being part of my life.<br>
+
+Happy 9 months bugu ❤️
+
+</p>
+
+</div>
+
+<button onclick="restart()">Start Again 🔁</button>
+
+</div>
+
+
+
+<script>
+
+let current=1;
+
+function next(){
+document.getElementById("s"+current).classList.add("hidden");
+current++;
+document.getElementById("s"+current).classList.remove("hidden");
+}
+
+function showLove(){
+document.getElementById("s"+current).classList.add("hidden");
+document.getElementById("love").classList.remove("hidden");
+}
+
+function letter(){
+document.getElementById("love").classList.add("hidden");
+document.getElementById("letter").classList.remove("hidden");
+}
+
+function goBack(){
+document.getElementById("love").classList.add("hidden");
+current=7;
+document.getElementById("s7").classList.remove("hidden");
+}
+
+function restart(){
+location.reload();
+}
+
+
+// countdown timer
+
+let startDate=new Date("July 22, 2025 00:00:00");
+
+function updateTimer(){
+
+let now=new Date();
+
+let diff=now-startDate;
+
+let days=Math.floor(diff/(1000*60*60*24));
+
+let hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+
+let minutes=Math.floor((diff%(1000*60*60))/(1000*60));
+
+document.getElementById("timer").innerHTML=
+days+" days "+hours+" hrs "+minutes+" mins together ❤️";
+
+}
+
+setInterval(updateTimer,1000);
+
+updateTimer();
+
+</script>
+
+
+</body>
+</html>
