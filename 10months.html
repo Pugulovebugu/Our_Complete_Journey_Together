@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Love — 10 Months</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Sacramento&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(to bottom,#fff8fb,#fffdf7);
+font-family:'Quicksand',sans-serif;
+overflow-x:hidden;
+color:#7d5b63;
+}
+
+/* Floating Hearts */
+
+.hearts{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:-1;
+pointer-events:none;
+}
+
+.heart{
+position:absolute;
+color:#ffc7da;
+font-size:24px;
+animation:float 10s linear infinite;
+opacity:.5;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh) rotate(0deg);
+opacity:0;
+}
+20%{
+opacity:.6;
+}
+to{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* Hero */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
+position:relative;
+}
+
+.hero-box{
+max-width:1000px;
+background:rgba(255,255,255,.75);
+backdrop-filter:blur(12px);
+padding:90px;
+border-radius:50px;
+text-align:center;
+position:relative;
+box-shadow:
+0 20px 50px rgba(255,182,193,.18);
+overflow:hidden;
+border:2px solid rgba(255,255,255,.6);
+}
+
+.hero-box::before{
+content:'';
+position:absolute;
+width:350px;
+height:350px;
+background:#ffe3ee;
+border-radius:50%;
+top:-150px;
+right:-120px;
+}
+
+.hero-box::after{
+content:'';
+position:absolute;
+width:280px;
+height:280px;
+background:#fff1c9;
+border-radius:50%;
+bottom:-120px;
+left:-100px;
+}
+
+.hero h1{
+font-family:'Sacramento',cursive;
+font-size:130px;
+color:#ff8fb1;
+position:relative;
+z-index:2;
+line-height:1;
+}
+
+.hero h2{
+margin-top:20px;
+font-size:48px;
+font-weight:700;
+color:#9d7bff;
+position:relative;
+z-index:2;
+}
+
+.hero p{
+margin-top:35px;
+font-size:26px;
+line-height:2;
+color:#7d5b63;
+position:relative;
+z-index:2;
+}
+
+/* Buttons */
+
+.buttons{
+margin-top:50px;
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+position:relative;
+z-index:2;
+}
+
+.btn{
+padding:20px 45px;
+border-radius:60px;
+text-decoration:none;
+font-size:20px;
+font-weight:700;
+transition:.4s;
+}
+
+.btn1{
+background:#ff9ec0;
+color:white;
+box-shadow:0 10px 25px rgba(255,158,192,.35);
+}
+
+.btn2{
+background:#fff0b8;
+color:#7d5b63;
+box-shadow:0 10px 25px rgba(255,240,184,.35);
+}
+
+.btn:hover{
+transform:translateY(-6px) scale(1.06);
+}
+
+/* Sections */
+
+section{
+padding:120px 8%;
+}
+
+.title{
+font-family:'Sacramento',cursive;
+font-size:90px;
+text-align:center;
+color:#ff8fb1;
+margin-bottom:90px;
+}
+
+/* Love Cards */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:40px;
+text-align:center;
+box-shadow:0 15px 35px rgba(255,192,203,.15);
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.circle{
+width:150px;
+height:150px;
+margin:auto;
+border-radius:50%;
+background:
+linear-gradient(135deg,#ffe0ec,#fff6d5);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:70px;
+box-shadow:0 10px 25px rgba(255,192,203,.2);
+}
+
+.card h3{
+margin-top:30px;
+font-size:36px;
+color:#9d7bff;
+}
+
+.card p{
+margin-top:15px;
+font-size:19px;
+line-height:1.8;
+color:#7d5b63;
+}
+
+/* Timeline */
+
+.timeline{
+display:flex;
+flex-direction:column;
+gap:35px;
+max-width:1000px;
+margin:auto;
+}
+
+.story{
+background:white;
+padding:35px;
+border-radius:35px;
+display:flex;
+align-items:center;
+gap:25px;
+box-shadow:0 15px 35px rgba(255,192,203,.12);
+transition:.4s;
+}
+
+.story:hover{
+transform:translateX(10px);
+}
+
+.num{
+min-width:90px;
+height:90px;
+border-radius:50%;
+background:#ffd1e1;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:700;
+color:white;
+}
+
+.story h4{
+font-size:32px;
+color:#9d7bff;
+}
+
+.story p{
+margin-top:10px;
+font-size:18px;
+line-height:1.8;
+color:#7d5b63;
+}
+
+/* Forever Section */
+
+.forever-box{
+background:white;
+padding:100px;
+border-radius:50px;
+text-align:center;
+box-shadow:0 20px 50px rgba(255,192,203,.18);
+position:relative;
+overflow:hidden;
+}
+
+.forever-box::before{
+content:'';
+position:absolute;
+width:350px;
+height:350px;
+background:#ffe0ec;
+border-radius:50%;
+bottom:-180px;
+right:-120px;
+}
+
+.forever-box h2{
+font-family:'Sacramento',cursive;
+font-size:95px;
+color:#ff8fb1;
+position:relative;
+}
+
+.forever-box p{
+margin-top:35px;
+font-size:28px;
+line-height:2;
+color:#7d5b63;
+position:relative;
+}
+
+.forever-btn{
+display:inline-block;
+margin-top:50px;
+padding:22px 60px;
+background:#ff9ec0;
+color:white;
+text-decoration:none;
+font-size:22px;
+font-weight:700;
+border-radius:60px;
+transition:.4s;
+position:relative;
+box-shadow:0 10px 25px rgba(255,158,192,.35);
+}
+
+.forever-btn:hover{
+transform:scale(1.08);
+}
+
+/* Footer */
+
+footer{
+padding:70px 20px;
+text-align:center;
+font-size:24px;
+line-height:2;
+color:#9d7bff;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:80px;
+}
+
+.hero h2{
+font-size:34px;
+}
+
+.hero p{
+font-size:21px;
+}
+
+.hero-box{
+padding:55px 30px;
+}
+
+.title{
+font-size:58px;
+}
+
+.story{
+flex-direction:column;
+text-align:center;
+}
+
+.forever-box{
+padding:60px 30px;
+}
+
+.forever-box h2{
+font-size:58px;
+}
+
+.forever-box p{
+font-size:22px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<section class="hero">
+
+<div class="hero-box">
+
+<h1>My Forever Love ♡</h1>
+
+<h2>10 Months With My Favorite Person</h2>
+
+<p>
+  <strong>Bugu </strong> , If I could choose again and again,<br>
+in every lifetime,<br>
+I would still choose you.
+</p>
+
+<div class="buttons">
+
+<a href="#memories" class="btn btn1">Our Love Story</a>
+
+<a href="#forever" class="btn btn2">Forever Promise</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="memories">
+
+<h2 class="title">Tiny Precious Moments</h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="circle">🌸</div>
+<h3>First Smile</h3>
+<p>
+The moment your smile became my favorite thing in the world.
+</p>
+</div>
+
+<div class="card">
+<div class="circle">🧸</div>
+<h3>Comfort</h3>
+<p>
+You became the softest and safest place for my heart.
+</p>
+</div>
+
+<div class="card">
+<div class="circle">💌</div>
+<h3>Late Night Talks</h3>
+<p>
+Conversations that turned into unforgettable memories.
+</p>
+</div>
+
+<div class="card">
+<div class="circle">💞</div>
+<h3>10 Months</h3>
+<p>
+And somehow… I still fall for you more every single day.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">Our Little Journey</h2>
+
+<div class="timeline">
+
+<div class="story">
+<div class="num">1</div>
+<div>
+<h4>The Beginning</h4>
+<p>
+Two hearts slowly finding comfort in each other.
+</p>
+</div>
+</div>
+
+<div class="story">
+<div class="num">3</div>
+<div>
+<h4>More Smiles</h4>
+<p>
+You started becoming the happiest part of my day.
+</p>
+</div>
+</div>
+
+<div class="story">
+<div class="num">5</div>
+<div>
+<h4>Safe Place</h4>
+<p>
+Your presence became peace for my soul.
+</p>
+</div>
+</div>
+
+<div class="story">
+<div class="num">8</div>
+<div>
+<h4>Growing Together</h4>
+<p>
+We created tiny memories that now mean everything.
+</p>
+</div>
+</div>
+
+<div class="story">
+<div class="num">10</div>
+<div>
+<h4>Forever Feeling</h4>
+<p>
+10 months later… and my heart still chooses you first.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section id="forever">
+
+<div class="forever-box">
+
+<h2>Forever Promise ♡</h2>
+
+<p>
+No matter how many years pass,<br>
+I hope we still laugh together,<br>
+still hold each other gently,<br>
+and still feel like home.<br><strong>I Love You So Much My Baby ♡.</strong>
+</p>
+
+<a href="#" class="forever-btn">Always You ♡</a>
+
+</div>
+
+</section>
+
+<footer>
+
+“You are not just my favorite person.<br>
+You are my favorite forever.”<br><strong>"YOU ARE MY UNIVERSE."</strong>
+
+</footer>
+
+<script>
+
+/* Floating Hearts */
+
+const hearts = document.querySelector('.hearts');
+
+for(let i=0;i<35;i++){
+
+const heart = document.createElement('div');
+
+heart.classList.add('heart');
+
+heart.innerHTML = '♡';
+
+heart.style.left = Math.random()*100 + '%';
+
+heart.style.animationDuration = (6 + Math.random()*8) + 's';
+
+heart.style.fontSize = (18 + Math.random()*25) + 'px';
+
+heart.style.opacity = Math.random();
+
+heart.style.animationDelay = Math.random()*5 + 's';
+
+hearts.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>
