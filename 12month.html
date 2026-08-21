@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#470B24">
+<title>One Year With You ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root{
+  --crimson:#470B24;
+  --wine:#5D0E2D;
+  --berry:#8F1746;
+  --rose:#B61F59;
+  --black:#0D0207;
+  --cream:#FFF4D6;
+  --muted:#E8C8D1;
+  --glass:rgba(255,244,214,.075);
+  --line:rgba(255,244,214,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.16;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.serif{font-family:"Cormorant Garamond",serif}
+
+/* floating background */
+.orb{position:fixed;border-radius:50%;filter:blur(80px);opacity:.22;pointer-events:none}
+.orb.one{width:340px;height:340px;background:var(--berry);top:-100px;left:-120px}
+.orb.two{width:300px;height:300px;background:var(--wine);right:-100px;top:45%}
+.orb.three{width:260px;height:260px;background:var(--rose);left:25%;bottom:-140px}
+
+/* nav */
+.nav{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  width:min(940px,92%);z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 14px 12px 20px;border:1px solid var(--line);
+  border-radius:999px;background:rgba(13,2,7,.62);backdrop-filter:blur(18px);
+}
+.logo{font-weight:700;letter-spacing:.08em;font-size:.78rem}
+.navlinks{display:flex;gap:7px}
+.navlinks a{font-size:.78rem;color:var(--muted);padding:9px 13px;border-radius:999px}
+.navlinks a:hover{background:var(--glass);color:var(--cream)}
+.music{
+  border:1px solid var(--line);background:var(--cream);color:var(--crimson);
+  width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px
+}
+
+/* hero */
+.hero{
+  min-height:100svh;display:grid;place-items:center;text-align:center;
+  position:relative;padding:110px 0 70px;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(143,23,70,.26),transparent 31%),
+    linear-gradient(180deg,var(--crimson) 0%,#320719 72%,var(--black) 100%);
+}
+.hero-content{position:relative;z-index:2}
+.eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.heart-mark{
+  width:92px;height:92px;margin:0 auto 30px;border:1px solid rgba(255,244,214,.55);
+  border-radius:50%;display:grid;place-items:center;font-size:38px;
+  box-shadow:0 0 60px rgba(182,31,89,.2);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{50%{transform:scale(1.06);box-shadow:0 0 90px rgba(182,31,89,.34)}}
+.hero h1{font-size:clamp(4rem,12vw,8.8rem);line-height:.78;font-weight:600;letter-spacing:-.045em}
+.hero h1 span{display:block}
+.hero h1 .accent{color:var(--cream)}
+.hero p{max-width:610px;margin:34px auto 0;color:var(--muted);line-height:1.8;font-size:1rem}
+.hero-date{margin-top:26px;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cream)}
+.scroll{margin-top:60px;display:inline-flex;flex-direction:column;gap:8px;align-items:center;color:var(--muted);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase}
+.scroll i{display:block;width:1px;height:48px;background:linear-gradient(var(--cream),transparent)}
+
+/* sections */
+section{padding:110px 0;position:relative}
+.section-label{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--rose);margin-bottom:14px}
+.section-title{font-family:"Cormorant Garamond",serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:500;line-height:.95}
+.section-sub{color:var(--muted);line-height:1.8;max-width:600px;margin-top:18px}
+
+/* counter */
+.counter-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:45px}
+.counter-card{
+  background:linear-gradient(145deg,rgba(143,23,70,.16),rgba(255,244,214,.035));
+  border:1px solid var(--line);border-radius:24px;padding:28px 18px;text-align:center;
+}
+.counter-card strong{display:block;font:600 3rem "Cormorant Garamond",serif}
+.counter-card span{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+
+/* letter */
+.letter-wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px;align-items:start}
+.quote{
+  font:500 clamp(2rem,4vw,3.5rem)/1.03 "Cormorant Garamond",serif;
+  color:var(--cream);position:sticky;top:120px;
+}
+.letter{
+  padding:42px;border:1px solid var(--line);border-radius:28px;
+  background:linear-gradient(135deg,rgba(143,23,70,.14),rgba(255,244,214,.025));
+  line-height:1.95;color:#f1dfe3;
+}
+.letter p+p{margin-top:18px}
+.signature{margin-top:30px;font:600 2rem "Cormorant Garamond",serif;color:var(--cream)}
+
+/* timeline */
+.timeline{margin-top:50px;position:relative}
+.timeline:before{
+  content:"";position:absolute;left:18px;top:0;bottom:0;width:1px;
+  background:linear-gradient(var(--berry),rgba(255,244,214,.08));
+}
+.event{position:relative;padding:0 0 42px 62px}
+.dot{
+  position:absolute;left:9px;top:5px;width:19px;height:19px;border-radius:50%;
+  border:5px solid var(--crimson);background:var(--cream);box-shadow:0 0 0 1px var(--berry)
+}
+.event-date{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rose)}
+.event h3{font:600 2rem "Cormorant Garamond",serif;margin:6px 0}
+.event p{color:var(--muted);line-height:1.7;max-width:700px}
+
+/* gallery */
+.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:48px}
+.photo{
+  min-height:290px;border-radius:24px;overflow:hidden;border:1px solid var(--line);
+  position:relative;background:
+    linear-gradient(145deg,rgba(182,31,89,.35),rgba(13,2,7,.85)),
+    radial-gradient(circle at 70% 25%,rgba(255,244,214,.15),transparent 28%);
+  display:flex;align-items:end;padding:24px;
+}
+.photo:after{content:"YOUR PHOTO";position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,244,214,.3);font-size:.7rem;letter-spacing:.2em}
+.photo span{position:relative;z-index:2;font-family:"Cormorant Garamond",serif;font-size:1.6rem}
+.p1{grid-column:span 7}.p2{grid-column:span 5}.p3{grid-column:span 5}.p4{grid-column:span 7}
+
+/* promises */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:45px}
+.card{
+  border:1px solid var(--line);border-radius:24px;padding:30px;min-height:210px;
+  background:rgba(255,244,214,.035);transition:.35s;
+}
+.card:hover{transform:translateY(-7px);background:rgba(143,23,70,.12)}
+.num{font:600 1.5rem "Cormorant Garamond",serif;color:var(--rose)}
+.card h3{font:600 1.5rem "Cormorant Garamond",serif;margin:22px 0 8px}
+.card p{color:var(--muted);line-height:1.7;font-size:.9rem}
+
+/* final */
+.final{
+  min-height:82vh;display:grid;place-items:center;text-align:center;
+  background:radial-gradient(circle at center,rgba(143,23,70,.25),transparent 40%);
+}
+.final h2{font:500 clamp(4rem,11vw,8.5rem)/.78 "Cormorant Garamond",serif;letter-spacing:-.05em}
+.final h2 span{display:block}
+.final p{max-width:570px;margin:35px auto;color:var(--muted);line-height:1.8}
+.btn{
+  display:inline-flex;padding:14px 24px;border-radius:999px;background:var(--cream);color:var(--crimson);
+  font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase
+}
+footer{text-align:center;padding:35px;color:#a88390;font-size:.7rem;letter-spacing:.12em}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+  
+  /* bottom navigation */
+.bottom-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  margin:20px auto 10px;
+  padding:0 20px;
+}
+
+.bottom-nav a{
+  flex:1;
+  max-width:220px;
+  text-align:center;
+  padding:15px 20px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,244,214,.06);
+  color:var(--cream);
+  font-weight:700;
+  font-size:.78rem;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  transition:.3s ease;
+}
+
+.bottom-nav a:hover{
+  background:var(--cream);
+  color:var(--crimson);
+  transform:translateY(-3px);
+}
+
+@media(max-width:760px){
+  .navlinks a{display:none}
+  .hero h1{font-size:clamp(4rem,21vw,7rem)}
+  section{padding:82px 0}
+  .counter-grid{grid-template-columns:repeat(2,1fr)}
+  .letter-wrap{grid-template-columns:1fr;gap:30px}
+  .quote{position:static}
+  .letter{padding:28px}
+  .cards{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .photo,.p1,.p2,.p3,.p4{grid-column:1;min-height:260px}
+}
+</style>
+</head>
+<body>
+<div class="orb one"></div><div class="orb two"></div><div class="orb three"></div>
+
+<nav class="nav">
+  <div class="logo">PUGU × BUGU</div>
+  <div class="navlinks">
+    <a href="#story">Our Story</a>
+    <a href="#memories">Memories</a>
+    <a href="#letter">Letter</a>
+  </div>
+  <button class="music" id="musicBtn" aria-label="Play music">♫</button>
+</nav>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">22 July 2025 — 22 July 2026</div>
+    <div class="heart-mark">♥</div>
+    <h1 class="serif"><span>One Year</span><span class="accent">With You.</span></h1>
+    <p>365 days of little moments, endless conversations, silly fights, soft apologies and a love that somehow keeps feeling new.</p>
+    <div class="hero-date">One chapter complete · Forever still loading</div>
+    <a class="scroll" href="#story">Scroll to our story<i></i></a>
+  </div>
+</header>
+
+<main>
+<section id="story">
+  <div class="container reveal">
+    <div class="section-label">01 · The beginning</div>
+    <h2 class="section-title">And somehow,<br>we became us.</h2>
+    <p class="section-sub">From a random meeting to a whole year of choosing each other. This is not just a timeline — it is a collection of tiny moments that became our favourite story.</p>
+
+    <div class="counter-grid">
+      <div class="counter-card"><strong>365</strong><span>Days Together</span></div>
+      <div class="counter-card"><strong>12</strong><span>Months</span></div>
+      <div class="counter-card"><strong>∞</strong><span>Memories</span></div>
+      <div class="counter-card"><strong>1</strong><span>Us</span></div>
+    </div>
+
+    <div class="timeline">
+      <div class="event"><div class="dot"></div><div class="event-date">22 March 2025</div><h3>The first hello</h3><p>A random little meeting that neither of us knew would become the beginning of something this beautiful.</p></div>
+      <div class="event"><div class="dot"></div><div class="event-date">22 July 2025 · 12:27 AM</div><h3>The day we became us</h3><p>One question, one answer, and suddenly the world felt a little softer. Our official beginning.</p></div>
+      <div class="event"><div class="dot"></div><div class="event-date">22 July 2026</div><h3>One whole year</h3><p>We made it through a year of distance, laughter, misunderstandings, reassurance and countless “I love you”s.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="letter">
+  <div class="container reveal">
+    <div class="section-label">02 · A letter for you</div>
+    <div class="letter-wrap">
+      <div class="quote">“If I had to choose again, I would still choose you.”</div>
+      <article class="letter">
+        <p>My Bugu,</p>
+        <p>One year. It sounds like just two words, but behind them are thousands of messages, calls, laughs, arguments, good mornings, good nights and moments where I wished I could simply be beside you.</p>
+        <p>Thank you for staying, for understanding me, for loving me even when I make things difficult, and for making ordinary days feel special.</p>
+        <p>I don't know exactly what the next years will look like. But I know who I want beside me while we find out.</p>
+        <p>Happy 1st anniversary, Bugu. This is only our first chapter.</p>
+        <div class="signature">Forever yours,<br>Pugu ♥</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="memories">
+  <div class="container reveal">
+    <div class="section-label">03 · Our memories</div>
+    <h2 class="section-title">Little frames.<br>Big feelings.</h2>
+    <p class="section-sub">Replace these four placeholders with your favourite photos from the year. The layout automatically adapts on mobile.</p>
+    <div class="gallery">
+      <div class="photo p1"><span>Our favourite moment</span></div>
+      <div class="photo p2"><span>The smile I love</span></div>
+      <div class="photo p3"><span>Us, being us</span></div>
+      <div class="photo p4"><span>One year of memories</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container reveal">
+    <div class="section-label">04 · Promises</div>
+    <h2 class="section-title">A few things<br>I promise.</h2>
+    <div class="cards">
+      <div class="card"><div class="num">01</div><h3>To choose you</h3><p>Not only on the easy days, but especially on the days when loving takes patience.</p></div>
+      <div class="card"><div class="num">02</div><h3>To listen</h3><p>Your feelings matter to me. I will keep learning how to understand the heart behind your words.</p></div>
+      <div class="card"><div class="num">03</div><h3>To keep us</h3><p>Distance may be part of our story, but it does not get to decide where our story ends.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container reveal">
+    <div class="section-label">05 · The next chapter</div>
+    <h2><span>One year down.</span><span>Forever to go.</span></h2>
+    <p>Thank you for being my favourite person, my safe place, my chaos and my home — all at once.</p>
+    <a class="btn" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to the beginning ♥</a>
+  </div>
+</section>
+</main>
+  
+  <div class="bottom-nav">
+    <a href="1year_anniversary.html">← Back</a>
+  <a href="13month.html">Next Month →</a>
+  
+</div>
+
+<footer>MADE WITH LOVE · PUGU × BUGU · 2025—∞</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')});
+},{threshold:.12});
+reveals.forEach(el=>io.observe(el));
+
+const btn=document.getElementById('musicBtn');
+let audio;
+btn.addEventListener('click',()=>{
+  if(!audio){
+    audio=new Audio('music.mp3');
+    audio.loop=true;
+  }
+  if(audio.paused){audio.play();btn.textContent='❚❚';}
+  else{audio.pause();btn.textContent='♫';}
+});
+</script>
+</body>
+</html>
